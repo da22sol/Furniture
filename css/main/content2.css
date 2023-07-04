@@ -1,0 +1,47 @@
+/* CONTENT2 */
+#content .recommend .inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+#content .content_recommend {
+    width: 600px;
+    height: 400px;
+    padding: 50px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#content .content_recommend span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#content .content_recommend a {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#content .btn_view::after {
+    display: block;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: #AC94C4;
+    transition: 0.5s;
+}
+
+#content .btn_view:hover::after {
+    width: 100%;
+}
+
+#content .content_recommend_left {
+    background-color: #F8F8F8;
+}
+
+#content .content_recommend_right {
+    background-color: #f1edf5;
+}

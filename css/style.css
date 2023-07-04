@@ -1,1 +1,46 @@
-test
+@import url("main/header.css");
+@import url("main/visual.css");
+@import url("main/content1.css");
+@import url("main/content2.css");
+@import url("main/content3.css");
+@import url("main/content4.css");
+@import url("main/footer.css");
+
+/* COMMON */
+body {
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+img {
+    display: block;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+#wrap {
+    width: 100%; 
+    min-width: 1600px;
+}
+
+.inner {
+    width: 1400px; 
+    margin: 0 auto; 
+    position: relative; 
+    box-sizing: border-box;
+    padding: 100px 0;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+

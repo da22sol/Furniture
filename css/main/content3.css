@@ -1,0 +1,28 @@
+/* content3 */
+#content .list_best_products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#content .list_best_products li {
+    margin-bottom: 50px;
+}
+
+#content .list_best_products .img_best_product {
+    display: block;
+    width: 300px;
+    height: 400px;
+    background-color: #dcdcdc;
+    margin-bottom: 20px;
+}
+
+#content .list_best_products strong {
+    color: #9E9E9E;
+    font-weight: 500;
+}
+
+#content .list_best_products .text_product_name {
+    font-size: 18px;
+    font-weight: 600;
+}

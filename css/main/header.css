@@ -1,0 +1,90 @@
+/* HEADER */
+#header .inner {
+    padding: 80px 0;
+}
+#header .logo {
+    height: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#header .logo img {
+    width: 300px;
+}
+
+#header .headicon {
+    font-size: 20px;
+}
+
+.menu_left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.menu_left .icon_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E3DBEB;
+    margin-right: 30px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu_left .icon_search{
+    cursor: pointer;
+    height: 34px;
+    position: relative;
+}
+
+.menu_left .icon_search input {
+    width: 36px;
+    height: 34px;
+    padding: 4px 10px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color: #777;
+    font-size: 12px;
+    transition: width 0.4s;
+}
+
+.menu_left .icon_search input:focus {
+    width: 200px;
+    border: 2px solid #E3DBEB;
+}
+
+.menu_left .icon_search i {
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+}
+
+.menu_right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu_right a {
+    font-size: 18px;
+}
+
+.menu_right .icon_shopping {
+    margin-left: 30px;
+}
