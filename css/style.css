@@ -1,10 +1,5 @@
-@import url("main/header.css");
-@import url("main/visual.css");
-@import url("main/content1.css");
-@import url("main/content2.css");
-@import url("main/content3.css");
-@import url("main/content4.css");
-@import url("main/footer.css");
+/* MAIN */
+@import url("/css/main/main.css");
 
 /* COMMON */
 body {
@@ -27,6 +22,7 @@ a {
 #wrap {
     width: 100%; 
     min-width: 1600px;
+    z-index: 1;
 }
 
 .inner {
