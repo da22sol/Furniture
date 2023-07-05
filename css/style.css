@@ -1,6 +1,9 @@
 /* MAIN */
 @import url("/css/main/main.css");
 
+/* SUB */
+@import url("/css/sub/sub.css");
+
 /* COMMON */
 body {
     color: #333;

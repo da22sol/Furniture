@@ -5,7 +5,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
+}
+
+#visual .inner {
+    height: 800px;
 }
 
 #visual .swiper {
@@ -32,7 +36,7 @@
 #visual .swiper-horizontal>.swiper-pagination-bullets, 
 .swiper-pagination-bullets.swiper-pagination-horizontal, 
 .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: 30px;
+    padding-bottom: 20px;
 }
 
 #visual .swiper-pagination-bullet-active {
@@ -44,8 +48,53 @@
 }
 
 #visual .text_banner .bar_visual {
-    width: 2px;
+    width: 3px;
     height: 100px;
     background-color: #AC94C4;
     margin-bottom: 50px;
+}
+
+#visual .text_banner .img_visual_product img {
+    width: 800px;
+}
+
+#visual .text_banner .text_banner_left {
+    position: absolute;
+    left: 0;
+    top: 5%;
+}
+
+#visual .text_banner .text_banner_left h2 {
+    font-size: 36px;
+}
+
+#visual .text_banner .text_banner_right {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+#visual .text_banner .text_banner_right h4 {
+    font-size: 18px;
+}
+
+#visual .text_banner .text_banner_right h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#visual .text_banner .btn_purchase {
+    position: absolute;
+    right: 0%;
+    bottom: 10%;
+    background-color: #AC94C4;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#visual .text_banner .btn_purchase a {
+    color: #fff;
+    font-weight: 600;
 }
