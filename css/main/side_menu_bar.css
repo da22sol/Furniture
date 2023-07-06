@@ -92,7 +92,6 @@
     font-weight: bold;
 }
 
-
 #side_menu_bar .menu_list ul.main_list li a::after {
     display: block;
     content: "";
