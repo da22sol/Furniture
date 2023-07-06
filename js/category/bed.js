@@ -52,23 +52,23 @@ for (let i = 0; i < productsList.length; i++) {
     `;
 }
 
-const TOTALCOUNT = document.getElementsByClassName("li_products");
-const TOTALPRODUCTS = document.querySelector(".total_products");
-const totalCount = TOTALCOUNT.length;
+const totalCount = document.getElementsByClassName("li_products");
+const totalProducts = document.querySelector(".total_products");
+const totalCountLen = totalCount.length;
 
-TOTALPRODUCTS.innerText = `총 ${totalCount}개의 상품`;
+totalProducts.innerText = `총 ${totalCountLen}개의 상품`;
 
-const FILTERSELECTED = document.querySelector(".filter_drop");
-const FILTERLIST = document.querySelector(".list_filter");
+const filterSelectesd = document.querySelector(".filter_drop");
+const fiterList = document.querySelector(".list_filter");
 
-FILTERSELECTED.addEventListener("click", () => {
-    FILTERLIST.classList.toggle("display");
+filterSelectesd.addEventListener("click", () => {
+    fiterList.classList.toggle("display");
 });
 
 export default {
-    TOTALCOUNT,
     totalCount,
-    TOTALPRODUCTS,
-    FILTERSELECTED,
-    FILTERLIST,
+    totalCountLen,
+    totalProducts,
+    filterSelectesd,
+    fiterList,
 };
