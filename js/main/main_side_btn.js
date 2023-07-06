@@ -1,31 +1,31 @@
 /* MENU BUTTON */
-const TOMENU = document.querySelector("#btn_menu");
+const toMenu = document.querySelector("#btn_menu");
 const sideMenuBar = document.getElementById("side_menu_bar");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 500) {
-        gsap.to(TOMENU, 0.5, {
+        gsap.to(toMenu, 0.5, {
             x: 0,
         });
     } else {
-        gsap.to(TOMENU, 0.5, {
+        gsap.to(toMenu, 0.5, {
             x: 100,
         });
     }
 });
 
-TOMENU.addEventListener("click", () => {
+toMenu.addEventListener("click", () => {
     sideMenuBar.style.display = "flex";
 });
 
 /* TOP BUTTON */
-const TOTOP = document.querySelector("#btn_top");
+const toTop = document.querySelector("#btn_top");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 500) {
-        gsap.to(TOTOP, 0.5, {
+        gsap.to(toTop, 0.5, {
             x: 0,
         });
     } else {
-        gsap.to(TOTOP, 0.5, {
+        gsap.to(toTop, 0.5, {
             x: 100,
         });
     }
@@ -38,6 +38,6 @@ TOTOP.addEventListener("click", () => {
 });
 
 export default {
-    TOMENU,
-    TOTOP,
+    toMenu,
+    toTop,
 };
