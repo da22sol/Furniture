@@ -12,6 +12,10 @@
     position: relative;
 }
 
+#content .content_recommend p {
+    line-height: 1.6;
+}
+
 #content .content_recommend span {
     font-size: 20px;
     font-weight: 600;
