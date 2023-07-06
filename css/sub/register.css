@@ -1,0 +1,68 @@
+.register {}
+
+.register h2 {
+    text-align: center;
+}
+
+.register .form_register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register .form_register .input_area {
+    width: 300px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.register .form_register .input_area:last-child {
+    margin-bottom: 0;
+}
+
+.register .form_register .input_area input {
+    width: 100%;
+    padding: 20px 20px 10px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #AC94C4;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.register .form_register .input_area label {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #999;
+    transition: top 0.5s ease;
+} 
+
+.register .form_register .input_area input:focus + label,
+.register .form_register .input_area input:valid + label {
+    top: -2px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #AC94C4;
+}
+
+.register .form_login .btn_join {
+    margin: 30px 0 20px 0;
+}
+
+.register .form_register .btn_join button {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #AC94C4;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
