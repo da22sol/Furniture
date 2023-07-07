@@ -32,6 +32,23 @@
     text-align: center;
 }
 
+.register .form_register .input_phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register .form_register .input_phone input:first-child {
+    width: 25%;
+    padding: 20px 10px 10px;
+}
+
+.register .form_register .input_phone input:nth-child(2) {
+    width: 70%;
+    text-align: left;
+    
+}
+
 .register .form_register .input_area label {
     position: absolute;
     left: 50%;
