@@ -8,7 +8,7 @@
     display: flex;
 }
 
-.manage_category .manage_menu {
+.manage_category .manage_menu, .contents_table .manage_menu {
     width: 400px;
     background-color: #F1EDF5;
     display: flex;
@@ -18,7 +18,7 @@
     box-sizing: border-box;
 }
 
-.manage_category .manage_menu h3 {
+.manage_category .manage_menu h3, .contents_table .manage_menu h3 {
     font-size: 30px;
     font-weight: 600;
     color: #AC94C4;
@@ -26,14 +26,14 @@
 }
 
 
-.manage_category .manage_menu .manage_menu_list li {
+.manage_category .manage_menu .manage_menu_list li, .contents_table .manage_menu li {
     font-size: 24px;
     font-weight: 500;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.manage_category .manage_menu .manage_menu_list li::after {
+.manage_category .manage_menu .manage_menu_list li::after, .contents_table .manage_menu li::after {
     display: block;
     content: "";
     width: 0%;
@@ -42,7 +42,7 @@
     transition: 0.5s;
 }
 
-.manage_category .manage_menu .manage_menu_list li:hover::after {
+.manage_category .manage_menu .manage_menu_list li:hover::after, .contents_table .manage_menu li:hover::after {
     width: 100%;
 }
 
