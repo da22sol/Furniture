@@ -23,7 +23,7 @@ sideMenuBarLoginBtn.addEventListener('click', () => {
 });
 
 sideMenuBarRegisterBtn.addEventListener('click', () => {
-    location.href = '/html/register.html';
+    location.href = '/html/login_register.html';
 });
 
 export default {

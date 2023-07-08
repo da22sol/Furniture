@@ -1,8 +1,4 @@
-
-  
-
 /* 양쪽정렬 */
-
 .shopping_order{display: inline-flex;
     text-align: center;
 }
@@ -10,14 +6,12 @@
 /* 오른쪽 주문서 및 타이틀 */
 
 
-
-
 /* 주문조회 */
-.contents_order{width: 900px;
+.contents_order{
+    width: 900px;
     height: 865px;
-     background: #F8F8F8; 
-  }
-     
+    background: #F8F8F8; 
+}
 
 .title_ara h2{color: #A389CB;
 text-align: center;

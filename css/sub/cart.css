@@ -60,14 +60,19 @@
     background: #F8F8F8;
 }
 
-.title_ara{
+.title_area{
     color: #A389CB;
     text-align: center;
     font-size: 36px;
     font-family: "Noto Sans";
     font-weight: 700;
     position: relative;
-    top: 8rem;
+    top: 2rem;
+}
+
+.title_area > .userName_box {
+    display: flex;
+    justify-content: center
 }
 
 .title_product h3{
