@@ -7,3 +7,5 @@ import * as bannerFunction from './main/swiperbanner.js';
 // CATEGORY JS
 import * as bedFunction from './category/bed.js';
 
+// MYPAGE JS
+import * as mypageFunction from './mypage/mypage_href.js';
