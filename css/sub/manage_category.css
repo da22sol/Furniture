@@ -9,7 +9,7 @@
 }
 
 .manage_category .manage_menu, .contents_table .manage_menu {
-    width: 400px;
+    width: 25%;
     background-color: #F1EDF5;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 
 
 .manage_category .manage_category_add {
-    width: 1000px;
+    width: 75%;
     background-color: #F4F4F4;
     box-sizing: border-box;
     display: flex;

@@ -93,90 +93,119 @@
             </div>
         </header>
 
-        <main class="main">
-            <div class="inner" id="inner">
-                <section id="cart" class="cart">
-                    <div class="shopping_cart">
+        <!-- CONTAINER -->
+        <main id="container" class="main">
+            <section id="content">
+                <article class="cart manage_layout">
+                    <div class="inner">
 
-                        <!-- 왼쪽사이드메뉴 -->
-                        <div class="cart_left">
-                            <div class="menu_cart">
-                                <h2 class="logo_cart"><a href="/"><img src="../assets/img/logo2.png" alt="logo"></a>
-                                </h2>
-                                <div class="list_cart">
-                                    <ul class="list_shopping">
-                                        <li><a href="/html/login_order_info.html">주문조회</a></li>
-                                        <li><a href="/html/login_account_management.html">회원정보</a></li>
-                                        <li><a href="/index.html">로그아웃</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="manage_layout_left">
+                            <h2>
+                                <img src="/assets/img/logo2.png" alt="Elice Furniture" />
+                            </h2>
+                            <h3>
+                                마이페이지
+                            </h3>
+                            <ul class="manage_menu_list">
+                                <li>
+                                    <a href="/html/login_account_management.html">
+                                        회원정보
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/cart.html">
+                                        장바구니
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/order_tracking.html">
+                                        주문조회
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/index.html">
+                                        로그아웃
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <!-- 오른쪽 장바구니 -->
-                        <div class="content_cart">
-                            <div class="title_area">
-                                <h2>장바구니</h2>
-                            </div>
+
+                        <div class="manage_layout_right">
+                            <h2>장바구니</h2>
                             <div class="title_product">
                                 <h3>일반상품</h3>
                             </div>
-                            <div class="order_product">
-                                <div class="base_product">
-                                    <div class="check_product">
+                            <div class="cart_product_list">
+                                <ul>
+                                    <li class="img_thumbnail">
+                                        <img src="../assets/img/thum.png" alt="thumbnail">
+                                    </li>
+
+                                    <li class="info_cart_product">
+                                        <span><a href="/">KLEPPSTAD 클렙스타드</a></span>
+                                        <p>옷장+도어3, 화이트</p>
+                                        <p class="price">350,000원</p>
+                                        <div class="quantity">
+                                            <input type='button' class="decrease_button" onclick='count("minus")'
+                                                value='-' />
+                                            <span><input type="text" class="product_button" value="1"></span>
+                                            <input type='button' class="increase_button"
+                                                onclick='count("plus")' value='+' />
+                                        </div>
+                                    </li>
+
+                                    <li class="check_product">
                                         <input type="checkbox" id="check_product" name="check_product">
                                         <label for="check_product"></label>
-                                    </div>
+                                    </li>
+                                </ul>
 
+                            </div>
 
-                                    <div class="content_product">
-                                        <div class="thumbnail"><img src="../assets/img/thum.png" alt="thumbnail">
-                                        </div>
-                                        <div class="discription">
-                                            <span class="name_product"><a href="/">KLEPPSTAD 클렙스타드</a></span>
-                                            <ul class="lnfo_product">
-                                                <li>옷장+도어3, 화이트</li>
-                                                <li class="price">350,000원</li>
-                                                <li class="quantity">
-                                                    <input type='button' class="increase_button" onclick='count("plus")'
-                                                        value='+' />
-                                                    <span><input type="text" class="product_button" value="1"></span>
-                                                    <input type='button' class="decrease_button"
-                                                        onclick='count("minus")' value='-' />
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ship">
-                                        <div class="title_ship">
-                                            <h3>기본배송</h3>
-                                        </div>
-                                        <div class="price_ship">상품구매금액 <strong>350,000원</strong></div>
-                                        <div class="button_ship">
-                                            <div class="name_button">
-                                                <a href="/" class="all_button">전체선택</a>
-                                                <a href="/" class="delete_button">삭제하기</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="line">
-                                        <h3></h3>
-                                    </div>
-                                    <div class="button_line">
-                                        <div class="button_order">
-                                            <h3></h3>
-                                            <a href="/" class="button_select">선택상품구매하기</a>
-                                            <a href="/" class="button_all">모든상품구매하기</a>
-                                        </div>
-                                    </div>
-
+                            <div class="ship">
+                                <div class="title_ship">
+                                    <h3>기본배송</h3>
+                                </div>
+                                <div class="price_ship">
+                                    <p>총 결제금액</p>
+                                    <span>350,000원</span>
                                 </div>
                             </div>
-                        </div>
-                </section>
 
-            </div>
+                            <div class="button_ship">
+                                <div class="name_button">
+                                    <a href="/" class="all_button">전체선택</a>
+                                    <a href="/" class="delete_button">삭제하기</a>
+                                </div>
+                            </div>
+
+                            <div class="button_line">
+                                <div class="button_order">
+                                    <button class="button_select">선택상품구매하기</button>
+                                    <button class="button_all">모든상품구매하기</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+            </section>
         </main>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <h4>
+                    ©2023.Elice Furniture All rights reserved.
+                </h4>
+            </div>
+        </footer>
+    </div>
+
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>

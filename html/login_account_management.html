@@ -93,83 +93,127 @@
             </div>
         </header>
 
-        <main class="main">
-            <div class="inner" id="inner">
-                <section id="mypage" class="mypage">
-                    <div class="page_account">
+        <!-- CONTAINER -->
+        <main id="container" class="main">
+            <section id="content">
+                <article class="mypage manage_layout">
+                    <div class="inner">
 
-                        <!-- 왼쪽사이드메뉴 -->
-                        <div class="cart_left">
-                            <div class="menu_cart">
-                                <h2 class="logo_cart"><a href="/"><img src="../assets/img/logo2.png" alt="logo"></a>
-                                </h2>
-                                <div class="list_cart">
-                                    <ul class="list_shopping">
-                                        <li><a href="/html/cart.html">장바구니</a></li>
-                                        <li><a href="/html/login_account_management.html">회원정보</a></li>
-                                        <li><a href="/index.html">로그아웃</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="manage_layout_left">
+                            <h2>
+                                <img src="/assets/img/logo2.png" alt="Elice Furniture" />
+                            </h2>
+                            <h3>
+                                마이페이지
+                            </h3>
+                            <ul class="manage_menu_list">
+                                <li>
+                                    <a href="/html/login_account_management.html">
+                                        회원정보
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/cart.html">
+                                        장바구니
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/order_tracking.html">
+                                        주문조회
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/index.html">
+                                        로그아웃
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <!-- 오른쪽 마이페이지 -->
-                        <div class="contents_page">
-                            <div class="title_area">
-                                <h2>회원정보</h2>
-                                <div class="userName_box">
-                                    <p id="userName">김신입</p>님 반갑습니다!
-                                </div>
-                            </div>
-                            <br />
+
+                        <div class="manage_layout_right">
+                            <h2>회원정보</h2>
+                            <h3 class="welcome_user_name">
+                                <span>김신입</span>
+                                님 반갑습니다!
+                            </h3>
+                            
                             <div class="amount">
                                 <div class="amount_money">
-                                    <p>총 구매 고객은 5,000,000원 입니다</p>
+                                    <p>총 구매 금액은 
+                                        <span>5,000,000원</span>
+                                        입니다
+                                    </p>
                                 </div>
-                                <br />
+                                
                                 <div class="coupon">
                                     <p> 바로 사용 가능한 쿠폰</p>
                                 </div>
                             </div>
-                            <br />
+
                             <div class="info_account">
-                                <div class="info_order">주문조회</div>
                                 <div class="account_modify">정보수정</div>
                                 <div class="account_delete">회원탈퇴</div>
                             </div>
 
-
-                            <!-- 주문조회 -->
-
-                            <div class="name_area">
-                                <h2>주문조회</h2>
-                            </div>
-                            <div>
-                                <div class="order_list">
-                                    <div class="img_thumb"><img src="../assets/img/thumbnail2.png" alt="thumbnail">
-                                    </div>
-                                    <div class="order_name">
-                                        <span class="product_name"><a href="/">POÄNG 포엥 1개</a></span>
-                                        <ul class="list_name">
-                                            <li>결제금액 : 99,000 | 2023-07-01 | 05:46</li>
-                                            <li>요청 사항 : 도착전 전화해주세요.</li>
-                                            <li>주문 번호 : 2323elice0710646</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="order_btn">
-                                    <ul>
-                                        <li>배송준비중</li>
-                                        <li class="order_del">결제취소</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
-                </section>
-
-            </div>
+                </article>
+            </section>
         </main>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <h4>
+                    ©2023.Elice Furniture All rights reserved.
+                </h4>
+            </div>
+        </footer>
+    </div>
+
+    <!-- modal -->
+    <div id="modal_usercheck">
+        <div class="modal_userinfo">
+            <h3>회원정보 수정</h3>
+            <div class="user_information">
+                <form action="" class="">
+                    <div class="manage_input_area">
+                        <label for="manage_name">이름</label>
+                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off" required />
+                    </div>
+
+                    <div class="manage_input_area manage_input_email">
+                        <label for="manage_email">이메일</label>
+                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com" autocomplete="off" required />
+                    </div>
+        
+                    <div class="manage_input_area manage_input_phone">
+                        <label for="manage_phone">휴대전화</label>
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" value="010" required />
+                        -
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678" required />
+                    </div>
+                    <div class="manage_input_area manage_input_addr">
+                        <label for="manage_address">주소</label>
+                        <!-- zipcode 추가 예정 -->
+                        <input type="text" name="manage_address" id="manage_address" autocomplete="off" value="서울특별시 ㅇㅇ구 ㅇㅇ동" required />
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn_user_information">
+                <button>수정</button>
+            </div>
+
+
+            <!-- 창 닫기 -->
+            <div class="btn_close_modal">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>

@@ -1,94 +1,78 @@
-
 /* 양쪽정렬 */
-.contents_table{
+.contents_table {
     display: inline-flex;
     text-align: center;
 }
 
-
-
 /* 회원정리 */
-.list_table{
-    width: 900px;
-    height: 865px;
-     background: #F8F8F8; 
-  }
-     
-  .title_ara {
-    color: #A389CB;
-    text-align: center;
-    font-size: 36px;
-    font-family: Noto Sans;
-    font-weight: 700;
+.list_member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list_search {
+    width: 300px;
+    margin-bottom: 30px;
     position: relative;
-    
-    margin-bottom: 0;
-    }
-    .list_search {
-        position: relative;
-        width: 300px;
-        top: 10rem;
-        margin:auto;
-      }
-      
-      .list_search input {
-        width: 100%;
-        border: 1px solid #111;
-        border-radius: 8px;
-        padding: 5px 6px;
-        font-size: 14px;
-      
-       
-      }
-      .list_search input::placeholder{ padding:0 20px;}
+}
 
-      .list_search img {
-        position : absolute;
-        width: 14px;
-        top: 6px;
-        left: 10px;
-        margin: 0;
-      }
+.list_search input {
+    width: 100%;
+    border: 1px solid #111;
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-size: 14px;
+}
 
+.list_search img {
+    position: absolute;
+    width: 14px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
 
 /* 테이블 */
-.contents_member{
-    position: relative;
-    top: 12rem;
-left: 8rem;
-margin: auto;}
+
 .contents_member.table {
     border-collapse: collapse;
-    border-top: 3px solid #A389CB;
+    border-top: 3px solid #a389cb;
     text-align: center;
     font-family: Noto Sans;
-
-   
-  }  
+}
 .contents_member .table th {
     color: #111;
-    background: #F0EDF4;
+    background: #f0edf4;
     text-align: center;
-  }
- .contents_member .table th, .table td {
+}
+.contents_member .table th,
+.table td {
     padding: 16px;
     border: 1px solid #ddd;
-  }
- .contents_member .table th:first-child, .table td:first-child {
+}
+.contents_member .table th:first-child,
+.table td:first-child {
     border-left: 0;
-  }
- .contents_member .table th:last-child, .table td:last-child {
+}
+.contents_member .table th:last-child,
+.table td:last-child {
     border-right: 0;
-  }
- .contents_member .table tr td:first-child{
+}
+.contents_member .table tr td:first-child {
     text-align: center;
-  }
- .contents_member .table caption{caption-side: bottom; display: none;}
- .contents_member button {  border: none;
-   border:1px solid #111;
-   background-color: #fff;
-    cursor: pointer;}
-    .contents_member button:hover{
-border: 1px solid #A389CB;
-background-color: #ededed;
-    }
+}
+.contents_member .table caption {
+    caption-side: bottom;
+    display: none;
+}
+.contents_member button {
+    border: none;
+    border: 1px solid #111;
+    background-color: #fff;
+    cursor: pointer;
+}
+.contents_member button:hover {
+    border: 1px solid #a389cb;
+    background-color: #ededed;
+}

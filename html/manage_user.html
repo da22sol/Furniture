@@ -95,13 +95,13 @@
             </div>
         </header>
 
-        <main class="main">
-            <div class="inner" id="inner">
-                <section id="list" class="list">
-                    <div class="contents_table">
+        <!-- CONTAINER -->
+        <main id="container" class="main">
+            <section id="content">
+                <article class="manage_user manage_layout">
+                    <div class="inner">
 
-                        <!-- 왼쪽사이드메뉴 -->
-                        <div class="manage_menu">
+                        <div class="manage_layout_left">
                             <h2>
                                 <img src="/assets/img/logo2.png" alt="Elice Furniture" />
                             </h2>
@@ -135,11 +135,8 @@
                             </ul>
                         </div>
 
-                        <!-- 오른쪽 마이페이지 -->
-                        <div class="list_table">
-                            <div class="title_ara">
-                                <h2>회원관리</h2>
-                            </div>
+                        <div class="manage_layout_right">
+                            <h2>회원관리</h2>
 
                             <!-- 게시판 -->
                             <div class="member">
@@ -257,16 +254,75 @@
 
                                 </div>
                             </div>
-
-
-
-
-
                         </div>
+
                     </div>
-                </section>
-            </div>
+                </article>
+            </section>
         </main>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <h4>
+                    ©2023.Elice Furniture All rights reserved.
+                </h4>
+            </div>
+        </footer>
+    </div>
+
+    
+    <!-- modal -->
+    <div id="modal_usercheck">
+        <div class="modal_userinfo">
+            <h3>회원 관리</h3>
+            <div class="user_information">
+                <form action="" class="">
+                    <div class="manage_input_area">
+                        <label for="manage_user_num">회원번호</label>
+                        <input type="text" name="manage_user_num" id="manage_user_num" value="21442154" autocomplete="off" required />
+                    </div>
+
+                    <div class="manage_input_area">
+                        <label for="manage_date">가입날짜</label>
+                        <input type="text" name="manage_date" id="manage_date" value="2023-07-14" autocomplete="off" required />
+                    </div>
+
+                    <div class="manage_input_area">
+                        <label for="manage_name">이름</label>
+                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off" required />
+                    </div>
+
+                    <div class="manage_input_area manage_input_email">
+                        <label for="manage_email">이메일</label>
+                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com" autocomplete="off" required />
+                    </div>
+        
+                    <div class="manage_input_area manage_input_phone">
+                        <label for="manage_phone">휴대전화</label>
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" value="010" required />
+                        -
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678" required />
+                    </div>
+                    <div class="manage_input_area manage_input_addr">
+                        <label for="manage_address">주소</label>
+                        <!-- zipcode 추가 예정 -->
+                        <input type="text" name="manage_address" id="manage_address" autocomplete="off" value="서울특별시 ㅇㅇ구 ㅇㅇ동" required />
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn_user_information">
+                <button>수정</button>
+            </div>
+
+
+            <!-- 창 닫기 -->
+            <div class="btn_close_modal">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
