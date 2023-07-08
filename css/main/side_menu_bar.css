@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 
-#side_menu_bar .login_btn_box .login_btn, #side_menu_bar .login_btn_box .join_btn {
+#side_menu_bar .login_btn_box .login_btn, #side_menu_bar .login_btn_box .register_btn {
     width: 8rem;
     height: 1.25rem;
     border: 3px solid #AC94C4;
@@ -65,7 +65,7 @@
     background-color: white;
 }
 
-#side_menu_bar .login_btn_box .login_btn:hover, #side_menu_bar .login_btn_box .join_btn:hover {
+#side_menu_bar .login_btn_box .login_btn:hover, #side_menu_bar .login_btn_box .register_btn:hover {
     background-color: #AC94C4;
     transition: 0.5s;
 }
