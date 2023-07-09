@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elice Furniture</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elice Furniture" />
+    <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
+    <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
+    <meta property="og:image" content="./assets/img/logo_og.png" />
+    <meta property="og:url" content="#" />
+
+    <link rel="icon" href="../favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nunito+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+    <!-- SIDE MENU BAR -->
+    <div id="side_menu_bar">
+        <div class="left_box">
+            <div class="header">
+                <div class="x_btn">
+                    <i class="fa-solid fa-x"></i>
+                </div>
+                <h1 class="logo">
+                    <a href="./index.html">
+                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    </a>
+                </h1>
+            </div>
+            <div class="login_btn_box">
+                <div class="login_btn">로그인</div>
+                <div class="register_btn">회원가입</div>
+            </div>
+            <div class="menu_list">
+                <ul class="main_list">
+                    <li><a href="/html/category.html">모든제품</a></li>
+                    <li><a href="">추천상품</a></li>
+                    <li><a href="">인기상품</a></li>
+                    <li><a href="">인테리어 가이드</a></li>
+                </ul>
+                <ul class="sub_list">
+                    <li><a href="/html/cart.html">장바구니</a></li>
+                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/login_account_management.html">계정관리</a></li>
+                    <li><a href="">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right_box">
+        </div>
+    </div>
+
+    <div id="wrap">
+        <!-- HEADER -->
+        <header id="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="/">
+                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    </a>
+                </h1>
+
+                <!-- 왼쪽 메뉴 -->
+                <div class="menu_left">
+                    <div class="headicon icon_menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="headicon icon_search">
+                        <input type="text" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <!-- 오른쪽 메뉴 -->
+                <div class="menu_right">
+                    <!-- 로그인 페이지로 이동 -->
+                    <a href="/html/login.html">MY PAGE</a>
+                    <!-- 장바구니 페이지로 이동 -->
+                    <a href="/html/cart.html" class="headicon icon_shopping">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTAINER -->
+        <main id="container" class="main">
+            <section id="content">
+                <article class="mypage manage_layout">
+                    <div class="inner">
+
+                        <div class="manage_layout_left">
+                            <h2>
+                                <img src="/assets/img/logo2.png" alt="Elice Furniture" />
+                            </h2>
+                            <h3>
+                                마이페이지
+                            </h3>
+                            <ul class="manage_menu_list">
+                                <li>
+                                    <a href="/html/login_account_management.html">
+                                        회원정보
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/cart.html">
+                                        장바구니
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/order_tracking.html">
+                                        주문조회
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/index.html">
+                                        로그아웃
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="manage_layout_right">
+                            <h2>회원정보</h2>
+                            <h3 class="welcome_user_name">
+                                <span>김신입</span>
+                                님 반갑습니다!
+                            </h3>
+                            
+                            <div class="amount">
+                                <div class="amount_money">
+                                    <p>총 구매 금액은 
+                                        <span>5,000,000원</span>
+                                        입니다
+                                    </p>
+                                </div>
+                                
+                                <div class="coupon">
+                                    <p> 바로 사용 가능한 쿠폰</p>
+                                </div>
+                            </div>
+
+                            <div class="info_account">
+                                <div class="account_modify">정보수정</div>
+                                <div class="account_delete">회원탈퇴</div>
+                            </div>
+
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <h4>
+                    ©2023.Elice Furniture All rights reserved.
+                </h4>
+            </div>
+        </footer>
+    </div>
+
+    <!-- modal -->
+    <div id="modal_usercheck">
+        <div class="modal_userinfo">
+            <h3>회원정보 수정</h3>
+            <div class="user_information">
+                <form action="" class="">
+                    <div class="manage_input_area">
+                        <label for="manage_name">이름</label>
+                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off" required />
+                    </div>
+
+                    <div class="manage_input_area manage_input_email">
+                        <label for="manage_email">이메일</label>
+                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com" autocomplete="off" required />
+                    </div>
+        
+                    <div class="manage_input_area manage_input_phone">
+                        <label for="manage_phone">휴대전화</label>
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" value="010" required />
+                        -
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678" required />
+                    </div>
+                    <div class="manage_input_area manage_input_addr">
+                        <label for="manage_address">주소</label>
+                        <!-- zipcode 추가 예정 -->
+                        <input type="text" name="manage_address" id="manage_address" autocomplete="off" value="서울특별시 ㅇㅇ구 ㅇㅇ동" required />
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn_user_information">
+                <button>수정</button>
+            </div>
+
+
+            <!-- 창 닫기 -->
+            <div class="btn_close_modal">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+        <!-- script -->
+        <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        <script type="module" src="../js/app.js"></script>
+</body>
+
+</html>

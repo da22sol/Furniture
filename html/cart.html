@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elice Furniture</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elice Furniture" />
+    <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
+    <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
+    <meta property="og:image" content="./assets/img/logo_og.png" />
+    <meta property="og:url" content="#" />
+
+    <link rel="icon" href="../favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nunito+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+    <!-- SIDE MENU BAR -->
+    <div id="side_menu_bar">
+        <div class="left_box">
+            <div class="header">
+                <div class="x_btn">
+                    <i class="fa-solid fa-x"></i>
+                </div>
+                <h1 class="logo">
+                    <a href="./index.html">
+                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    </a>
+                </h1>
+            </div>
+            <div class="login_btn_box">
+                <div class="login_btn">로그인</div>
+                <div class="register_btn">회원가입</div>
+            </div>
+            <div class="menu_list">
+                <ul class="main_list">
+                    <li><a href="/html/category.html">모든제품</a></li>
+                    <li><a href="">추천상품</a></li>
+                    <li><a href="">인기상품</a></li>
+                    <li><a href="">인테리어 가이드</a></li>
+                </ul>
+                <ul class="sub_list">
+                    <li><a href="/html/cart.html">장바구니</a></li>
+                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/login_account_management.html">계정관리</a></li>
+                    <li><a href="">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right_box">
+        </div>
+    </div>
+
+    <div id="wrap">
+        <!-- HEADER -->
+        <header id="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="/">
+                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    </a>
+                </h1>
+
+                <!-- 왼쪽 메뉴 -->
+                <div class="menu_left">
+                    <div class="headicon icon_menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="headicon icon_search">
+                        <input type="text" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <!-- 오른쪽 메뉴 -->
+                <div class="menu_right">
+                    <!-- 로그인 페이지로 이동 -->
+                    <a href="/html/login.html">MY PAGE</a>
+                    <!-- 장바구니 페이지로 이동 -->
+                    <a href="/html/cart.html" class="headicon icon_shopping">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTAINER -->
+        <main id="container" class="main">
+            <section id="content">
+                <article class="cart manage_layout">
+                    <div class="inner">
+
+                        <div class="manage_layout_left">
+                            <h2>
+                                <img src="/assets/img/logo2.png" alt="Elice Furniture" />
+                            </h2>
+                            <h3>
+                                마이페이지
+                            </h3>
+                            <ul class="manage_menu_list">
+                                <li>
+                                    <a href="/html/login_account_management.html">
+                                        회원정보
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/cart.html">
+                                        장바구니
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/html/order_tracking.html">
+                                        주문조회
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/index.html">
+                                        로그아웃
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="manage_layout_right">
+                            <h2>장바구니</h2>
+                            <div class="title_product">
+                                <h3>일반상품</h3>
+                            </div>
+                            <div class="cart_product_list">
+                                <ul>
+                                    <li class="img_thumbnail">
+                                        <img src="../assets/img/thum.png" alt="thumbnail">
+                                    </li>
+
+                                    <li class="info_cart_product">
+                                        <span><a href="/">KLEPPSTAD 클렙스타드</a></span>
+                                        <p>옷장+도어3, 화이트</p>
+                                        <p class="price">350,000원</p>
+                                        <div class="quantity">
+                                            <input type='button' class="decrease_button" onclick='count("minus")'
+                                                value='-' />
+                                            <span><input type="text" class="product_button" value="1"></span>
+                                            <input type='button' class="increase_button"
+                                                onclick='count("plus")' value='+' />
+                                        </div>
+                                    </li>
+
+                                    <li class="check_product">
+                                        <input type="checkbox" id="check_product" name="check_product">
+                                        <label for="check_product"></label>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="ship">
+                                <div class="title_ship">
+                                    <h3>기본배송</h3>
+                                </div>
+                                <div class="price_ship">
+                                    <p>총 결제금액</p>
+                                    <span>350,000원</span>
+                                </div>
+                            </div>
+
+                            <div class="button_ship">
+                                <div class="name_button">
+                                    <a href="/" class="all_button">전체선택</a>
+                                    <a href="/" class="delete_button">삭제하기</a>
+                                </div>
+                            </div>
+
+                            <div class="button_line">
+                                <div class="button_order">
+                                    <button class="button_select">선택상품구매하기</button>
+                                    <button class="button_all">모든상품구매하기</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <h4>
+                    ©2023.Elice Furniture All rights reserved.
+                </h4>
+            </div>
+        </footer>
+    </div>
+
+        <!-- script -->
+        <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        <script type="module" src="../js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+
+.product_contents{
+    display: inline-flex;
+    width: 100%;
+}
+
+
+
+
+/* 상세제품이미지 */
+
+.img_product{
+    position: relative;
+    display: inline-block;
+    width: 48%;
+
+}
+
+.img_product img{
+    width: 600px;
+    height: 800px;
+}
+/* 설명 */
+.detail{
+    width: 52%;
+    padding-left: 40px;
+    margin: auto;
+}
+
+.detail .detail_in h1{
+    margin: 0 0 15px;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.info_detail{
+    padding: 10px 0;
+}
+
+/* 수량버튼 */
+.amount_detail{
+font-size: 14px;
+}
+
+.amount_detail .text_quantity input {
+    width: 22px;
+    height: 30px;
+    padding: 0 2px 0 2px;
+    border: none;
+}
+    
+.amount_detail .increase_quantity, .decrease_quantity{
+    width: 24px;
+    height:24px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+
+/* 주문버튼 */
+.button_detail{
+    display: inline-flex;
+    text-align: center;
+    margin-bottom: 3px;
+    flex-wrap: wrap;
+ 
+}
+
+.button_detail .button_add{ 
+    width: 300px;
+     height: 38px;
+    line-height: 36px;
+    padding: 10px 120px;
+    border: 1px solid #111;
+    background: none;
+    color: #111;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button_detail .button_buy{  
+        width: 300px;
+        height: 38px;
+        text-align: center;
+        line-height: 36px;
+        padding: 10px 120px;
+        border: 1px solid #A389CB;
+        background: #A389CB;
+        color: #F8F8F8;
+    }

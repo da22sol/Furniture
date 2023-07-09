@@ -1,0 +1,13 @@
+@import url("./category.css");
+@import url("./login.css");
+@import url("./register.css");
+@import url("./cart.css");  
+@import url("./mypage.css");
+@import url("./order.css");
+@import url("./order_tracking.css");
+
+@import url("./manage_layout.css");
+@import url("./manage_category.css");
+@import url("./manage_order.css");
+@import url("./manage_user.css");
+@import url("./detail.css");
