@@ -1,0 +1,156 @@
+/* MANAGE - CATEGORY */
+.manage_category {
+    width: 100%;
+}
+
+.manage_category .inner {
+    padding: 50px 0 0 0;
+    display: flex;
+}
+
+.manage_category .manage_menu, .contents_table .manage_menu {
+    width: 25%;
+    background-color: #F1EDF5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+.manage_category .manage_menu h3, .contents_table .manage_menu h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #AC94C4;
+    margin-bottom: 50px;
+}
+
+
+.manage_category .manage_menu .manage_menu_list li, .contents_table .manage_menu li {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.manage_category .manage_menu .manage_menu_list li::after, .contents_table .manage_menu li::after {
+    display: block;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: #AC94C4;
+    transition: 0.5s;
+}
+
+.manage_category .manage_menu .manage_menu_list li:hover::after, .contents_table .manage_menu li:hover::after {
+    width: 100%;
+}
+
+
+.manage_category .manage_category_add {
+    width: 75%;
+    background-color: #F4F4F4;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+
+.manage_category .manage_category_add h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: #AC94C4;
+}
+
+.manage_category .manage_category_add .add_category { 
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.manage_category .manage_category_add .add_category > label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.manage_category .manage_category_add .add_category > input { 
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 20px 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.manage_category .manage_category_add .add_category button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #AC94C4;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.manage_category .manage_category_add .manage_category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manage_category .manage_category_add .manage_category > li {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.manage_category .manage_category_add .manage_category > li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #AC94C4;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.manage_category .manage_category_add .manage_category > li p {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.manage_category .manage_category_add .manage_category .btn_edit button {
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #AC94C4;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.manage_category .manage_category .btn_edit button:first-child {
+    margin-right: 10px;
+}

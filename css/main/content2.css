@@ -7,9 +7,13 @@
 #content .content_recommend {
     width: 600px;
     height: 400px;
-    padding: 50px;
+    padding: 40px;
     box-sizing: border-box;
     position: relative;
+}
+
+#content .content_recommend p {
+    line-height: 1.6;
 }
 
 #content .content_recommend span {
@@ -19,8 +23,8 @@
 
 #content .content_recommend a {
     position: absolute;
-    right: 50px;
-    bottom: 50px;
+    right: 40px;
+    bottom: 40px;
     font-size: 18px;
     font-weight: 600;
 }
@@ -45,3 +49,20 @@
 #content .content_recommend_right {
     background-color: #f1edf5;
 }
+
+#content .content_recommend_left .img_recommend_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content .content_recommend img {
+    width: 400px;
+}
+
+#content .content_recommend_right .img_recommend_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
