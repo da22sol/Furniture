@@ -99,70 +99,7 @@
                 <!-- CONTENT1 -->
                 <article class="category">
                     <div class="inner">
-                        <ul>
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/bed.png" alt="bed">
-                                    </span>
-                                    <p>침대</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/sofa.png" alt="sofa">
-                                    </span>
-                                    <p>소파</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/table.png" alt="table">
-                                    </span>
-                                    <p>식탁</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/closet.png" alt="closet">
-                                    </span>
-                                    <p>옷장</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/drawer.png" alt="drawer">
-                                    </span>
-                                    <p>협탁</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/desk.png" alt="desk">
-                                    </span>
-                                    <p>책상</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="../assets/img/bookshelf.png" alt="bookshelf">
-                                    </span>
-                                    <p>책장</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul id="category_list"></ul>
                     </div>
                 </article>
 
@@ -177,9 +114,9 @@
                                     신상품순
                                 </span>
                                 <ul class="list_filter">
-                                    <li>신상품순</li>
-                                    <li>높은가격순</li>
-                                    <li>낮은가격순</li>
+                                    <li id="list_filter_new">신상품순</li>
+                                    <li id="list_filter_high">높은가격순</li>
+                                    <li id="list_filter_low">낮은가격순</li>
                                 </ul>
                             </div>
                         </div>
@@ -237,7 +174,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
         integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="../js/app.js"></script>
+    <!-- <script type="module" src="../js/app.js"></script> -->
+    <script src="/js/category/bed.js"></script>
+    <script src="/js/category/category.js"></script>
 </body>
 
 </html>
