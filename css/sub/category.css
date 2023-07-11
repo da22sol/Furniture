@@ -16,7 +16,7 @@
 }
 
 .sub_category .filter_product .filter_drop {
-    width: 80px;
+    width: 100px;
     height: 40px;
     display: flex;
     align-items: center;
