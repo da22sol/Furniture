@@ -101,6 +101,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    margin-top: 280px;
 }
 
 #modal_usercheck .modal_userinfo h3 {
