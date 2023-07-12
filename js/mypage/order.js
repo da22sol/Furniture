@@ -1,17 +1,3 @@
-const orderGoods = [
-    {
-        productImg: "",
-        productName: "소파",
-        price: 2000,
-        quantity: 2,
-    },
-    {
-        productImg: "",
-        productName: "침대",
-        price: 5000,
-        quantity: 1,
-    }
-]
 
 const shipAddrInfo = [
     {
@@ -36,21 +22,24 @@ let cartItems = [
         productName: "의자",
         price: 1200,
         quantity: 2,
+        state: true,
     },
     {
         productName: "책상",
         price: 100,
         quantity: 20,
+        state: true,
     },
     {
         productName: "소파",
         price: 10000,
         quantity: 5,
+        state: false,
     },
 ]
-localStorage.setItem(CARTITEM_KEY, JSON.stringify(cartItems));
-const savedOrder = JSON.parse(localStorage.getItem(CARTITEM_KEY));
 
+
+localStorage.setItem(CARTITEM_KEY, JSON.stringify(cartItems));
 
 // 이동
 const moveCartBtn = document.getElementsByClassName("movecart")[0];
@@ -225,6 +214,11 @@ function doCheckout() {
 
 
     console.log(req);
+
+    if( cartItems.map((row) => row.state) === true ) {
+        localStorage.removeItem(CARTITEM_KEY);
+    }
+
     fetch("/login", {
         method: "POST",
         headers: {
@@ -238,12 +232,12 @@ function doCheckout() {
     } else {
         alert("❗️주문실패");
     }
-}
 
-export default {
-    moveCartBtn,
-    orderModalBtn,
-    orderAddr,
-    purchaseBtn,
-    doCheckout,
-};
+    // 주문완료된 상품 장바구니에서 삭제
+    for(let i = 0; i < cartItems.length; i++) {
+        if(cartItems[i].state == true) {
+            cartItems.splice(i,1);
+            i--;
+        }
+    }
+}
