@@ -28,10 +28,10 @@ for (let i = 0; i < detailData.length; i++) {
         <p>${data.price}</p>
     `;
 }
-const inforContainer = document.querySelector('.info_detail');
-const createInfoHTML = (item) => `
-    <p>${item.shortDescription}</p>
-`;
+// const inforContainer = document.querySelector('.info_detail');
+// const createInfoHTML = (item) => `
+//     <p>${item.shortDescription}</p>
+// `;
 
 const infoContainer = document.querySelector('.info_detail');
 infoContainer.innerHTML = createInfoHTML(infoData);
