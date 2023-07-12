@@ -71,41 +71,68 @@ function orderReset() {
     orderTrackingList.innerHTML = '';
 }
 
+/*
+
+const retouchBtn = document.querySelectorAll('.btn_edit_retouch');
+
+for (let i = 0; i < retouchBtn.length; i++) {
+    retouchBtn[i].addEventListener('click', (e) => {
+        const retouchCategoryValue =
+            e.target.parentElement.parentElement.querySelector('p').innerText;
+        console.log(retouchCategoryValue);
+    });
+}
+*/
+
 // 주문 취소
-const orderDeleteBtn = document.querySelector('.order_del');
-
-orderDeleteBtn.addEventListener('click', (e) => {
-    // // order delete 통신
-    // fetch('http://백엔드 주소/order', {
-    //     method: 'DELETE',
-    //     headers: {
-    //         Authorization: localStorage.getItem('access_token'),
-    //     },
-    //     body: JSON.stringify({
-    //         //삭제하고싶은 데이터의 회원 id
-    //         order_id: order_id,
-    //     }),
-    // })
-    //     .then((response) => {
-    //         if (response.ok === true) {
-    //             orderTrackingList -= orderList;
-    //             return orderTrackingList;
-    //         }
-    //     })
-    //     .catch((error) => console.log(error));
-    console.log(orderDeleteBtn);
-    const nowOrderListId =
-        e.target.parentElement.parentElement.parentElement.id;
-    console.log(nowOrderListId);
-
-    orderTrackingListArr.forEach((item, index) => {
-        // console.log(item.orderNumber === nowOrderList);
-        if (item.orderNumber === nowOrderListId) {
-            orderTrackingListArr.splice(index, 1);
+const orderDeleteBtn = document.querySelectorAll('.order_del');
+for (let i = 0; i < orderDeleteBtn.length; i++) {
+    orderDeleteBtn[i].addEventListener('click', (e) => {
+        let orderDeleteTarget = confirm('주문을 취소하시겠습니까?');
+        console.log(e.target.parentElement.parentElement.parentElement.id);
+        if (orderDeleteTarget === true) {
+            alert('주문이 취소되었습니다');
+            orderTrackingListArr[i].orderState = '주문취소중';
+            orderReset();
+            orderMade();
+        } else {
+            alert('창을 종료합니다');
         }
     });
+}
 
-    // 주문 동적 추가 함수 실행
-    orderReset();
-    orderMade();
-});
+// orderDeleteBtn.addEventListener('click', (e) => {
+//     // // order delete 통신
+//     // fetch('http://백엔드 주소/order', {
+//     //     method: 'DELETE',
+//     //     headers: {
+//     //         Authorization: localStorage.getItem('access_token'),
+//     //     },
+//     //     body: JSON.stringify({
+//     //         //삭제하고싶은 데이터의 회원 id
+//     //         order_id: order_id,
+//     //     }),
+//     // })
+//     //     .then((response) => {
+//     //         if (response.ok === true) {
+//     //             orderTrackingList -= orderList;
+//     //             return orderTrackingList;
+//     //         }
+//     //     })
+//     //     .catch((error) => console.log(error));
+//     console.log(orderDeleteBtn);
+//     const nowOrderListId =
+//         e.target.parentElement.parentElement.parentElement.id;
+//     console.log(nowOrderListId);
+
+//     orderTrackingListArr.forEach((item, index) => {
+//         // console.log(item.orderNumber === nowOrderList);
+//         if (item.orderNumber === nowOrderListId) {
+//             orderTrackingListArr.splice(index, 1);
+//         }
+//     });
+
+//     // 주문 동적 추가 함수 실행
+//     orderReset();
+//     orderMade();
+// });
