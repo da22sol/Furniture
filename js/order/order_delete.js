@@ -71,19 +71,6 @@ function orderReset() {
     orderTrackingList.innerHTML = '';
 }
 
-/*
-
-const retouchBtn = document.querySelectorAll('.btn_edit_retouch');
-
-for (let i = 0; i < retouchBtn.length; i++) {
-    retouchBtn[i].addEventListener('click', (e) => {
-        const retouchCategoryValue =
-            e.target.parentElement.parentElement.querySelector('p').innerText;
-        console.log(retouchCategoryValue);
-    });
-}
-*/
-
 // 주문 취소
 const orderDeleteBtn = document.querySelectorAll('.order_del');
 for (let i = 0; i < orderDeleteBtn.length; i++) {
@@ -120,19 +107,4 @@ for (let i = 0; i < orderDeleteBtn.length; i++) {
 //     //         }
 //     //     })
 //     //     .catch((error) => console.log(error));
-//     console.log(orderDeleteBtn);
-//     const nowOrderListId =
-//         e.target.parentElement.parentElement.parentElement.id;
-//     console.log(nowOrderListId);
-
-//     orderTrackingListArr.forEach((item, index) => {
-//         // console.log(item.orderNumber === nowOrderList);
-//         if (item.orderNumber === nowOrderListId) {
-//             orderTrackingListArr.splice(index, 1);
-//         }
-//     });
-
-//     // 주문 동적 추가 함수 실행
-//     orderReset();
-//     orderMade();
 // });
