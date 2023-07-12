@@ -71,7 +71,7 @@ function handleSubmit(e) {
     const address1 = joinAddrInput1.value;
     const address2 = joinAddrInput2.value;
 
-    유효성 검사
+    // 유효성 검사
     if (joinUserName == "") {
         alert("❗️이름을 입력해 주세요.");
         joinNameInput.focus();
@@ -123,7 +123,6 @@ function handleSubmit(e) {
         },
         body: dataJson,
     })
-    .then((req) => req.json())
     .then((req) => {
         console.log(req);
     });

@@ -47,7 +47,6 @@ function onLoginSubmit(e) {
         },
         body: dataJson,
     })
-    .then((req) => req.json())
     .then((req) => {
         localStorage.setItem(USERID_KEY, req.email);
     });
