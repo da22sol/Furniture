@@ -219,7 +219,7 @@ function doCheckout() {
         localStorage.removeItem(CARTITEM_KEY);
     }
 
-    fetch("/login", {
+    fetch("/orderlist", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -231,13 +231,14 @@ function doCheckout() {
         orderFinModal.style.display = "block"; // 주문완료 모달창 띄우기
     } else {
         alert("❗️주문실패");
+        // 주문완료된 상품 장바구니에서 삭제
+        for(let i = 0; i < cartItems.length; i++) {
+            if(cartItems[i].state == true) {
+                cartItems.splice(i,1);
+                i--;
+            }
+        }
+        localStorage.setItem(CARTITEM_KEY, JSON.stringify(cartItems));
     }
 
-    // 주문완료된 상품 장바구니에서 삭제
-    for(let i = 0; i < cartItems.length; i++) {
-        if(cartItems[i].state == true) {
-            cartItems.splice(i,1);
-            i--;
-        }
-    }
 }
