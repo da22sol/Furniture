@@ -1,0 +1,59 @@
+@import url('/main.css');
+@import url('/menu.css');
+
+/* 양쪽정렬 */
+.contents_table {
+    display: inline-flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 테이블 */
+
+.order_content_table {
+    border-collapse: collapse;
+    border-top: 3px solid #a389cb;
+    text-align: center;
+    font-family: Noto Sans;
+}
+
+.goods_content_table .table th {
+    color: #111;
+    background: #f0edf4;
+    text-align: center;
+    width: 80px;
+}
+
+.goods_content_table .table th,
+.table .goods_table td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.goods_content_table.table th:first-child,
+.table .goods_table td:first-child {
+    border-left: 0;
+
+}
+
+.goods_content_table .table th:last-child,
+.table .goods_table td:last-child {
+    border-right: 0;
+}
+
+  
+
+.goods_content_table button {
+    border: none;
+    border: 1px solid #111;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.goods_content_table button:hover {
+    border: 1px solid #a389cb;
+    background-color: #ededed;
+}
