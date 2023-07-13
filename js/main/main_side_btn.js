@@ -36,8 +36,3 @@ toTop.addEventListener('click', () => {
         scrollTo: 0,
     });
 });
-
-export default {
-    toMenu,
-    toTop,
-};
