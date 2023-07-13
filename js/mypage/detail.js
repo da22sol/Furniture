@@ -115,14 +115,13 @@ const saveToIndexedDB = (data) => {
     };
 
     transaction.onerror = function (event) {
-      console.error('Transaction error');
+
     };
 
     db.close();
   };
 
   request.onerror = function (event) {
-    console.error('Error opening IndexedDB');
   };
 };
 
