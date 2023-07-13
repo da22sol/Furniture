@@ -18,6 +18,8 @@
     font-size: 20px;
 }
 
+
+/* 왼쪽 메뉴 */
 .menu_left {
     position: absolute;
     left: 0;
@@ -74,6 +76,7 @@
     transform: translateY(-50%);
 }
 
+/* 오른쪽 메뉴 */
 .menu_right {
     position: absolute;
     right: 0;
@@ -81,10 +84,24 @@
     transform: translateY(-50%);
 }
 
-.menu_right a {
+.menu_right {
     font-size: 18px;
 }
 
-.menu_right .icon_shopping {
+.menu_right .menu_right_list {
+    display: flex;
+    align-items: center;
+}
+
+.menu_right li {
     margin-left: 30px;
+    cursor: pointer;
+}
+
+.menu_right li:first-child {
+    margin-left: 0;
+}
+
+.menu_right .icon_setting {
+    font-size: 20px;
 }
