@@ -145,15 +145,14 @@
                                     </li>
 
                                     <li class="info_cart_product">
-                                        <span><a href="/">KLEPPSTAD 클렙스타드</a></span>
-                                        <p>옷장+도어3, 화이트</p>
-                                        <p class="price">350,000원</p>
+                                        <span><a href="/"></a></span>
+                                        <p></p>
+                                        <p class="price"></p>
                                         <div class="quantity">
-                                            <input type='button' class="decrease_button" onclick='count("minus")'
+                                            <input type='button' class="decrease_button"
                                                 value='-' />
                                             <span><input type="text" class="product_button" value="1"></span>
-                                            <input type='button' class="increase_button"
-                                                onclick='count("plus")' value='+' />
+                                            <input type='button' class="increase_button" value='+' />
                                         </div>
                                     </li>
 
@@ -171,20 +170,20 @@
                                 </div>
                                 <div class="price_ship">
                                     <p>총 결제금액</p>
-                                    <span>350,000원</span>
+                                    <span></span>
                                 </div>
                             </div>
 
                             <div class="button_ship">
                                 <div class="name_button">
-                                    <a href="/" class="all_button">전체선택</a>
-                                    <a href="/" class="delete_button">삭제하기</a>
+                                    <p class="all_button" onclick='selectAll(this)'>전체선택</p>
+                                    <p class="delete_button">삭제하기</p>
                                 </div>
                             </div>
 
                             <div class="button_line">
                                 <div class="button_order">
-                                    <button class="button_select">선택상품구매하기</button>
+                                    <button class="button_select" onclick="purchaseSelectedItems()">선택상품구매하기</button>
                                     <button class="button_all">모든상품구매하기</button>
                                 </div>
                             </div>
@@ -210,6 +209,7 @@
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
         <script type="module" src="../js/app.js"></script>
+        <script src="../js/sub/cart.js"></script>
 </body>
 
 </html>

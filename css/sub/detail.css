@@ -78,6 +78,7 @@ font-size: 14px;
     color: #111;
     text-align: center;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .button_detail .button_buy{  
@@ -90,3 +91,4 @@ font-size: 14px;
         background: #A389CB;
         color: #F8F8F8;
     }
+

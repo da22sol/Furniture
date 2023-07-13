@@ -98,36 +98,69 @@
         <main id="container" class="main">
             <section id="content">
 
-                <article class="login">
+                <article class="register">
                     <div class="inner">
-                        <!-- 로그인 페이지로 이동-->
-                        <h2>로그인</h2>
-                        <div class="form_login">
-                            <form>
+                        <h2>회원가입</h2>
+                        <div class="form_register">
+                            <form class="join_form">
+                                <!-- 이름 input -->
                                 <div class="input_area">
-                                    <input type="text" name="id" id="id" autocomplete="off" placeholder="이메일" />
-                                    <label for="id" id="id_label">이메일</label>
+                                    <label for="name">이름</label>
+                                    <input type="text" name="name" id="name" autocomplete="off" />
                                 </div>
+
+                                <!-- 이메일 input -->
                                 <div class="input_area">
-                                    <input type="password" name="pw" id="pw" autocomplete="off" placeholder="비밀번호" />
-                                    <label for="pw" id="pw_label">비밀번호</label>
+                                    <label for="email">이메일</label>
+                                    <input type="text" name="email" id="email" autocomplete="off" />
                                 </div>
-                                <div class="btn_login">
-                                    <button type="submit" id="login_submit">로그인</button>
+
+                                <!-- 비밀번호 input -->
+                                <div class="input_area">
+                                    <label for="pw">비밀번호</label>
+                                    <input type="password" name="pw" id="pw" autocomplete="off" />
+                                </div>
+
+                                <!-- 비밀번호 확인 input -->
+                                <div class="input_area">
+                                    <label for="pw_confirm">비밀번호 확인</label>
+                                    <input type="password" name="pw_confirm" id="pw_confirm" autocomplete="off" />
+                                </div>
+
+                                <!-- 휴대전화 input -->
+                                <div class="input_area input_phone">
+                                    <label for="phone1">휴대전화</label>
+                                    <div class="input_phone_num">
+                                        <input type="text" id="phone1" autocomplete="off" maxlength="3" /> -
+                                        <input type="text" id="phone2" autocomplete="off" maxlength="4" /> -
+                                        <input type="text" id="phone3" autocomplete="off" maxlength="4" />
+                                    </div>
+                                </div>
+
+                                <!-- 주소 input -->
+                                <div class="input_area">
+                                    <label for="ziocode">주소</label>
+                                    <div class="addr_zipcode">
+                                        <input id="zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
+                                        <input type="button" name="search" value="우편번호검색" id="search_zipcode" autocomplete="off" />
+                                    </div>
+
+                                    <div class="addr_detail">
+                                        <input id="addr1" type="text" name="addr1" placeholder="주소" readonly />
+                                        <input id="addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" />
+                                    </div>
+                                    
+                                </div>
+                                <div class="btn_join">
+                                    <!-- 성공적으로 가입 완료 시 modal창 띄우기 -->
+                                    <button>회원가입</button>
                                 </div>
                             </form>
-
-                            <!-- 회원가입 페이지로 이동-->
-                            <div class="btn_register">
-                                <p><a href="/html/register.html">회원가입</a></p>
-                            </div>
                         </div>
-                    </div>
                 </article>
 
             </section>
         </main>
-
 
         <!-- footer -->
         <footer id="footer">
@@ -137,14 +170,27 @@
                 </h4>
             </div>
         </footer>
-
     </div>
 
+    <!-- MODAL-회원가입 성공 -->
+    <div id="register_success">
+        <div class="welcome_box">
+            <h4>Welcome!</h4>
+            <h3>
+                <span class="welcome_user_name"></span>
+                회원가입을 축하합니다
+            </h3>
+            <p class="btn_welcome">
+                <a href="./login.html">로그인하러 가기</a>
+            </p>
+        </div>
+    </div>
 
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="../js/app.js"></script> -->
-    <script type="module" src="../js/mypage/login.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="module" src="../js/mypage/register.js"></script>
+
 </body>
 
 </html>
