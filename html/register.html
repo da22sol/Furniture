@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -51,7 +51,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/order_tracking.html">주문조회</a></li>
+                    <li><a href="/html/login_order_info.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="">문의하기</a></li>
                 </ul>
@@ -84,12 +84,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -141,18 +146,15 @@
                                 <div class="input_area">
                                     <label for="ziocode">주소</label>
                                     <div class="addr_zipcode">
-                                        <input id="zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호"
-                                            readonly />
-                                        <input type="button" name="search" value="우편번호검색" id="search_zipcode"
-                                            autocomplete="off" />
+                                        <input id="zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
+                                        <input type="button" name="search" value="우편번호검색" id="search_zipcode" autocomplete="off" />
                                     </div>
 
                                     <div class="addr_detail">
                                         <input id="addr1" type="text" name="addr1" placeholder="주소" readonly />
-                                        <input id="addr2" type="text" name="addr2" autocomplete="off"
-                                            placeholder="상세주소" />
+                                        <input id="addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" />
                                     </div>
-
+                                    
                                 </div>
                                 <div class="btn_join">
                                     <!-- 성공적으로 가입 완료 시 modal창 띄우기 -->
@@ -190,9 +192,13 @@
     </div>
 
     <!-- script -->
+    <!-- icon -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+    <!-- 주소 API -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="/js/main/main_menu_bar.js"></script>
+    <!-- JS -->
+    <script type="module" src="../js/main/main_menu_bar.js"></script>
+    <script type="module" src="../js/main/main_header.js"></script>
     <script type="module" src="../js/mypage/register.js"></script>
 
 </body>

@@ -14,6 +14,20 @@ const joinZipcodeInput = document.getElementById("zipcode");
 const joinAddrInput1 = document.getElementById("addr1");
 const joinAddrInput2 = document.getElementById("addr2");
 
+
+// 휴대전화 input 자동 focus
+joinPhoneInput1.addEventListener("input", function() {
+    if (joinPhoneInput1.value.length >= joinPhoneInput1.maxLength) {
+        joinPhoneInput2.focus();
+    }
+});
+joinPhoneInput2.addEventListener("input", function() {
+    if (joinPhoneInput2.value.length >= joinPhoneInput2.maxLength) {
+        joinPhoneInput3.focus();
+    }
+});
+
+
 // 주소 검색 api
 joinBtn.addEventListener("click", () => {
     new daum.Postcode({
@@ -105,9 +119,9 @@ function handleSubmit(e) {
 
     // 객체
     const userInfoData = {
-        fullName: fullName,
         email: email,
         password: password,
+        fullName: fullName,
         phoneNumber: phoneNumber,
         address: {
             postalCode: postalCode,
@@ -118,22 +132,22 @@ function handleSubmit(e) {
 
     const dataJson = JSON.stringify(userInfoData);
 
-    fetch("/register", {
+    fetch("http://kdt-sw-5-team01.elicecoding.com/api/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: dataJson,
     })
-    .then((res) => {
-        return res.json();
-    })
-    .then((res) => {
-        if (res.status == 201) {
-            joinModal.style.display = "flex"; // 회원가입 완료 모달창 띄우기
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        if(data.result == "success-register") {
+            // 회원가입 완료 모달창 띄우기
+            joinModal.style.display = "flex";
             document.getElementsByClassName("welcome_user_name")[0].innerText += `${fullName}님 `;
         } else {
-            alert("회원가입 실패");
+            alert("❗️회원가입 실패");
         }
     });
 }
