@@ -1,6 +1,6 @@
 /* MENU BUTTON */
 const toMenu = document.querySelector('#btn_menu');
-const sideMenuBar = document.getElementById('side_menu_bar');
+const sideMenuBarTab = document.getElementById('side_menu_bar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
         gsap.to(toMenu, 0.5, {
@@ -14,7 +14,7 @@ window.addEventListener('scroll', () => {
 });
 
 toMenu.addEventListener('click', () => {
-    sideMenuBar.style.display = 'flex';
+    sideMenuBarTab.style.display = 'flex';
 });
 
 /* TOP BUTTON */
