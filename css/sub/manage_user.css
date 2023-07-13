@@ -35,7 +35,7 @@
 
 /* 테이블 */
 
-.contents_member.table {
+.contents_member .table {
     border-collapse: collapse;
     border-top: 3px solid #a389cb;
     text-align: center;
@@ -62,17 +62,22 @@
 .contents_member .table tr td:first-child {
     text-align: center;
 }
+.contents_member .table select {
+    font-size: 15px;
+}
 .contents_member .table caption {
     caption-side: bottom;
     display: none;
 }
 .contents_member button {
-    border: none;
-    border: 1px solid #111;
-    background-color: #fff;
+    border: 1px solid #ededed;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+    font-size: 15px;
     cursor: pointer;
 }
 .contents_member button:hover {
     border: 1px solid #a389cb;
-    background-color: #ededed;
+    background-color: #a389cb;
+    color: #fff;
 }
