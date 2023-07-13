@@ -81,8 +81,9 @@
 }
 
 .sub_category #list_category_sale li {
-    margin-right: 66px;
+    /* margin-right: 66px; */
     margin-bottom: 50px;
+    width: 25%;
 }
 
 .sub_category #list_category_sale li:nth-child(4n) {
