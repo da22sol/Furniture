@@ -13,52 +13,16 @@ const categoryList = document.querySelector('.category_list');
 // 카테고리 동적 추가 함수
 function categoryMade() {
     for (let i = 0; i < categorysListArr.length; i++) {
-        switch (categorysListArr[i].title) {
-            case 'bed':
-                categorysListArr[i].koreanTitle = '침대';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-            case 'desk':
-                categorysListArr[i].koreanTitle = '책상';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-            case 'table':
-                categorysListArr[i].koreanTitle = '식탁';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-            case 'sofa':
-                categorysListArr[i].koreanTitle = '소파';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-            case 'closet':
-                categorysListArr[i].koreanTitle = '옷장';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-            case 'drawer':
-                categorysListArr[i].koreanTitle = '협탁';
-                categorysListArr[
-                    i
-                ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
-                break;
-        }
-
+        categorysListArr[
+            i
+        ].imgUrl = `../assets/img/${categorysListArr[i].title}.png`;
         document.getElementById('category_list').innerHTML += `
         <li class="category_list" id="${categorysListArr[i].title}">
             <a href="./category.html" class="list_category">
                 <span class="img_category">
                     <img src="${categorysListArr[i].imgUrl}">
                 </span>
-                <p>${categorysListArr[i].koreanTitle}</p>
+                <p>${categorysListArr[i].title}</p>
             </a>
         </li>
         `;
