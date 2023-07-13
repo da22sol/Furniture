@@ -1,4 +1,4 @@
-const leftSideMenuBar = document.getElementById('side_menu_bar');
+const sideMenuBar = document.getElementById('side_menu_bar');
 const sideMenuBarBtn = document.getElementsByClassName('headicon icon_menu')[0];
 const sideMenuBarXBtn = document.getElementsByClassName('x_btn')[0];
 const sideMenuBarRigthBox = document.getElementsByClassName('right_box')[0];
@@ -7,15 +7,15 @@ const sideMenuBarRegisterBtn =
     document.getElementsByClassName('register_btn')[0];
 
 sideMenuBarBtn.addEventListener('click', () => {
-    leftSideMenuBar.style.display = 'flex';
+    sideMenuBar.style.display = 'flex';
 });
 
 sideMenuBarXBtn.addEventListener('click', () => {
-    leftSideMenuBar.style.display = 'none';
+    sideMenuBar.style.display = 'none';
 });
 
 sideMenuBarRigthBox.addEventListener('click', () => {
-    leftSideMenuBar.style.display = 'none';
+    sideMenuBar.style.display = 'none';
 });
 
 sideMenuBarLoginBtn.addEventListener('click', () => {
