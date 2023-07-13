@@ -18,7 +18,7 @@ addCategoryBtn.addEventListener('click', () => {
 
     const categoryDataJson = JSON.stringify({ title: categoryValue });
     console.log(categoryDataJson);
-    fetch('http://kdt-sw-5-team01.elicecoding.com/api/categories', {
+    fetch(`http://kdt-sw-5-team01.elicecoding.com/api/categories`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ addCategoryBtn.addEventListener('click', () => {
             console.log(data);
         });
 
+    categoryReset();
     plusManageCategoryMade();
 });
 
@@ -73,7 +74,7 @@ function plusManageCategoryMade() {
             });
             console.log(categoryDataJson);
             fetch(
-                'http://kdt-sw-5-team01.elicecoding.com/api/categories/:categoryId',
+                `http://kdt-sw-5-team01.elicecoding.com/api/categories/${dd}`,
                 {
                     method: 'PATCH',
                     headers: {
