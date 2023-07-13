@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
     <!-- SIDE MENU BAR -->
     <div id="side_menu_bar">
         <div class="left_box">
@@ -51,7 +50,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/order_tracking.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="/">문의하기</a></li>
                 </ul>
@@ -60,7 +59,6 @@
         <div class="right_box">
         </div>
     </div>
-
 
     <div id="wrap">
         <!-- HEADER -->
@@ -141,7 +139,7 @@
                             <!-- 게시판 -->
                             <div class="member">
                                 <div class="list_member">
-                                    
+
                                     <!-- 회원정보 -->
                                     <div class="contents_member">
                                         <table class="table">
@@ -177,7 +175,7 @@
         </footer>
     </div>
 
-    
+
     <!-- modal -->
     <!-- class="modal_user_modify" -->
     <div id="modal_usercheck">
@@ -187,34 +185,41 @@
                 <form>
                     <div class="manage_input_area">
                         <label for="manage_name">이름</label>
-                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off" required />
+                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off"
+                            required />
                     </div>
 
                     <div class="manage_input_area manage_input_email">
                         <label for="manage_email">이메일</label>
-                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com" autocomplete="off" required />
+                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com"
+                            autocomplete="off" required />
                     </div>
-        
+
                     <div class="manage_input_area manage_input_phone">
                         <label for="manage_phone">휴대전화</label>
-                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" value="010" required />
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off"
+                            value="010" required />
                         -
-                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678" required />
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678"
+                            required />
                     </div>
                     <div class="manage_input_area manage_input_addr">
                         <label for="manage_address">주소</label>
                         <div class="manage_user_addr">
                             <div class="user_addr_info_zipcode">
-                                <input class="user_addr_zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
-                                <input class="user_addr_search_zipcode" type="button" name="search" value="우편번호검색" autocomplete="off" />
+                                <input class="user_addr_zipcode" type="text" name="zipcode" maxlength="5"
+                                    placeholder="우편번호" readonly />
+                                <input class="user_addr_search_zipcode" type="button" name="search" value="우편번호검색"
+                                    autocomplete="off" />
                             </div>
 
                             <div class="user_addr_info_detail">
                                 <input class="user_addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
-                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" />
+                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off"
+                                    placeholder="상세주소" />
                             </div>
-                        </div>  
-                    
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -230,11 +235,11 @@
         </div>
     </div>
 
-        <!-- script -->
-        <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script src="../js/main/main_menu_bar.js"></script>
-        <script src="../js/manage/manage_user.js"></script>
+    <!-- script -->
+    <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="../js/main/main_menu_bar.js"></script>
+    <script src="../js/manage/manage_user.js"></script>
 </body>
 
 </html>

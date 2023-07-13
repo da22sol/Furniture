@@ -11,11 +11,11 @@ sideMenuBarBtn.addEventListener('click', () => {
 });
 
 sideMenuBarXBtn.addEventListener('click', () => {
-    sideMenuBar.style.display = 'none';
+    leftSideMenuBar.style.display = 'none';
 });
 
 sideMenuBarRigthBox.addEventListener('click', () => {
-    sideMenuBar.style.display = 'none';
+    leftSideMenuBar.style.display = 'none';
 });
 
 sideMenuBarLoginBtn.addEventListener('click', () => {

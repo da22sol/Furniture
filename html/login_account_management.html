@@ -201,9 +201,21 @@
                     </div>
                     <div class="manage_input_area manage_input_addr">
                         <label for="manage_address">주소</label>
-                        <!-- zipcode 추가 예정 -->
-                        <input type="text" name="manage_address" id="manage_address" autocomplete="off"
-                            value="서울특별시 ㅇㅇ구 ㅇㅇ동" required />
+                        <div class="manage_user_addr">
+                            <div class="user_addr_info_zipcode">
+                                <input class="user_addr_zipcode" type="text" name="zipcode" maxlength="5"
+                                    placeholder="우편번호" readonly />
+                                <input class="user_addr_search_zipcode" type="button" name="search" value="우편번호검색"
+                                    autocomplete="off" />
+                            </div>
+
+                            <div class="user_addr_info_detail">
+                                <input class="user_addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
+                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off"
+                                    placeholder="상세주소" />
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>
@@ -211,7 +223,6 @@
             <div class="btn_user_information">
                 <button class="btn_user_information_modify">수정</button>
             </div>
-
 
             <!-- 창 닫기 -->
             <div class="btn_close_modal">
@@ -223,6 +234,8 @@
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="/js/account_management/account_management.js"></script>
 </body>
 

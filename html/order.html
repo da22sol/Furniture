@@ -50,9 +50,9 @@
                     <li><a href="">인테리어 가이드</a></li>
                 </ul>
                 <ul class="sub_list">
-                    <li><a href="/html/">장바구니</a></li>
-                    <li><a href="/html/">주문확인</a></li>
-                    <li><a href="/html/">계정관리</a></li>
+                    <li><a href="/html/cart.html">장바구니</a></li>
+                    <li><a href="/html/order_tracking.html">주문조회</a></li>
+                    <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="">문의하기</a></li>
                 </ul>
             </div>
@@ -67,7 +67,7 @@
             <div class="inner">
                 <h1 class="logo">
                     <a href="/">
-                        <img src="../assets/img/logo.png" alt="Elice Furniture" />
+                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
                     </a>
                 </h1>
 
@@ -85,9 +85,9 @@
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
                     <!-- 로그인 페이지로 이동 -->
-                    <a href="./login.html">MY PAGE</a>
+                    <a href="/html/login.html">MY PAGE</a>
                     <!-- 장바구니 페이지로 이동 -->
-                    <a href="/" class="headicon icon_shopping">
+                    <a href="/html/cart.html" class="headicon icon_shopping">
                         <i class="fa-solid fa-bag-shopping"></i>
                     </a>
                 </div>
@@ -120,24 +120,31 @@
                                         <li>
                                             <span>휴대전화</span>
                                             <div class="addr_info_name">
-                                                <input type="text" class="addr_phone1" autocomplete="off" maxlength="3" oninput="next1()" /> -
-                                                <input type="text" class="addr_phone2" autocomplete="off" maxlength="4" oninput="next2()" /> -
-                                                <input type="text" class="addr_phone3" autocomplete="off" maxlength="4" />
+                                                <input type="text" class="addr_phone1" autocomplete="off" maxlength="3"
+                                                    oninput="next1()" /> -
+                                                <input type="text" class="addr_phone2" autocomplete="off" maxlength="4"
+                                                    oninput="next2()" /> -
+                                                <input type="text" class="addr_phone3" autocomplete="off"
+                                                    maxlength="4" />
                                             </div>
                                         </li>
                                         <li>
                                             <span>주소</span>
                                             <div class="addr_info_addr">
                                                 <div class="addr_info_zipcode">
-                                                    <input class="addr_zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
-                                                    <input class="addr_search_zipcode" type="button" name="search" value="우편번호검색" autocomplete="off" />
+                                                    <input class="addr_zipcode" type="text" name="zipcode" maxlength="5"
+                                                        placeholder="우편번호" readonly />
+                                                    <input class="addr_search_zipcode" type="button" name="search"
+                                                        value="우편번호검색" autocomplete="off" />
                                                 </div>
-            
+
                                                 <div class="addr_info_detail">
-                                                    <input class="addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
-                                                    <input class="addr_addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" />
+                                                    <input class="addr_addr1" type="text" name="addr1" placeholder="주소"
+                                                        readonly />
+                                                    <input class="addr_addr2" type="text" name="addr2"
+                                                        autocomplete="off" placeholder="상세주소" />
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </li>
                                     </ul>
 
@@ -202,7 +209,7 @@
             <h3>주문이 완료되었습니다.</h3>
             <button class="btn_order_success">
                 확인
-            </ㅠ>
+                </ㅠ>
         </div>
     </div>
 
@@ -210,8 +217,8 @@
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="../js/main/main_menu_bar.js"></script>
-    <script src="../js/mypage/order.js"></script>
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script src="/js/mypage/order.js"></script>
 </body>
 
 </html>
