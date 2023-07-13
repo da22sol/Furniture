@@ -3,14 +3,10 @@ const loginBtn = document.getElementById("login_submit");
 const loginId = document.getElementById("id");
 const loginPw = document.getElementById("pw");
 
-
-// 유저 정보
-const USERID_KEY = "userid";
-const savedUserid = localStorage.getItem(USERID_KEY);
-const savedUsername = savedUserid.substring(0, savedUserid.indexOf('@'));
-
+// 로그인 폼 제출
 loginBtn.addEventListener("click", onLoginSubmit);
 
+// 로그인 유효성 검사
 function onLoginSubmit(e) {
     e.preventDefault();
 
@@ -32,36 +28,34 @@ function onLoginSubmit(e) {
     // 입력값 가져오기
     const email = loginId.value;
     const password = loginPw.value;
+
     // 객체
-    const req = {
+    const loginData = {
         email: email,
         password: password,
     };
 
-    const dataJson = JSON.stringify(req);
+    const dataJson = JSON.stringify(loginData);
 
-    fetch("/login", {
+    fetch("http://kdt-sw-5-team01.elicecoding.com/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: dataJson,
     })
-
-    if (req.status === 200) {
-        alert(`Hello ${savedUsername}`);
-        localStorage.setItem(USERID_KEY, req.email);
-        location.href("/index.html"); // 메인 페이지로 이동
-    } else {
-        alert("로그인 실패");
-    }
-
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.userToken) {
+                alert("로그인 성공!");
+                // 유저 정보 로컬에 저장
+                localStorage.setItem("userToken", data.userToken);
+                localStorage.setItem("isAdmin", data.isAdmin);
+                // 메인 페이지로 이동
+                location.href = "/index.html";
+            } else {
+                alert("아이디 혹은 비밀번호를 확인해주세요.");
+            }
+        });
 }
 
-
-export default {
-    loginBtn,
-    USERID_KEY,
-    savedUserid,
-    onLoginSubmit,
-};
