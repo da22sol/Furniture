@@ -30,6 +30,7 @@
 }
 
 .login .form_login .input_area label {
+    opacity: 0;
     position: absolute;
     left: 50%;
     top: 15px;
@@ -39,12 +40,16 @@
     transition: top 0.5s ease;
 } 
 
-.login .form_login .input_area input:focus + label,
-.login .form_login .input_area input:valid + label {
+.login .form_login .input_area input:focus + label {
+    opacity: 1;
     top: -2px;
     font-size: 13px;
     font-weight: 500;
     color: #AC94C4;
+}
+
+.login .form_login .input_area input:focus::placeholder {
+    opacity: 0;
 }
 
 .login .form_login .btn_login {
