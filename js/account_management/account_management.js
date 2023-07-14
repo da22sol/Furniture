@@ -74,7 +74,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
                       method: 'PATCH',
                       headers: {
                           'Content-Type': 'application/json',
-                          Authorization: `Bearer ${loginUserdata}`,
+                          Authorization: `Bearer ${USERTOKEN}`,
                       },
                       body: userDataJSON,
                   })
@@ -96,7 +96,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${loginUserdata}`,
+                        Authorization: `Bearer ${USERTOKEN}`,
                     },
                 })
                     .then((res) => res.json())
@@ -104,6 +104,9 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
                         console.log(data);
                     });
                 alert(`탈퇴되었습니다\n이용해주셔서 감사합니다.`);
+                localStorage.removeItem('userToken');
+                localStorage.removeItem('isAdmin');
+                window.location.href = '/index.html';
             } else {
                 alert('취소되었습니다.');
             }
