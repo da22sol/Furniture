@@ -15,30 +15,26 @@
     margin-bottom: 30px;
 }
 
-.order_list .img_thumb {
-    width: 120px;
-}
-
-.order_list .img_thumb img {
-    width: 100%;
-}
 
 .order_list .order_name {
     width: 70%;
     text-align: left;
 }
 
-.order_list .order_name a {
+.order_list ul li:first-child {
     font-size: 18px;
     font-weight: 500;
 }
-.order_name .list_name{
-    width: 300px;
+.order_name .list_name {
+    width: 400px;
     text-align: center;
     font-size: 16px;
     text-align: left;
     padding: 10px 20px 5px 20px;
     
+}
+.order_name .order_id {
+    cursor: pointer;
 }
 .order_name .list_name li {
     margin-bottom: 10px;
@@ -73,4 +69,97 @@
 .order_btn .order_del:hover {
     background-color: #A389CB;
     color: #fff;
+}
+
+/* MODAL */
+.user_order_modal {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(000,000,000,0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.user_order_modal .order_modal_box {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 50px;
+    width: 800px;
+    height: 580px;
+    border-radius: 30px;
+    background-color: #fff;
+    position: relative;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.user_order_modal .order_modal_list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.user_order_modal .order_modal_box > h3 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.order_list_modal_box {
+    width: 330px;
+    height: 440px;
+    border-radius: 20px;
+    background-color: #F1EDF5;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_order_modal ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_order_modal h4 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.user_order_modal ul li {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.user_order_modal ul li span {
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    color: #A389CB;
+    margin-bottom: 10px;
+}
+
+
+.btn_close_order_modal {
+    color: #A389CB;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.side_logout_btn {
+    cursor: pointer;
 }
