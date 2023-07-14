@@ -12,7 +12,10 @@
 
 .cart .cart_product_list {
     margin-bottom: 50px;
+    display: inline-flex;
+    width: 100%;
 }
+
 
 /* 장바구니 주문상품 */
 .cart .cart_product_list .info_cart_product {
@@ -20,6 +23,8 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    margin-left: 20px;
+    justify-content: center
 }
 
 .cart .cart_product_list .info_cart_product > span {
@@ -38,6 +43,17 @@
     font-size: 18px;
     font-weight: 500;
     color: #000;
+}
+.img_thumbnail {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+
+}
+
+.img_thumbnail img{
+    width: 200px;
+    height: 300px;
 }
 
 /* 체크,증감 */

@@ -50,7 +50,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/order_tracking.html">주문조회</a></li>
+                    <li><a href="/html/login_order_info.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="">문의하기</a></li>
                 </ul>
@@ -81,23 +81,17 @@
                     </div>
                 </div>
 
+                <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <ul class="menu_right_list">
-                        <li class="icon_setting">
-                            <i class="fa-solid fa-gear"></i>
-                        </li>
-                        <li class="menu_mypage">
-                            MYPAGE
-                        </li>
-                        <li class="headicon icon_shopping">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </li>
-                    </ul>
+                    <!-- 로그인 페이지로 이동 -->
+                    <a href="/html/login.html">MY PAGE</a>
+                    <!-- 장바구니 페이지로 이동 -->
+                    <a href="/html/cart.html" class="headicon icon_shopping">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
                 </div>
             </div>
         </header>
-
-
 
         <!-- CONTAINER -->
         <main id="container" class="main">
@@ -147,7 +141,7 @@
                             <div class="cart_product_list">
                                 <ul>
                                     <li class="img_thumbnail">
-                                        <img src="../assets/img/thum.png" alt="thumbnail">
+                                        <img src="" alt="thumbnail">
                                     </li>
 
                                     <li class="info_cart_product">
@@ -155,7 +149,8 @@
                                         <p></p>
                                         <p class="price"></p>
                                         <div class="quantity">
-                                            <input type='button' class="decrease_button" value='-' />
+                                            <input type='button' class="decrease_button"
+                                                value='-' />
                                             <span><input type="text" class="product_button" value="1"></span>
                                             <input type='button' class="increase_button" value='+' />
                                         </div>
@@ -210,15 +205,11 @@
         </footer>
     </div>
 
-    <!-- script -->
-    <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    <script src="/js/main/main_menu_bar.js"></script>
-    <script src="/js/sub/cart.js"></script>
-    <script type="module" src="../js/main/main_header.js"></script>
-    <script src="/js/main/main_category.js"></script>
-    <script src="/js/main/main_products.js"></script>
-    <script src="/js/main/main_header.js"></script>
+        <!-- script -->
+        <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        <script type="module" src="../js/app.js"></script>
+        <script src="../js/mypage/cart.js"></script>
 </body>
 
 </html>

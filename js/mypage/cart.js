@@ -1,47 +1,13 @@
-// function displayCartItems() {
-//   const request = window.indexedDB.open('myDB', 1);
-
-//   request.onsuccess = function (event) {
-//     const db = event.target.result;
-//     const transaction = db.transaction(['cart'], 'readonly');
-//     const objectStore = transaction.objectStore('cart');
-//     const getAllRequest = objectStore.getAll();
-//     const cartContainer = document.getElementsByClassName('info_cart_product')[0];
-
-//     getAllRequest.onsuccess = function (event) {
-//       const cartData = event.target.result;
-//       if (cartData.length === 0) {
-//         cartContainer.innerHTML = '장바구니가 비어 있습니다.';
-//       } else {
-//         cartContainer.innerHTML = '';
-//         for (let i = 0; i < cartData.length; i++) {
-//           cartContainer.innerHTML += `
-//             <li class="img_thumbnail">
-//               <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}">
-//             </li>
-//             <span><a href="/">${cartData[i].productName}</a></span>
-//             <p>${cartData[i].searchKeywords}</p>
-//             <p class="price">${cartData[i].price}</p>
-//             <div class="quantity">
-//               <input type='button' class="decrease_button" value='-' />
-//               <span><input type="text" class="product_button" value="${cartData[i].quantity}" /></span>
-//               <input type='button' class="increase_button" value='+' />
-//             </div>
-//           `;
-//         }
-//       }
-//     };
-//   };
-// }
-
 const cartItemsString = localStorage.getItem('cartItems');
+console.log(cartItemsString);
 const cartData = JSON.parse(cartItemsString) || [];
-
-const cartContainer = document.getElementsByClassName('info_cart_product');
+console.log(cartData);
+const cartContainer = document.querySelector('.info_cart_product');
+const cartImg = document.querySelector('.img_thumbnail');
 for (let i = 0; i < cartData.length; i++) {
-  const cartItem = cartContainer[i];
-  cartItem.innerHTML = '';
-  cartItem.innerHTML = `
+  cartImg.innerHTML = `
+    <li class="img_thumbnail"> <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}"> </li>;`;
+  cartContainer.innerHTML = ` <li class="info_cart_product">
     <span><a href="/">${cartData[i].productName}</a></span>
     <p>${cartData[i].searchKeywords}</p>
     <p class="price">${cartData[i].price}</p>
@@ -49,7 +15,7 @@ for (let i = 0; i < cartData.length; i++) {
       <input type='button' class="decrease_button" value='-' />
       <span><input type="text" class="product_button" value="${cartData[i].quantity}" /></span>
       <input type='button' class="increase_button" value='+' />
-    </div>
+    </div></li>
   `;
 }
 
@@ -78,7 +44,7 @@ decreaseBtn.addEventListener('click', () => {
 });
 
 function updateTotalPrice(quantity) {
-  const price = parseInt(cartData[0].price.replace(',', ''));
+  const price = parseInt(cartData[0].price);
   const totalPrice = price * quantity;
   priceTotal.innerText = `${totalPrice.toLocaleString()}원 (${cartData[0].quantity}개)`;
 }
@@ -98,19 +64,18 @@ delButton.addEventListener('click', () => {
     '.check_product input[type="checkbox"]',
   );
   const cartListInfo = document.querySelector('.cart_product_list');
-  cartListInfo.innerHTML =
-    '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
+  cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
   const shipInfo = document.querySelector('.ship');
   shipInfo.style.display = 'none';
 
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
       const cartRemove = checkbox.closest('.cart_product_list');
-      const orderRemove = checkbox.closest('.button_line');
+      const orderRemove = checkbox.closest('li');
       cartRemove.remove();
       orderRemove.remove();
     }
-});
+  });
 });
 
 // 선택상품, 전체상품구매하기 (상품 없음 알림창)
@@ -133,18 +98,18 @@ function purchaseSelectedItems() {
     alert('선택한 상품이 없습니다');
   }
 }
+const buyButton = document.getElementsByClassName('button_all')[0];
+buyButton.addEventListener('click', purchaseAllItems);
+
 function purchaseAllItems() {
   const cartItemsString = localStorage.getItem('cartItems');
   const cartData = JSON.parse(cartItemsString) || [];
 
   if (cartData.length > 0) {
-    const queryString = cartData.map((item) => {
-      return `category=${encodeURIComponent(item.category)}&productName=${encodeURIComponent(item.productName)}&searchKeywords=${encodeURIComponent(item.searchKeywords)}&price=${encodeURIComponent(item.price)}&quantity=${encodeURIComponent(item.quantity)}`;
-    }).join('&');
+    const queryString = cartData.map((item) => `category=${encodeURIComponent(item.category)}&productName=${encodeURIComponent(item.productName)}&searchKeywords=${encodeURIComponent(item.searchKeywords)}&price=${encodeURIComponent(item.price)}&quantity=${encodeURIComponent(item.quantity)}`).join('&');
 
     window.location.href = `/html/order.html?${queryString}`;
   } else {
     alert('장바구니에 상품이 없습니다');
   }
 }
-
