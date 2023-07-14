@@ -36,21 +36,6 @@ function displayCartItems() {
                 }
             }
         };
-
-        transaction.oncomplete = function (event) {
-            console.log('Transaction completed');
-        };
-
-        transaction.onerror = function (event) {
-            console.error('Transaction error');
-        };
-
-        db.close();
-    };
-
-    request.onerror = function (event) {
-        console.error('Error opening IndexedDB');
-    };
 }
 
 // 삭제하기(삭제하기 버튼을 누르면 장바구니가 비워지고 메시지가 나옴 그리고 선택한 것만 지워짐)
