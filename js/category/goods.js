@@ -54,36 +54,3 @@ function productMade(data) {
 function productReset() {
     document.getElementById('list_category_sale').innerHTML = '';
 }
-
-////////////////////////////////////////////////////
-const filterDrop = document.querySelector('.filter_drop');
-const filterSelectesd = document.querySelector('.filter_selected');
-const filterList = document.querySelector('.list_filter');
-
-// 필터 보이기
-filterDrop.addEventListener('click', () => {
-    filterList.classList.toggle('display');
-});
-
-// 신상품순 클릭시 상품 동적 변경 ( 추후 수정 예정 )
-// function listFilterNewSort(data) {
-//     productReset();
-//     console.log(data);
-//     const sortArr = data.sort((a, b) => b.upload_date - a.upload_date);
-//     productMade(sortArr);
-// }
-
-listFilterNew.addEventListener('click', () => {
-    filterSelectesd.innerHTML = '신상품순';
-    // listFilterNewSort();
-});
-
-listFilterHighPrice.addEventListener('click', () => {
-    filterSelectesd.innerHTML = '높은가격순';
-    // listFilterNewSort();
-});
-
-listFilterLowPrice.addEventListener('click', () => {
-    filterSelectesd.innerHTML = '낮은가격순';
-    // listFilterNewSort();
-});
