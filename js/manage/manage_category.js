@@ -2,7 +2,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/categories')
     .then((response) => response.json())
     .then((data) => {
         manageCategorysListArr = data;
-        console.log(data);
         plusManageCategoryMade();
     });
 
@@ -14,24 +13,23 @@ const manageCategoryList = document.querySelector('ul.manage_category');
 
 addCategoryBtn.addEventListener('click', () => {
     const categoryValue = addCategoryInput.value;
-    console.log(categoryValue);
 
     const categoryDataJson = JSON.stringify({ title: categoryValue });
-    console.log(categoryDataJson);
+
     fetch(`http://kdt-sw-5-team01.elicecoding.com/api/categories`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
         },
         body: categoryDataJson,
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
+            categoryReset();
+            plusManageCategoryMade();
+            window.location.reload();
         });
-
-    categoryReset();
-    plusManageCategoryMade();
 });
 
 // 기본 카테고리 함수
@@ -59,38 +57,36 @@ function plusManageCategoryMade() {
                 e.target.parentElement.parentElement.querySelector(
                     'p',
                 ).innerText;
-            console.log(retouchCategoryValue);
+
             let changeCategoryVal = prompt(
                 '변경하실 카테고리명을 입력해주세요',
                 '카테고리명',
             );
             manageCategorysListArr[i].categoryName = changeCategoryVal;
             alert(`${changeCategoryVal}으로 수정되었습니다`);
-            console.log(changeCategoryVal);
 
             //fetch patch 통신
             const categoryDataJson = JSON.stringify({
                 title: changeCategoryVal,
             });
-            console.log(categoryDataJson);
             fetch(
-                `http://kdt-sw-5-team01.elicecoding.com/api/categories/${dd}`,
+                `http://kdt-sw-5-team01.elicecoding.com/api/categories/${manageCategorysListArr[i]._id}`,
                 {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
                     },
                     body: categoryDataJson,
                 },
             )
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     retouchCategoryValue = data;
+                    categoryReset();
+                    plusManageCategoryMade();
+                    window.location.reload();
                 });
-
-            categoryReset();
-            plusManageCategoryMade();
         });
     }
 
@@ -101,31 +97,29 @@ function plusManageCategoryMade() {
                 e.target.parentElement.parentElement.querySelector(
                     'p',
                 ).innerText;
-            console.log(deleteCategoryValue);
-
             //fetch delete 통신
             const categoryDataJson = JSON.stringify({
                 title: deleteCategoryValue,
             });
-            console.log(categoryDataJson);
+
             fetch(
-                'http://kdt-sw-5-team01.elicecoding.com/api/categories/:categoryId',
+                `http://kdt-sw-5-team01.elicecoding.com/api/categories/${manageCategorysListArr[i]._id}`,
                 {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
                     },
                     body: categoryDataJson,
                 },
             )
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     retouchCategoryValue = data;
+                    categoryReset();
+                    plusManageCategoryMade();
+                    window.location.reload();
                 });
-
-            categoryReset();
-            plusManageCategoryMade();
         });
     }
 }
