@@ -10,16 +10,21 @@ const priceTotal = document.querySelector('.price_total');
 const addBtn = document.querySelector('.button_add');
 const buyBtn = document.querySelector('.button_buy');
 
-fetch(
-  'http://kdt-sw-5-team01.elicecoding.com/api/products/64af5a8816aa2cad084c83b3',
-)
-  .then((response) => response.json())
-  .then((data) => {
-    detailDataArr = data;
-    console.log(detailDataArr);
-    productContentsMade();
-    updateTotalPrice(parseInt(inputNum.value));
-  });
+// <!-- a링크의 id값에 기반한 상세페이지
+let temp = location.href.split('?');
+console.log(temp);
+
+// 상품의 id값 기반의 상품 정보 받아오기
+fetch(`http://kdt-sw-5-team01.elicecoding.com/api/products/${temp[1]}`)
+    .then((response) => response.json())
+    .then((data) => {
+        detailDataArr = data;
+        console.log(detailDataArr);
+        //상품 상세페이지 생성
+        productContentsMade();
+        updateTotalPrice(parseInt(inputNum.value));
+    });
+// -->
 
 const totalCount = document.querySelector('.sprice_total');
 
@@ -29,9 +34,9 @@ const imgProduct = document.querySelector('.img_product');
 const detailIn = document.querySelector('.detail_in');
 
 function productContentsMade() {
-  imgProduct.innerHTML = `
+    imgProduct.innerHTML = `
         <img src="${detailDataArr.productImageKey}" alt="${detailDataArr.productName}">`;
-  detailIn.innerHTML = `
+    detailIn.innerHTML = `
         <h1>${detailDataArr.productName}</h1>
         <p>${detailDataArr.shortDescription}</p>
         <p>${detailDataArr.price}</p>
@@ -40,64 +45,62 @@ function productContentsMade() {
 
 //  indexDB
 function detailDB(detailBuy, cartName) {
-  if (window.indexedDB) {
-    const databaseName = 'cart';
-    const version = 1;
-    const request = indexedDB.open(databaseName, version);
+    if (window.indexedDB) {
+        const databaseName = 'cart';
+        const version = 1;
+        const request = indexedDB.open(databaseName, version);
 
-    const data = {
-      productImageKey: productImageKey.src,
-      productName: productName.innerHTML,
-      shortDescription: shortDescription.innerHTML,
-      price: convertToNumber(price.innerText),
-    };
+        const data = {
+            productImageKey: productImageKey.src,
+            productName: productName.innerHTML,
+            shortDescription: shortDescription.innerHTML,
+            price: convertToNumber(price.innerText),
+        };
 
-    request.onupgradeneeded = function () {
-    // 장바구니용 objectStore
-      request.result.createObjectStore('items', { autoIncrement: true });
-      // 바로구매용 objectStore
-      request.result.createObjectStore('nowBuy', { keyPath: 'id' });
-    };
+        request.onupgradeneeded = function () {
+            // 장바구니용 objectStore
+            request.result.createObjectStore('items', { autoIncrement: true });
+            // 바로구매용 objectStore
+            request.result.createObjectStore('nowBuy', { keyPath: 'id' });
+        };
 
-    request.onsuccess = function () {
-      localStorage.setItem('storeName', storeName);
-      const objStore = request.result
-        .transaction(`${cartName}`, 'readwrite')
-        .objectStore(`${cartName}`);
-        // 중복상품
-      if (cartName == 'items') {
-        isExist(data, objStore);
-      } else {
-        objStore.add(data);
-      }
-    };
-    request.onerror = function (event) {
-      alert(event.target.errorCode);
-    };
-  }
+        request.onsuccess = function () {
+            localStorage.setItem('storeName', storeName);
+            const objStore = request.result
+                .transaction(`${cartName}`, 'readwrite')
+                .objectStore(`${cartName}`);
+            // 중복상품
+            if (cartName == 'items') {
+                isExist(data, objStore);
+            } else {
+                objStore.add(data);
+            }
+        };
+        request.onerror = function (event) {
+            alert(event.target.errorCode);
+        };
+    }
 }
 console.log(detailDB);
 // 구매하기
 
 addBtn.addEventListener('click', () => {
-  detailDB(detailBuy, 'items');
-  const moveTocart = confirm(
-    '장바구나에 담겼습니다?',
-  );
-  if (moveTocart === true) {
-    window.location.href = '/cart';
-  }
+    detailDB(detailBuy, 'items');
+    const moveTocart = confirm('장바구나에 담겼습니다?');
+    if (moveTocart === true) {
+        window.location.href = '/cart';
+    }
 });
 
 const addCart = (event) => {
-  event.preventDefault();
-  const selectedProduct = {
-    productImageKey: detailDataArr.productImageKey,
-    productName: detailDataArr.productName,
-    searchKeywords: detailDataArr.searchKeywords,
-    price: detailDataArr.price,
-    quantity: detailDataArr.quantity,
-  };
+    event.preventDefault();
+    const selectedProduct = {
+        productImageKey: detailDataArr.productImageKey,
+        productName: detailDataArr.productName,
+        searchKeywords: detailDataArr.searchKeywords,
+        price: detailDataArr.price,
+        quantity: detailDataArr.quantity,
+    };
 };
 
 // 바로구매 console log(buyBtn)
@@ -119,25 +122,24 @@ const addCart = (event) => {
 console.log(increaseBtn);
 
 // 수량확인
-// 수량확인
 increaseBtn.addEventListener('click', () => {
-  let num = parseInt(inputNum.value);
-  num++;
-  inputNum.value = num;
-  updateTotalPrice(num);
+    let num = parseInt(inputNum.value);
+    num++;
+    inputNum.value = num;
+    updateTotalPrice(num);
 });
 
 decreaseBtn.addEventListener('click', () => {
-  let num = parseInt(inputNum.value);
-  if (num > 1) {
-    num--;
-    inputNum.value = num;
-    updateTotalPrice(num);
-  }
+    let num = parseInt(inputNum.value);
+    if (num > 1) {
+        num--;
+        inputNum.value = num;
+        updateTotalPrice(num);
+    }
 });
 // 총 가격 업데이트
 function updateTotalPrice(quantity) {
-  const priced = parseInt(price.innerText.replace(',', ''));
-  const totalPrice = priced * quantity;
-  priceTotal.innerHTML = `<strong><em>${totalPrice.toLocaleString()} KRW</em></strong>(${quantity}개)`;
+    const priced = parseInt(price.innerText.replace(',', ''));
+    const totalPrice = priced * quantity;
+    priceTotal.innerHTML = `<strong><em>${totalPrice.toLocaleString()} KRW</em></strong>(${quantity}개)`;
 }
