@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -24,6 +24,7 @@
 </head>
 
 <body>
+
     <!-- SIDE MENU BAR -->
     <div id="side_menu_bar">
         <div class="left_box">
@@ -50,7 +51,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/order_tracking.html">주문조회</a></li>
+                    <li><a href="/html/login_order_info.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="/">문의하기</a></li>
                 </ul>
@@ -59,6 +60,7 @@
         <div class="right_box">
         </div>
     </div>
+
 
     <div id="wrap">
         <!-- HEADER -->
@@ -144,7 +146,7 @@
                             <!-- 게시판 -->
                             <div class="member">
                                 <div class="list_member">
-
+                                    
                                     <!-- 회원정보 -->
                                     <div class="contents_member">
                                         <table class="table">
@@ -180,57 +182,45 @@
         </footer>
     </div>
 
-
+    
     <!-- modal -->
     <!-- class="modal_user_modify" -->
     <div id="modal_usercheck">
         <div class="modal_userinfo">
-            <h3>회원정보 수정</h3>
+            <h3>회원정보 조회</h3>
             <div class="user_information">
                 <form>
                     <div class="manage_input_area">
                         <label for="manage_name">이름</label>
-                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off"
-                            required />
+                        <input type="text" name="manage_name" id="manage_name" autocomplete="off" readonly />
                     </div>
 
                     <div class="manage_input_area manage_input_email">
                         <label for="manage_email">이메일</label>
-                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com"
-                            autocomplete="off" required />
+                        <input type="text" name="manage_email" id="manage_email" autocomplete="off" readonly />
                     </div>
-
+        
                     <div class="manage_input_area manage_input_phone">
                         <label for="manage_phone">휴대전화</label>
-                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off"
-                            value="010" required />
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" maxlength="3" readonly />
                         -
-                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678"
-                            required />
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" maxlength="8" readonly />
                     </div>
                     <div class="manage_input_area manage_input_addr">
                         <label for="manage_address">주소</label>
                         <div class="manage_user_addr">
                             <div class="user_addr_info_zipcode">
-                                <input class="user_addr_zipcode" type="text" name="zipcode" maxlength="5"
-                                    placeholder="우편번호" readonly />
-                                <input class="user_addr_search_zipcode" type="button" name="search" value="우편번호검색"
-                                    autocomplete="off" />
+                                <input class="user_addr_zipcode" type="text" name="zipcode" placeholder="우편번호" readonly />
                             </div>
 
                             <div class="user_addr_info_detail">
                                 <input class="user_addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
-                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off"
-                                    placeholder="상세주소" />
+                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" readonly/>
                             </div>
-                        </div>
-
+                        </div>  
+                    
                     </div>
                 </form>
-            </div>
-
-            <div class="btn_user_information">
-                <button>수정</button>
             </div>
 
             <!-- 창 닫기 -->
@@ -240,12 +230,13 @@
         </div>
     </div>
 
-    <!-- script -->
-    <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="../js/main/main_menu_bar.js"></script>
-    <script src="../js/manage/manage_user.js"></script>
-    <script type="module" src="../js/main/main_header.js"></script>
+        <!-- script -->
+        <!-- ICON -->
+        <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+        <!-- JS -->
+        <script src="../js/main/main_menu_bar.js"></script>
+        <script src="../js/main/main_header.js"></script>
+        <script src="../js/manage/manage_user.js"></script>
 </body>
 
 </html>

@@ -75,7 +75,6 @@
     cursor: pointer;
 }
 
-/* 회원 - 회원정보 수정 */
 /* MODAL - 회원정보 수정 */
 #modal_usercheck {
     width: 100%;
@@ -168,7 +167,7 @@
 }
 
 #modal_usercheck .user_addr_info_detail > input {
-    width: 250px;
+    width: 300px;
 }
 
 #modal_usercheck .user_addr_info_zipcode > input, 
