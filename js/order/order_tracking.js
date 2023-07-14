@@ -1,138 +1,144 @@
-const orderTrackingListArr = [
-    {
-        productName: 'POÄNG 포엥 1개',
-        PaymentAmount: 99000,
-        PaymentDay: '2023-07-12',
-        PaymentTime: '17:40',
-        requestMessage: '도착전 전화해주세요.',
-        orderNumber: '2323elice0710647',
-        orderState: '배송준비중',
-    },
-    {
-        productName: 'POÄNG 포엥 1개',
-        PaymentAmount: 99000,
-        PaymentDay: '2023-07-12',
-        PaymentTime: '17:40',
-        requestMessage: '도착전 전화해주세요.',
-        orderNumber: '2323elice0710648',
-        orderState: '배송준비중',
-    },
-    {
-        productName: 'POÄNG 포엥 1개',
-        PaymentAmount: 99000,
-        PaymentDay: '2023-07-12',
-        PaymentTime: '17:40',
-        requestMessage: '도착전 전화해주세요.',
-        orderNumber: '2323elice07106469',
-        orderState: '배송준비중',
-    },
-];
+// 현재 로그인 되어 있는 계정 토큰 불러오기
+const USERTOKEN = localStorage.getItem("userToken");
 
 //주문 추가
-const orderTrackingList = document.querySelector('.order_tracking_list');
-const orderList = document.querySelector('.order_list');
+const orderTrackingList = document.querySelector(".order_tracking_list");
+const orderList = document.querySelector(".order_list");
 
-// 주문 동적 추가 함수
-function orderMade() {
-    for (let i = 0; i < orderTrackingListArr.length; i++) {
-        if (orderTrackingListArr.length === 0) {
-            orderTrackingList.innerHTML += '주문정보가 없습니다';
-        } else {
-            orderTrackingList.innerHTML += `
-        <div class="order_list" id=${orderTrackingListArr[i].orderNumber}>
-            <div class="img_thumb">
-                <img src="../assets/img/thumbnail2.png" alt="thumbnail">
-            </div>
-            <div class="order_name">
-                <ul class="list_name">
-                    <li class="product_name">
-                        <a href="/">${orderTrackingListArr[i].productName}</a>
-                    </li>
-                    <li>결제금액 : ${orderTrackingListArr[i].PaymentAmount} | ${orderTrackingListArr[i].PaymentDay} | ${orderTrackingListArr[i].PaymentTime}</li>
-                    <li>요청 사항 : ${orderTrackingListArr[i].requestMessage}</li>
-                    <li>주문 번호 : ${orderTrackingListArr[i].orderNumber}</li>
-                </ul>
-            </div>
-            <div class="order_btn">
-                <ul>
-                    <li>${orderTrackingListArr[i].orderState}</li>
-                    <li class="order_del">결제취소</li>
-                </ul>
-            </div>
-        </div>
-        `;
-        }
-    }
+// 배송지 정보
+const receiverNameInfo = document.getElementsByClassName("receiver_name")[0];
+const receiverNumInfo = document.getElementsByClassName("receiver_num")[0];
+const receiverZipInfo = document.getElementsByClassName("receiver_zipcode")[0];
+const receiverAddrInfo = document.getElementsByClassName("receiver_addr")[0];
 
-    // 주문 취소
-    const orderDeleteBtn = document.querySelectorAll('.order_del');
-    for (let i = 0; i < orderDeleteBtn.length; i++) {
-        orderDeleteBtn[i].addEventListener('click', (e) => {
-            let orderDeleteTarget = confirm('주문을 취소하시겠습니까?');
-            console.log(e.target.parentElement.parentElement.parentElement.id);
-            if (orderDeleteTarget === true) {
-                alert('주문이 취소되었습니다');
-                orderTrackingListArr[i].orderState = '주문취소중';
-                orderReset();
-                orderMade();
+// 주문 정보
+const orderedIdInfo = document.getElementsByClassName("ordered_num")[0];
+const orderedDateInfo = document.getElementsByClassName("ordered_date")[0];
+const orderedListInfo = document.getElementsByClassName("ordered_list")[0];
+const orderedCountInfo = document.getElementsByClassName("ordered_count")[0];
+const orderedSumInfo = document.getElementsByClassName("ordered_sum")[0];
+
+fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${USERTOKEN}`,
+    },
+})
+    .then((res) => res.json())
+    .then((loginUserdata) => {
+        console.log(loginUserdata);
+        // 주문 동적 추가 함수
+        for (let i = 0; i < loginUserdata.length; i++) {
+            if (loginUserdata.length === 0) {
+                orderTrackingList.innerHTML += "주문정보가 없습니다";
             } else {
-                alert('창을 종료합니다');
+                orderTrackingList.innerHTML += `
+                    <div class="order_list">
+                        <div class="order_name">
+                            <ul class="list_name">
+                                <li class="order_id">주문 번호 : ${loginUserdata[i]._id}</li>
+                                <li>결제금액 : ${loginUserdata[i].totalPrice}</li>
+                            </ul>
+                        </div>
+                        <div class="order_btn">
+                            <ul>
+                                <li class="user_order_status">${loginUserdata[i].status}</li>
+                                <li class="order_del">주문삭제</li>
+                            </ul>
+                        </div>
+                    </div>
+            `;
             }
+        }
+
+        // 주문정보 상세 조회
+        const orderDetailInfoModal =
+            document.getElementsByClassName("user_order_modal")[0];
+
+        // 모달창 닫기
+        const orderModalBtn = document.getElementsByClassName(
+            "btn_close_order_modal",
+        )[0];
+
+        orderModalBtn.addEventListener("click", () => {
+            orderDetailInfoModal.style.display = "none";
         });
-    }
-}
-// 주문 동적 추가 함수 실행
-orderMade();
 
-function orderReset() {
-    orderTrackingList.innerHTML = '';
-}
+        const orderNumId = document.querySelectorAll(".order_id");
+        orderNumId.forEach((btn, i) => {
+            btn.addEventListener("click", function () {
+                orderDetailInfoModal.style.display = "flex";
+                receiverNameInfo.innerText = loginUserdata[i].fullName;
+                receiverNumInfo.innerText = loginUserdata[i].phoneNumber;
+                receiverZipInfo.innerText = loginUserdata[i].address.postalCode;
+                receiverAddrInfo.innerText =
+                    loginUserdata[i].address.address1 +
+                    loginUserdata[i].address.address2;
+                orderedIdInfo.innerText = loginUserdata[i]._id;
+            });
+        });
 
-/*
+        // 주문 취소
+        const orderDeleteBtn = document.querySelectorAll(".order_del");
 
-const retouchBtn = document.querySelectorAll('.btn_edit_retouch');
+        orderDeleteBtn.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                fetch(
+                    `http://kdt-sw-5-team01.elicecoding.com/api/orderslist/${loginUserdata[i]._id}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${USERTOKEN}`,
+                        },
+                    },
+                )
+                    .then((res) => res.json())
+                    .then((res) => {
+                        alert("관리자 승인이 필요합니다!");
+                    });
+            });
+        });
 
-for (let i = 0; i < retouchBtn.length; i++) {
-    retouchBtn[i].addEventListener('click', (e) => {
-        const retouchCategoryValue =
-            e.target.parentElement.parentElement.querySelector('p').innerText;
-        console.log(retouchCategoryValue);
+        orderNumId.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                fetch(
+                    `http://kdt-sw-5-team01.elicecoding.com/api/ordersitemlist/${loginUserdata[i]._id}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${USERTOKEN}`,
+                        },
+                    },
+                )
+                    .then((res) => res.json())
+                    .then((orderItem) => {
+                        console.log(orderItem);
+
+                        for (let i = 0; i < orderItem.length; i++) {
+                            orderedDateInfo.innerText = orderItem[
+                                i
+                            ].createdAt.slice(0, 10);
+                            orderedDateInfo.innerText = orderItem[
+                                i
+                            ].createdAt.slice(0, 10);
+                            orderedCountInfo.innerText = `${orderItem[i].quantity}개`;
+                            orderedSumInfo.innerText = orderItem[i].finalPrice;
+                            orderedListInfo.innerText =
+                                orderItem[i].productName;
+                        }
+                    });
+            });
+        });
     });
-}
-*/
 
-// orderDeleteBtn.addEventListener('click', (e) => {
-//     // // order delete 통신
-//     // fetch('http://백엔드 주소/order', {
-//     //     method: 'DELETE',
-//     //     headers: {
-//     //         Authorization: localStorage.getItem('access_token'),
-//     //     },
-//     //     body: JSON.stringify({
-//     //         //삭제하고싶은 데이터의 회원 id
-//     //         order_id: order_id,
-//     //     }),
-//     // })
-//     //     .then((response) => {
-//     //         if (response.ok === true) {
-//     //             orderTrackingList -= orderList;
-//     //             return orderTrackingList;
-//     //         }
-//     //     })
-//     //     .catch((error) => console.log(error));
-//     console.log(orderDeleteBtn);
-//     const nowOrderListId =
-//         e.target.parentElement.parentElement.parentElement.id;
-//     console.log(nowOrderListId);
-
-//     orderTrackingListArr.forEach((item, index) => {
-//         // console.log(item.orderNumber === nowOrderList);
-//         if (item.orderNumber === nowOrderListId) {
-//             orderTrackingListArr.splice(index, 1);
-//         }
-//     });
-
-//     // 주문 동적 추가 함수 실행
-//     orderReset();
-//     orderMade();
-// });
+// 로그아웃
+const sideLogoutBtn1 = document.getElementsByClassName("side_logout_btn")[0];
+sideLogoutBtn1.addEventListener("click", () => {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("cartItems");
+    location.href = "/html/login.html";
+});
