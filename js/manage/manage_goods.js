@@ -1,70 +1,105 @@
 const goodsData = document.querySelector('.table');
-console.log(goodsData);
 
 fetchData();
 
 async function fetchData() {
-    const res = await fetch('../js/manage/goods.json');
+    const res = await fetch(
+        'http://kdt-sw-5-team01.elicecoding.com/api/products',
+    );
     let data = await res.json();
     console.log(data);
-    for (let i = 0; i < data.length; i++) {
-        const goodsState = data[i].goods_state;
-        const goodsCate = data[i].goods_cate;
-        goodsData.innerHTML += `
-        <tr class="goods_table">
-            <td class="goods_cate">
-            <select class="goods_cate" id="${data[i].goods_cate}">
-                <option class="gd_cate" ${
-                    goodsCate === '침대' ? 'selected' : ''
-                }>침대</option>
-                <option class="gd_cate" ${
-                    goodsCate === '책상' ? 'selected' : ''
-                }>책상</option>
-                <option class="gd_cate" ${
-                    goodsCate === '옷장' ? 'selected' : ''
-                }>옷장</option>
-                <option class="gd_cate" ${
-                    goodsCate === '식탁' ? 'selected' : ''
-                }>식탁</option>
-                <option class="gd_cate" ${
-                    goodsCate === '협탁' ? 'selected' : ''
-                }>협탁</option>
-                <option class="gd_cate" ${
-                    goodsCate === '책장' ? 'selected' : ''
-                }>책장</option>
-            </select>
-        </td>
-        <td class="goods_name">${data[i].goods_name}</td>
-        <td class="goods_price">${data[i].goods_price}</td>
-        <td class="goods_date">${data[i].goods_date}</td>
-        <td class="goods_state">
-            <select class="goods_state" id="${data[i].goods_state}">
-            <option class="gd_sta" ${
-                goodsState === '판매중' ? 'selected' : ''
-            }>판매중</option>
-            <option class="gd_sta" ${
-                goodsState === '판매중지' ? 'selected' : ''
-            }>판매중지</option>
-            </select>
-        </td>
-        <td class="goods_scrip">${data[i].goods_scrip}</td>
-        <td class="goods_modi"><button class="goods_modi_btn">수정하기</button></td>
-        <td class="goods_del"><button class="goods_del_btn">삭제하기</button></td>
-        </tr>
-    `;
+
+    // 관리자 상품 생성
+    function manageGoodsMade() {
+        for (let i = 0; i < data.length; i++) {
+            goodsData.innerHTML += `
+            <tr class="goods_table">
+                <td class="goods_cate">${data[i].categoryId.title}</td>
+                <td class="goods_name">${data[i].productName}</td>
+                <td class="goods_pric">${data[i].price}</td>
+                <td class="goods_date">${data[i].createdAt.split('T')[0]}</td>
+                <td class="goods_scrip">${data[i].shortDescription}</td>
+                <td class="goods_modi"><button class="goods_modi_btn">수정</button></td>
+                <td class="goods_del"><button class="goods_del_btn">삭제</button></td>
+            </tr>
+        `;
+        }
     }
 
+    // 상품 초기화
+    function manageGoodsReset() {
+        goodsData.innerHTML = '';
+    }
+
+    manageGoodsMade();
+
+    // 상품 수정
+    const modiBtn = document.querySelectorAll('.goods_modi_btn');
+    modiBtn.forEach((button, i) => {
+        button.addEventListener('click', () => {
+            // <!-- 이 아래로 수정 필요 ( 작업후 삭제 필요 )
+            // 변수들을 수정버튼누르면 모1` 달창을 열거나,
+            //html의 구조를 td > input을 넣어서 현재 해당 값을 넣게 하는 방식으로?
+            const productName = data[i].productName;
+            const categoryId = data[i].categoryId.title;
+            const shortDescription = data[i].shortDescription;
+            const productImageKey = data[i].productImageKey;
+            const price = data[i].price;
+
+            const productsDataJson = JSON.stringify({
+                productName: productName,
+                categoryId: categoryId,
+                shortDescription: shortDescription,
+                productImageKey: productImageKey,
+                price: price,
+            });
+
+            fetch(
+                `http://kdt-sw-5-team01.elicecoding.com/api/products/${data[i]._id}`,
+                {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
+                    },
+                    body: productsDataJson,
+                },
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    manageGoodsReset();
+                    manageGoodsMade();
+                    // window.location.reload();
+                });
+        });
+    });
+
+    // 상품 삭제
     const delBtn = document.querySelectorAll('.goods_del_btn');
     delBtn.forEach((button, i) => {
         button.addEventListener('click', () => {
             const confirmDelete =
                 window.confirm('해당 주문건을 삭제하시겠습니까?');
             if (confirmDelete) {
-                const orderTable = button.closest('.goods_table');
-                orderTable.remove();
-                // 예시: 주문 삭제 후 알림 메시지 표시
-                alert(`${data[i].goods_number} 삭제되었습니다.`);
-                data = data.filter((item, index) => index !== i); // JSON 데이터에서 해당 객체 제거
+                alert(`${data[i].productName}이 삭제되었습니다.`);
+                fetch(
+                    `http://kdt-sw-5-team01.elicecoding.com/api/products/${data[i]._id}`,
+                    {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
+                        },
+                    },
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        manageGoodsReset();
+                        manageGoodsMade();
+                        window.location.reload();
+                    });
             }
         });
     });
