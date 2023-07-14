@@ -1,4 +1,4 @@
-fetch('http://kdt-sw-5-team01.elicecoding.com/api//products')
+fetch('http://kdt-sw-5-team01.elicecoding.com/api/products')
     .then((response) => response.json())
     .then((data) => {
         productsListArr = data;
@@ -7,7 +7,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api//products')
 
 // 상품 목록 객체 배열
 let productsListArr = [];
-
 const listFilterNew = document.getElementById('list_filter_new');
 const listFilterHighPrice = document.getElementById('list_filter_high');
 const listFilterLowPrice = document.getElementById('list_filter_low');
@@ -17,7 +16,7 @@ function productMade(data) {
     for (let i = 0; i < data.length; i++) {
         document.getElementById('list_category_sale').innerHTML += `
         <li class="li_products">
-            <a href="/">
+            <a id="${data[i]._id}" href="/html/detail.html?${data[i]._id}">
                 <span class="img_sale_product">
                     <img src="${data[i].productImageKey}" class="img_sale_product"></img>
                 </span>
@@ -55,9 +54,6 @@ function productMade(data) {
 function productReset() {
     document.getElementById('list_category_sale').innerHTML = '';
 }
-
-// 기본 목록 보여주기
-productMade(productsListArr);
 
 ////////////////////////////////////////////////////
 const filterDrop = document.querySelector('.filter_drop');
