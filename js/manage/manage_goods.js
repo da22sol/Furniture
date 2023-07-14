@@ -1,4 +1,93 @@
 const goodsData = document.querySelector('.table');
+// 현재 로그인 되어 있는 계정 토큰 불러오기
+const USERTOKEN = localStorage.getItem("userToken");
+
+// 상품 추가 모달창
+const plusGoodsModalXbtn = document.getElementsByClassName("plus_product_btn")[0];
+const plusGoodsModalSbtn = document.getElementsByClassName("submit_plus_goods")[0];
+const plusGoodsModal = document.getElementsByClassName("goods_modal")[0];
+const plusGoodsModalObtn = document.getElementsByClassName("manage_goods_add_btn")[0];
+
+// 상품 수정 모달창
+const editGoodsModalXbtn = document.getElementsByClassName("edit_product_btn")[0];
+const editGoodsModalSbtn = document.getElementsByClassName("submit_edit_goods")[0];
+const editGoodsModal = document.getElementsByClassName("manage_edit_goods_modal")[0];
+
+editGoodsModalXbtn.addEventListener("click", () => {
+    location.reload();
+    editGoodsModal.style.display = "none";
+})
+
+plusGoodsModalXbtn.addEventListener("click", () => {
+    plusGoodsModal.style.display = "none";
+})
+
+plusGoodsModalObtn.addEventListener("click", () => {
+    plusGoodsModal.style.display = "flex";
+})
+
+// 값 가져오기 - 상품 등록 모달 
+const plusCategotyInput = document.getElementById("plus_category");
+const plusGoodsInput = document.getElementById("plus_category");
+const plusPriceInput = document.getElementById("plus_price");
+const plusDescInput = document.getElementById("plus_des");
+const plusPicInput = document.getElementById("plus_pic");
+const plusKeywordInput = document.getElementById("plus_keyword");
+
+// 값 가져오기 - 상품 수정 모달
+const editCategotyInput = document.getElementById("edit_category");
+const editGoodsInput = document.getElementById("edit_goods");
+const editPriceInput = document.getElementById("edit_price");
+const editDescInput = document.getElementById("edit_des");
+const editPicInput = document.getElementById("edit_pic");
+const editKeywordInput = document.getElementById("edit_keyword");
+
+let plusCategotyInputValue = "";
+
+// 상품 추가
+plusGoodsModalSbtn.addEventListener("click", () => {
+    if(plusCategotyInput.value == "bed") {
+        plusCategotyInputValue = "64ae57f7ad2344d26934ba33";
+    } else if (plusCategotyInput.value == "desk") {
+        plusCategotyInputValue = "64ae53a10610d58017eac153";
+    }else if (plusCategotyInput.value == "table") {
+        plusCategotyInputValue = "64ae53a10610d58017eac154";
+    } else if (plusCategotyInput.value == "closet") {
+        plusCategotyInputValue = "64aec3715c0eee670bdcc5e1";
+    } else if (plusCategotyInput.value == "sofa") {
+        plusCategotyInputValue = "64ae57f7ad2344d26934ba34";
+    } else if (plusCategotyInput.value == "drawer") {
+        plusCategotyInputValue = "64aec3db5c0eee670bdcc5e3";
+    }
+
+    // 객체
+    const plusGoodsData = {
+        productName: plusCategotyInput.value,
+        categoryId: plusCategotyInputValue,
+        shortDescription: plusDescInput.value,
+        productImageKey: plusPicInput.value,
+        price: plusPriceInput.value,
+        searchKeywords: plusKeywordInput.value,
+    };
+
+    const dataJson = JSON.stringify(plusGoodsData);
+
+    fetch("http://kdt-sw-5-team01.elicecoding.com/api/products", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${USERTOKEN}`,
+        },
+        body: dataJson,
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            alert("등록 완료!");
+            location.reload();
+        });
+})
+
+
 
 fetchData();
 
@@ -7,7 +96,7 @@ async function fetchData() {
         'http://kdt-sw-5-team01.elicecoding.com/api/products',
     );
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     // 관리자 상품 생성
     function manageGoodsMade() {
@@ -34,24 +123,49 @@ async function fetchData() {
     manageGoodsMade();
 
     // 상품 수정
+    
+
     const modiBtn = document.querySelectorAll('.goods_modi_btn');
     modiBtn.forEach((button, i) => {
         button.addEventListener('click', () => {
-            // <!-- 이 아래로 수정 필요 ( 작업후 삭제 필요 )
-            // 변수들을 수정버튼누르면 모1` 달창을 열거나,
-            //html의 구조를 td > input을 넣어서 현재 해당 값을 넣게 하는 방식으로?
-            const productName = data[i].productName;
+            editGoodsModal.style.display = "flex";
+
+            if(plusCategotyInput.value == "64ae57f7ad2344d26934ba33") {
+                plusCategotyInputValue = "bed";
+            } else if (plusCategotyInput.value == "64ae53a10610d58017eac153") {
+                plusCategotyInputValue = "desk";
+            }else if (plusCategotyInput.value == "64ae53a10610d58017eac154") {
+                plusCategotyInputValue = "table";
+            } else if (plusCategotyInput.value == "64aec3715c0eee670bdcc5e1") {
+                plusCategotyInputValue = "closet";
+            } else if (plusCategotyInput.value == "64ae57f7ad2344d26934ba34") {
+                plusCategotyInputValue = "sofa";
+            } else if (plusCategotyInput.value == "64aec3db5c0eee670bdcc5e3") {
+                plusCategotyInputValue = "drawer";
+            }
+
+            const productNames = data[i].productName;
             const categoryId = data[i].categoryId.title;
             const shortDescription = data[i].shortDescription;
             const productImageKey = data[i].productImageKey;
+            const productSearch = data[i].searchKeywords;
             const price = data[i].price;
 
+            editCategotyInput.value = categoryId;
+            editGoodsInput.value = productNames;
+            editPriceInput.value = price; 
+            editDescInput.value = shortDescription;
+            editPicInput.value = productImageKey;
+            editKeywordInput.value = productSearch;
+
+
             const productsDataJson = JSON.stringify({
-                productName: productName,
+                productName: productNames,
                 categoryId: categoryId,
                 shortDescription: shortDescription,
                 productImageKey: productImageKey,
                 price: price,
+                searchKeywords: productSearch,
             });
 
             fetch(
