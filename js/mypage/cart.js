@@ -55,36 +55,34 @@ const checedCheckbox = document.querySelector('.check_product input[type="checkb
 
 allButton.addEventListener('click', () => {
   checedCheckbox.checked = !checedCheckbox.checked;
-}); 
-
+});
 
 // 삭제하기(삭제하기 버튼을 누르면 장바구니가 비워지고 메시지가 나옴 그리고 선택한 것만 지워짐)
-// let delButton = document.querySelector('.delete_button');
-// delButton.addEventListener('click', () => {
-//   const checkboxes = document.querySelector(
-//     '.check_product input[type="checkbox"]'
-//   );
-//  const cartListInfo = document.querySelector('.cart_product_list');
-//   cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
+const delButton = document.querySelector('.delete_button');
+delButton.addEventListener('click', () => {
+  const checkboxes = document.querySelectorAll(
+    '.check_product input[type="checkbox"]',
+  );
+  const cartListInfo = document.querySelector('.cart_product_list');
+  cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
 
-//   checkboxes.forEach((checkbox) => {
-//     if (checkbox.checked) {
-//       const cartRemove = checkbox.closest('.cart_product_list');
-//       const orderRemove = checkbox.closest('.ship');
-//       cartRemove.remove();
-//       orderRemove.remove();
-//     }
-//   });
-// });
 
-  
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      const cartRemove = checkbox.closest('.cart_product_list');
+      const orderRemove = checkbox.closest('li');
+      cartRemove.remove();
+      orderRemove.remove();
+    }
+  });
+});
 
 // 선택상품, 전체상품구매하기 (상품 없음 알림창)
 const state = {
   selectedItemExist: false,
 };
 
-const checkedBoxs = document.querySelector('.check_product input[type="checkbox"]');
+const checkedBoxs = document.querySelectorAll('.check_product input[type="checkbox"]');
 checkedBoxs.forEach((checkbox) => {
   checkbox.addEventListener('click', () => {
     state.selectedItemExist = checkbox.checked;
@@ -109,8 +107,9 @@ function purchaseAllItems() {
   if (cartData.length > 0) {
     const queryString = cartData.map((item) => `category=${encodeURIComponent(item.category)}&productName=${encodeURIComponent(item.productName)}&searchKeywords=${encodeURIComponent(item.searchKeywords)}&price=${encodeURIComponent(item.price)}&quantity=${encodeURIComponent(item.quantity)}`).join('&');
 
-    window.location.href = `/html/order.html?${queryString}`;
+    window.location.href = `order.html?${queryString}`;
   } else {
     alert('장바구니에 상품이 없습니다');
   }
 }
+

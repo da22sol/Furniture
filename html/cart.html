@@ -83,12 +83,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -125,10 +130,8 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="/index.html">
-                                        로그아웃
-                                    </a>
+                                <li class="side_logout_btn1">
+                                    로그아웃
                                 </li>
                             </ul>
                         </div>
@@ -173,11 +176,14 @@
                                     <span></span>
                                 </div>
                             </div>
-
+                            <div class="name_button">
+                                <p class="all_button" onclick='selectAll(this)'>전체선택</p>
+                                <p class="delete_button"></p>
+                            </div>
                             <div class="button_ship">
                                 <div class="name_button">
                                     <p class="all_button" onclick='selectAll(this)'>전체선택</p>
-                                 
+
                                 </div>
                             </div>
 
@@ -208,7 +214,8 @@
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-        <script type="module" src="../js/app.js"></script>
+        
+        <script src="../js/main/main_header.js"></script>
         <script src="../js/mypage/cart.js"></script>
 </body>
 

@@ -80,7 +80,7 @@ function addProduct() {
 
     // (3) 기존 데이터에 상품 추가
     const product =
-        {
+        {   productImageKey : detailDataArr.productImageKey,
             category: detailDataArr.categoryId.title,
             productName: detailDataArr.productName,
             price: detailDataArr.price,
