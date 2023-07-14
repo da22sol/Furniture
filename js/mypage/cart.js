@@ -3,13 +3,13 @@ console.log(cartItemsString);
 const cartData = JSON.parse(cartItemsString) || [];
 console.log(cartData);
 const cartContainer = document.querySelector('.info_cart_product');
-const cartImg = document.querySelector('.img_thumbnail');
+const cartImg = document.querySelector('.img_thumbnail'); console.log("daso")
 for (let i = 0; i < cartData.length; i++) {
   cartImg.innerHTML = `
     <li class="img_thumbnail"> <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}"> </li>;`;
   cartContainer.innerHTML = ` <li class="info_cart_product">
     <span><a href="/">${cartData[i].productName}</a></span>
-    <p>${cartData[i].searchKeywords}</p>
+    <p>${cartData[i].category}</p>
     <p class="price">${cartData[i].price}</p>
     <div class="quantity">
       <input type='button' class="decrease_button" value='-' />
@@ -55,35 +55,36 @@ const checedCheckbox = document.querySelector('.check_product input[type="checkb
 
 allButton.addEventListener('click', () => {
   checedCheckbox.checked = !checedCheckbox.checked;
-});
+}); 
+
 
 // 삭제하기(삭제하기 버튼을 누르면 장바구니가 비워지고 메시지가 나옴 그리고 선택한 것만 지워짐)
-const delButton = document.querySelector('.delete_button');
-delButton.addEventListener('click', () => {
-  const checkboxes = document.querySelectorAll(
-    '.check_product input[type="checkbox"]',
-  );
-  const cartListInfo = document.querySelector('.cart_product_list');
-  cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
-  const shipInfo = document.querySelector('.ship');
-  shipInfo.style.display = 'none';
+// let delButton = document.querySelector('.delete_button');
+// delButton.addEventListener('click', () => {
+//   const checkboxes = document.querySelector(
+//     '.check_product input[type="checkbox"]'
+//   );
+//  const cartListInfo = document.querySelector('.cart_product_list');
+//   cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
 
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked) {
-      const cartRemove = checkbox.closest('.cart_product_list');
-      const orderRemove = checkbox.closest('li');
-      cartRemove.remove();
-      orderRemove.remove();
-    }
-  });
-});
+//   checkboxes.forEach((checkbox) => {
+//     if (checkbox.checked) {
+//       const cartRemove = checkbox.closest('.cart_product_list');
+//       const orderRemove = checkbox.closest('.ship');
+//       cartRemove.remove();
+//       orderRemove.remove();
+//     }
+//   });
+// });
+
+  
 
 // 선택상품, 전체상품구매하기 (상품 없음 알림창)
 const state = {
   selectedItemExist: false,
 };
 
-const checkedBoxs = document.querySelectorAll('.check_product input[type="checkbox"]');
+const checkedBoxs = document.querySelector('.check_product input[type="checkbox"]');
 checkedBoxs.forEach((checkbox) => {
   checkbox.addEventListener('click', () => {
     state.selectedItemExist = checkbox.checked;
