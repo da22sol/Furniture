@@ -1,4 +1,5 @@
-fetch('http://kdt-sw-5-team01.elicecoding.com/api//products')
+// 상품의 id값 기반의 상품 정보 받아오기
+fetch(`http://kdt-sw-5-team01.elicecoding.com/api/products`)
     .then((response) => response.json())
     .then((data) => {
         bestProductsListArr = data;
@@ -18,7 +19,7 @@ function bestProductsMade() {
     for (let i = 0; i < 8; i++) {
         bestProductsList.innerHTML += `
         <li class="li_products">
-            <a href="/">
+            <a id="${bestProductsListArr[i]._id}" href="/html/detail.html?${bestProductsListArr[i]._id}">
                 <span class="img_best_product">
                     <img src="${bestProductsListArr[i].productImageKey}" class="img_best_product"></img>
                 </span>
