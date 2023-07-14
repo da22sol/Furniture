@@ -1,38 +1,38 @@
-function displayCartItems() {
-  const request = window.indexedDB.open('myDB', 1);
+// function displayCartItems() {
+//   const request = window.indexedDB.open('myDB', 1);
 
-  request.onsuccess = function (event) {
-    const db = event.target.result;
-    const transaction = db.transaction(['cart'], 'readonly');
-    const objectStore = transaction.objectStore('cart');
-    const getAllRequest = objectStore.getAll();
-    const cartContainer = document.getElementsByClassName('info_cart_product')[0];
+//   request.onsuccess = function (event) {
+//     const db = event.target.result;
+//     const transaction = db.transaction(['cart'], 'readonly');
+//     const objectStore = transaction.objectStore('cart');
+//     const getAllRequest = objectStore.getAll();
+//     const cartContainer = document.getElementsByClassName('info_cart_product')[0];
 
-    getAllRequest.onsuccess = function (event) {
-      const cartData = event.target.result;
-      if (cartData.length === 0) {
-        cartContainer.innerHTML = '장바구니가 비어 있습니다.';
-      } else {
-        cartContainer.innerHTML = '';
-        for (let i = 0; i < cartData.length; i++) {
-          cartContainer.innerHTML += `
-            <li class="img_thumbnail">
-              <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}">
-            </li>
-            <span><a href="/">${cartData[i].productName}</a></span>
-            <p>${cartData[i].searchKeywords}</p>
-            <p class="price">${cartData[i].price}</p>
-            <div class="quantity">
-              <input type='button' class="decrease_button" value='-' />
-              <span><input type="text" class="product_button" value="${cartData[i].quantity}" /></span>
-              <input type='button' class="increase_button" value='+' />
-            </div>
-          `;
-        }
-      }
-    };
-  };
-}
+//     getAllRequest.onsuccess = function (event) {
+//       const cartData = event.target.result;
+//       if (cartData.length === 0) {
+//         cartContainer.innerHTML = '장바구니가 비어 있습니다.';
+//       } else {
+//         cartContainer.innerHTML = '';
+//         for (let i = 0; i < cartData.length; i++) {
+//           cartContainer.innerHTML += `
+//             <li class="img_thumbnail">
+//               <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}">
+//             </li>
+//             <span><a href="/">${cartData[i].productName}</a></span>
+//             <p>${cartData[i].searchKeywords}</p>
+//             <p class="price">${cartData[i].price}</p>
+//             <div class="quantity">
+//               <input type='button' class="decrease_button" value='-' />
+//               <span><input type="text" class="product_button" value="${cartData[i].quantity}" /></span>
+//               <input type='button' class="increase_button" value='+' />
+//             </div>
+//           `;
+//         }
+//       }
+//     };
+//   };
+// }
 
 const cartItemsString = localStorage.getItem('cartItems');
 const cartData = JSON.parse(cartItemsString) || [];
