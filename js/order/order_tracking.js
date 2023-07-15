@@ -38,7 +38,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                         <div class="order_name">
                             <ul class="list_name">
                                 <li class="order_id">주문 번호 : ${loginUserdata[i]._id}</li>
-                                <li>결제금액 : ${loginUserdata[i].totalPrice}</li>
+                                <li>결제금액 : ${loginUserdata[i].totalPrice.toLocaleString('ko-KR')}원</li>
                             </ul>
                         </div>
                         <div class="order_btn">
@@ -125,7 +125,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                                 i
                             ].createdAt.slice(0, 10);
                             orderedCountInfo.innerText = `${orderItem[i].quantity}개`;
-                            orderedSumInfo.innerText = orderItem[i].finalPrice;
+                            orderedSumInfo.innerText = `${orderItem[i].finalPrice.toLocaleString('ko-KR')}원`;
                             orderedListInfo.innerText =
                                 orderItem[i].productName;
                         }

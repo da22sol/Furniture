@@ -95,6 +95,7 @@
     position: relative;
     justify-content: space-between;
     box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .user_order_modal .order_modal_list {
