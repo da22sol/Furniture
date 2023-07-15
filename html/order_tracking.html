@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -19,7 +19,6 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nunito+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 </head>
 
@@ -84,12 +83,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -126,43 +130,19 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="/index.html">
-                                        로그아웃
-                                    </a>
+                                <li class="side_logout_btn">
+                                    로그아웃
                                 </li>
                             </ul>
                         </div>
 
                         <div class="manage_layout_right">
                             <h2>주문조회</h2>
-                            
+
                             <div class="order_tracking_list">
                                 <!-- 추가되는 컨텐츠 -->
-                                <div class="order_list">
-                                    <div class="img_thumb">
-                                        <img src="../assets/img/thumbnail2.png" alt="thumbnail">
-                                    </div>
-
-                                    <div class="order_name">
-                                        <ul class="list_name">
-                                            <li class="product_name">
-                                                <a href="/">POÄNG 포엥 1개</a>
-                                            </li>
-                                            <li>결제금액 : 99,000 | 2023-07-01 | 05:46</li>
-                                            <li>요청 사항 : 도착전 전화해주세요.</li>
-                                            <li>주문 번호 : 2323elice0710646</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="order_btn">
-                                        <ul>
-                                            <li>배송준비중</li>
-                                            <li class="order_del">결제취소</li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 
+
                             </div>
 
                         </div>
@@ -182,9 +162,72 @@
         </footer>
     </div>
 
+    <!-- MODAL -->
+    <div class="user_order_modal">
+        <div class="order_modal_box">
+            <h3>주문정보</h3>
+            <div class="order_modal_list">
+
+                <div class="order_list_modal_box">
+                    <h4>주문 정보</h4>
+                    <ul>
+                        <li>
+                            <span>주문번호</span>
+                            <p class="ordered_num"></p>
+                        </li>
+                        <li>
+                            <span>주문날짜</span>
+                            <p class="ordered_date"></p>
+                        </li>
+                        <li>
+                            <span>주문상품</span>
+                            <p class="ordered_list"></p>
+                        </li>
+                        <li>
+                            <span>수량</span>
+                            <p class="ordered_count"></p>
+                        </li>
+                        <li>
+                            <span>결제금액</span>
+                            <p class="ordered_sum"></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="order_list_modal_box">
+                    <h4>배송지 정보</h4>
+                    <ul>
+                        <li>
+                            <span>받으시는 분</span>
+                            <p class="receiver_name"></p>
+                        </li>
+                        <li>
+                            <span>휴대전화</span>
+                            <p class="receiver_num"></p>
+                        </li>
+                        <li>
+                            <span>우편번호</span>
+                            <p class="receiver_zipcode"></p>
+                        </li>
+                        <li>
+                            <span>주소</span>
+                            <p class="receiver_addr"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn_close_order_modal">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/app.js"></script>
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script type="module" src="../js/main/main_header.js"></script>
+    <script src="/js/order/order_tracking.js"></script>
 </body>
 
 </html>

@@ -50,7 +50,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/order_tracking.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="/html/manage_category.html">문의하기</a></li>
                 </ul>
@@ -83,12 +83,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -112,7 +117,7 @@
                                     <h3>Arm Chair</h3>
                                 </div>
                                 <p class="btn_purchase">
-                                    <a href="/">Shop Now</a>
+                                    <a href="/html/category.html">Shop Now</a>
                                 </p>
                             </div>
                         </div>
@@ -131,7 +136,7 @@
                                     <h3>Palette table JH6</h3>
                                 </div>
                                 <p class="btn_purchase">
-                                    <a href="/">Shop Now</a>
+                                    <a href="/html/category.html">Shop Now</a>
                                 </p>
                             </div>
                         </div>
@@ -150,7 +155,7 @@
                                     <h3>Ottoman</h3>
                                 </div>
                                 <p class="btn_purchase">
-                                    <a href="/">Shop Now</a>
+                                    <a href="/html/category.html">Shop Now</a>
                                 </p>
                             </div>
                         </div>
@@ -169,7 +174,7 @@
                                     <h3>Arm Chair</h3>
                                 </div>
                                 <p class="btn_purchase">
-                                    <a href="/">Shop Now</a>
+                                    <a href="/html/category.html">Shop Now</a>
                                 </p>
                             </div>
                         </div>
@@ -183,74 +188,11 @@
         <main id="container" class="main">
             <section id="content">
                 <!-- CONTENT1 -->
-                <article class="category">
+                <!-- <article class="category">
                     <div class="inner">
-                        <ul>
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/bed.png" alt="bed">
-                                    </span>
-                                    <p>침대</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/sofa.png" alt="sofa">
-                                    </span>
-                                    <p>소파</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/table.png" alt="table">
-                                    </span>
-                                    <p>식탁</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/closet.png" alt="closet">
-                                    </span>
-                                    <p>옷장</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/drawer.png" alt="drawer">
-                                    </span>
-                                    <p>협탁</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/desk.png" alt="desk">
-                                    </span>
-                                    <p>책상</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="./html/category.html" class="list_category">
-                                    <span class="img_category">
-                                        <img src="./assets/img/bookshelf.png" alt="bookshelf">
-                                    </span>
-                                    <p>책장</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul id="category_list"></ul>
                     </div>
-                </article>
+                </article> -->
 
                 <!-- CONTENT2 -->
                 <article class="recommend">
@@ -264,7 +206,7 @@
                                 <img src="./assets/img/main_content2_left.png" alt="product img" />
                             </div>
                             <!-- 추천 페이지로 이동 -->
-                            <a href="/" class="btn_view"> VIEW </a>
+                            <a href="/html/category.html" class="btn_view"> VIEW </a>
                         </div>
 
                         <div class="content_recommend content_recommend_right">
@@ -275,7 +217,7 @@
                             <div class="img_recommend_right">
                                 <img src="./assets/img/main_content2_right.png" alt="product img" />
                             </div>
-                            <a href="/" class="btn_view"> VIEW </a>
+                            <a href="/html/category.html" class="btn_view"> VIEW </a>
                         </div>
                     </div>
                 </article>
@@ -285,93 +227,6 @@
                     <div class="inner">
                         <h2>BEST PRODUCTS</h2>
                         <ul class="list_best_products">
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="product-name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/">
-                                    <span class="img_best_product">
-                                        <!-- 이미지 넣기 -->
-                                    </span>
-                                    <strong>brand</strong>
-                                    <p class="text_product_name">product name</p>
-                                    <p>price</p>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </article>
@@ -387,13 +242,13 @@
                             취향에 맞춰 나만의 공간을 꾸며보세요.
                         </p>
                         <!-- 링크 연결 -->
-                        <a href="/" class="btn_view more btn_see_more">
+                        <a href="/html/category.html" class="btn_view more btn_see_more">
                             See all interior
                         </a>
 
                         <ul>
                             <li class="list_interior">
-                                <a href="/" class="btn_interior_more">
+                                <a href="/html/category.html" class="btn_interior_more">
                                     <span class="width_img_interior">
                                         <img src="./assets/img/natural.jpg" alt="natural interior">
                                     </span>
@@ -405,7 +260,7 @@
                             </li>
 
                             <li class="list_interior">
-                                <a href="/" class="btn_interior_more">
+                                <a href="/html/category.html" class="btn_interior_more">
                                     <span class="height_img_interior">
                                         <img src="./assets/img/modern.jpg" alt="modern interior">
                                     </span>
@@ -417,7 +272,7 @@
                             </li>
 
                             <li class="list_interior">
-                                <a href="/" class="btn_interior_more">
+                                <a href="/html/category.html" class="btn_interior_more">
                                     <span class="height_img_interior">
                                         <img src="./assets/img/romentic.jpg" alt="romentic interior">
                                     </span>
@@ -429,7 +284,7 @@
                             </li>
 
                             <li class="list_interior">
-                                <a href="/" class="btn_interior_more">
+                                <a href="/html/category.html" class="btn_interior_more">
                                     <span class="width_img_interior">
                                         <img src="./assets/img/retro.jpg" alt="retro interior">
                                     </span>
@@ -481,7 +336,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
         integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="./js/app.js"></script>
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script src="/js/main/main_side_btn.js"></script>
+    <script src="/js/main/swiperbanner.js"></script>
+    <script src="/js/main/main_header.js"></script>
+
+    <!-- category & goods -->
+    <script src="/js/main/main_category.js"></script>
+    <script src="/js/main/main_products.js"></script>
 </body>
 
 </html>

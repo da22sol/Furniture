@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -85,12 +85,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -141,14 +146,7 @@
                             <!-- 게시판 -->
                             <div class="member">
                                 <div class="list_member">
-                                    <div class="list_search">
-
-                                        <input type="search" id="input_search" placeholder="이름을 검색해보세요">
-                                        <a href="#" class="search_btn"><img
-                                                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"
-                                                alt="search"></a>
-                                    </div>
-
+                                    
                                     <!-- 회원정보 -->
                                     <div class="contents_member">
                                         <table class="table">
@@ -161,94 +159,7 @@
                                                 <th>수정</th>
                                                 <th>삭제</th>
                                             </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2023-01.01</td>
-                                                <td>elice@elice</td>
-                                                <td>김신입</td>
-                                                <td><select name="account_member" id="account_member">
-                                                        <option class="acc_mem">일반사용자</option>
-                                                        <option class="acc_mem">관리자</option>
-                                                    </select></td>
-                                                <td><button>회원정보수정</button></td>
-                                                <td><button>회원정보삭제</button></td>
-                                            </tr>
+                                            <!-- 회원 리스트 영역-->
                                         </table>
                                     </div>
 
@@ -273,49 +184,44 @@
 
     
     <!-- modal -->
+    <!-- class="modal_user_modify" -->
     <div id="modal_usercheck">
         <div class="modal_userinfo">
-            <h3>회원 관리</h3>
+            <h3>회원정보 조회</h3>
             <div class="user_information">
-                <form action="" class="">
-                    <div class="manage_input_area">
-                        <label for="manage_user_num">회원번호</label>
-                        <input type="text" name="manage_user_num" id="manage_user_num" value="21442154" autocomplete="off" required />
-                    </div>
-
-                    <div class="manage_input_area">
-                        <label for="manage_date">가입날짜</label>
-                        <input type="text" name="manage_date" id="manage_date" value="2023-07-14" autocomplete="off" required />
-                    </div>
-
+                <form>
                     <div class="manage_input_area">
                         <label for="manage_name">이름</label>
-                        <input type="text" name="manage_name" id="manage_name" value="김신입" autocomplete="off" required />
+                        <input type="text" name="manage_name" id="manage_name" autocomplete="off" readonly />
                     </div>
 
                     <div class="manage_input_area manage_input_email">
                         <label for="manage_email">이메일</label>
-                        <input type="text" name="manage_email" id="manage_email" value="new@gamil.com" autocomplete="off" required />
+                        <input type="text" name="manage_email" id="manage_email" autocomplete="off" readonly />
                     </div>
         
                     <div class="manage_input_area manage_input_phone">
                         <label for="manage_phone">휴대전화</label>
-                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" value="010" required />
+                        <input type="text" name="manage_phone_first" id="manage_phone_first" autocomplete="off" maxlength="3" readonly />
                         -
-                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" value="12345678" required />
+                        <input type="text" name="manage_phone" id="manage_phone" autocomplete="off" maxlength="8" readonly />
                     </div>
                     <div class="manage_input_area manage_input_addr">
                         <label for="manage_address">주소</label>
-                        <!-- zipcode 추가 예정 -->
-                        <input type="text" name="manage_address" id="manage_address" autocomplete="off" value="서울특별시 ㅇㅇ구 ㅇㅇ동" required />
+                        <div class="manage_user_addr">
+                            <div class="user_addr_info_zipcode">
+                                <input class="user_addr_zipcode" type="text" name="zipcode" placeholder="우편번호" readonly />
+                            </div>
+
+                            <div class="user_addr_info_detail">
+                                <input class="user_addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
+                                <input class="user_addr_addr2" type="text" name="addr2" autocomplete="off" placeholder="상세주소" readonly/>
+                            </div>
+                        </div>  
+                    
                     </div>
                 </form>
             </div>
-
-            <div class="btn_user_information">
-                <button>수정</button>
-            </div>
-
 
             <!-- 창 닫기 -->
             <div class="btn_close_modal">
@@ -325,8 +231,12 @@
     </div>
 
         <!-- script -->
+        <!-- ICON -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-        <script type="module" src="../js/app.js"></script>
+        <!-- JS -->
+        <script src="../js/main/main_menu_bar.js"></script>
+        <script src="../js/main/main_header.js"></script>
+        <script src="../js/manage/manage_user.js"></script>
 </body>
 
 </html>

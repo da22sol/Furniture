@@ -50,7 +50,7 @@
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/order_tracking.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
                     <li><a href="/">문의하기</a></li>
                 </ul>
@@ -84,12 +84,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -137,55 +142,23 @@
 
                         <div class="manage_layout_right">
                             <h2>상품 관리</h2>
+                            <button class="manage_goods_add_btn">추가하기</button>
                             <!-- 상품관리 폼 -->
-                            <div class="content_right">
-                                <div class="content_box" style="padding-left: 3rem;">
-                                    <div class="title_box">
-                                        <div class="title">카테고리</div>
-                                        <div class="all_btn">전체보기</div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
-                                    <div class="category_box">
-                                        <div class="category_info"></div>
-                                        <div class="category_btn_box">
-                                            <div class="category_change_btn">수정</div>
-                                            <div class="category_delete_btn">삭제</div>
-                                        </div>
-                                    </div>
+                            <div class="content_box">
+                                <div class="goods_content_table" id="goods_content_table">
+                                    <table class="table">
+                                        <tr>
+                                            <th>카테고리</th>
+                                            <th>이름</th>
+                                            <th>가격</th>
+                                            <th>생성날짜</th>
+                                            <th>상세내용</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+
+
+                                    </table>
                                 </div>
                             </div>
 
@@ -204,12 +177,103 @@
                 </h4>
             </div>
         </footer>
-
     </div>
+
+    <!-- 상품등록 MODAL -->
+    <div class="goods_modal">
+        <div class="plus_goods_modal">
+            <h3>상품등록</h3>
+            <div class="plus_product">
+                <label for="plus_category">카테고리</label>
+                <select id="plus_category">
+                    <option>bed</option>
+                    <option>sofa</option>
+                    <option>table</option>
+                    <option>closet</option>
+                    <option>drawer</option>
+                    <option>desk</option>
+                </select>
+            </div>
+            <div class="plus_product">
+                <label for="plus_goods">상품 이름</label>
+                <input type="text" id="plus_goods" />
+            </div>
+            <div class="plus_product">
+                <label for="plus_price">가격</label>
+                <input type="text" id="plus_price" />
+            </div>
+            <div class="plus_product">
+                <label for="plus_des">상품설명</label>
+                <input type="text" id="plus_des" />
+            </div>
+            <div class="plus_product">
+                <label for="plus_pic">사진등록</label>
+                <input type="text" id="plus_pic" />
+            </div>
+            <div class="plus_product">
+                <label for="plus_keyword">키워드</label>
+                <input type="text" id="plus_keyword" />
+            </div>
+            <button class="submit_plus_goods">등록</button>
+
+            <div class="plus_product_btn">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 상품수정 MODAL -->
+    <div class="manage_edit_goods_modal">
+        <div class="edit_goods_modal">
+            <h3>상품등록</h3>
+            <div class="edit_product">
+                <label for="edit_category">카테고리</label>
+                <select id="edit_category">
+                    <option>bed</option>
+                    <option>sofa</option>
+                    <option>table</option>
+                    <option>closet</option>
+                    <option>drawer</option>
+                    <option>desk</option>
+                </select>
+            </div>
+            <div class="edit_product">
+                <label for="edit_goods">상품 이름</label>
+                <input type="text" id="edit_goods" />
+            </div>
+            <div class="edit_product">
+                <label for="edit_price">가격</label>
+                <input type="text" id="edit_price" />
+            </div>
+            <div class="edit_product">
+                <label for="edit_des">상품설명</label>
+                <input type="text" id="edit_des" />
+            </div>
+            <div class="edit_product">
+                <label for="edit_pic">사진등록</label>
+                <input type="text" id="edit_pic" />
+            </div>
+            <div class="edit_product">
+                <label for="edit_keyword">키워드</label>
+                <input type="text" id="edit_keyword" />
+            </div>
+            <button class="submit_edit_goods">수정</button>
+
+            <div class="edit_product_btn">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/app.js"></script>
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script src="../js/manage/manage_goods.js"></script>
+    <script type="module" src="../js/main/main_header.js"></script>
 </body>
 
 </html>

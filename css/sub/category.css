@@ -16,7 +16,7 @@
 }
 
 .sub_category .filter_product .filter_drop {
-    width: 80px;
+    width: 100px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -81,8 +81,9 @@
 }
 
 .sub_category #list_category_sale li {
-    margin-right: 66px;
+    /* margin-right: 66px; */
     margin-bottom: 50px;
+    width: 25%;
 }
 
 .sub_category #list_category_sale li:nth-child(4n) {
@@ -104,6 +105,7 @@
 }
 
 .sub_category #list_category_sale .text_product_name {
+    width: 300px;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.7;
