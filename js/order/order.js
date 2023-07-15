@@ -115,7 +115,7 @@ purchaseBtn.addEventListener("click", () => {
     })
         .then((res) => res.json())
         .then((orderData) => {
-            console.log(orderData);
+            const userOrderId = orderData._id;
             if (orderData.status == "주문완료") {
                 // 주문 상품 리스트 가져오기
 

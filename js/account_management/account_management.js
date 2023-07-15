@@ -187,3 +187,13 @@ userZipcodeBtn.addEventListener('click', () => {
 couponBtn.addEventListener('click', () => {
     console.log('현재 보유한 쿠폰 : 0');
 });
+
+
+// 로그아웃
+const sideLogoutBtn = document.getElementsByClassName("side_logout_btn")[0];
+sideLogoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("cartItems");
+    location.href = "/html/login.html";
+})

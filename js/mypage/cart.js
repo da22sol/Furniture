@@ -113,3 +113,11 @@ function purchaseAllItems() {
   }
 }
 
+// 로그아웃
+const sideLogoutBtn = document.getElementsByClassName("side_logout_btn")[0];
+sideLogoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("cartItems");
+    location.href = "/html/login.html";
+})
