@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="#" />
+    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -84,12 +84,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="./login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -104,68 +109,56 @@
                             <div class="contents_order">
                                 <h2>주문하기</h2>
                                 <div class="ordered">
-                                    <p>주문자</p>
+                                    <h3>주문자 정보</h3>
+                                    <ul class="user_order_info">
+                                        <!-- 주문자 정보 넣기 -->
+                                    </ul>
                                 </div>
 
                                 <div class="info_ordered">
-                                    <h3 class="adress_order">배송지</h3>
+                                    <h3>배송지 정보</h3>
+                                    <ul class="addr_order_info">
+                                        <li>
+                                            <span>받으시는 분</span>
+                                            <input type="text" class="addr_info_name" readonly>
+                                        </li>
+                                        <li>
+                                            <span>휴대전화</span>
+                                            <div class="addr_info_name">
+                                                <input type="text" class="addr_phone1" autocomplete="off" readonly /> -
+                                                <input type="text" class="addr_phone2" autocomplete="off" readonly /> -
+                                                <input type="text" class="addr_phone3" autocomplete="off" readonly />
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>주소</span>
+                                            <div class="addr_info_addr">
+                                                <div class="addr_info_zipcode">
+                                                    <input class="addr_zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
+                                                </div>
+            
+                                                <div class="addr_info_detail">
+                                                    <input class="addr_addr1" type="text" name="addr1" placeholder="주소" readonly />
+                                                    <input class="addr_addr2" type="text" name="addr2" autocomplete="off" readonly />
+                                                </div>
+                                            </div>  
+                                        </li>
+                                    </ul>
 
-                                    <div class="contents_delivery">
-                                        <p class="title_delivery">
-                                            배송메세지
-                                        </p>
-                                        <select class="msessge_delivery">
-                                            <option name="msg">배송메세지를 선택하세요.</option>
-                                            <option name="msg">도착전 전화해주세요.</option>
-                                            <option name="msg">부재시 문자남겨주세요.</option>
-                                            <option name="msg">경비실에 맡겨주세요.</option>
-                                        </select>
-                                    </div>
                                 </div>
 
                                 <div class="product_delivery">
                                     <h3 class="title_price">주문상품</h3>
 
                                     <div class="product_pay">
-                                        <ul>
-                                            <li class="img_thumbnail">
-                                                <img src="../assets/img/thum.png" alt="thumbnail">
-                                            </li>
-
-                                            <li class="info_delivery">
-                                                <span class="name_delivery"><a href="/">KLEPPSTAD 클렙스타드</a></span>
-                                                <p class="list_delivery">옷장+도어3, 화이트</p>
-                                            </li>
-
-                                            <li class="total">
-                                                <div class="total_box">
-                                                    <p class="price_total">350,000원</p>
-                                                    <span class="count_total">1개</span>
-                                                    <p class="all_total">350,000원</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-
+                                        <!-- 주문 상품 목록 넣기-->
                                     </div>
                                 </div>
 
                                 <div class="pay_amount">
                                     <h3 class="title_total">결제금액</h3>
-                                    <span>350,000원</span>
-                                </div>
-
-                                <div class="credit_payment">
-                                    <h3 class="title_pay">결제수단</h3>
-                                    <div class="payment_delivery">
-                                        <div class="button_card">
-                                            <input type="radio" class="card" name="radio" checked />
-                                            <label>카드결제</label>
-                                        </div>
-
-                                        <div class="button_cash">
-                                            <input type="radio" class="cash" name="radio" />
-                                            <label>무통장입금</label>
-                                        </div>
+                                    <div class="total_price">
+                                        <!-- 총 결제 금액 넣기 -->
                                     </div>
                                 </div>
 
@@ -191,10 +184,25 @@
         </footer>
     </div>
 
+    <!-- MODAL-회원가입 성공 -->
+    <div id="order_success">
+        <div class="order_success_box">
+            <h4>Thank you!</h4>
+            <h3>주문이 완료되었습니다.</h3>
+            <button class="btn_order_success">
+                확인
+            </button>
+        </div>
+    </div>
+
+
     <!-- script -->
+    <!-- ICON -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-    <script type="module" src="../js/app.js"></script>
+    <!-- JS -->
+    <script type="module" src="../js/main/main_menu_bar.js"></script>
+    <script type="module" src="../js/main/main_header.js"></script>
+    <script type="module" src="../js/order/order.js"></script>
 </body>
 
 </html>

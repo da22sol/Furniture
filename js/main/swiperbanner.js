@@ -1,10 +1,8 @@
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper('.mySwiper', {
     loop: true,
     autoplay: true,
     pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         clickable: true,
     },
 });
-
-export default { swiper };

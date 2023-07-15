@@ -83,12 +83,17 @@
 
                 <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
-                    <!-- 로그인 페이지로 이동 -->
-                    <a href="/html/login.html">MY PAGE</a>
-                    <!-- 장바구니 페이지로 이동 -->
-                    <a href="/html/cart.html" class="headicon icon_shopping">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                    </a>
+                    <ul class="menu_right_list">
+                        <li class="icon_setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </li>
+                        <li class="menu_mypage">
+                            MYPAGE
+                        </li>
+                        <li class="headicon icon_shopping">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
@@ -125,10 +130,8 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="/index.html">
-                                        로그아웃
-                                    </a>
+                                <li class="side_logout_btn">
+                                    로그아웃
                                 </li>
                             </ul>
                         </div>
@@ -141,19 +144,18 @@
                             <div class="cart_product_list">
                                 <ul>
                                     <li class="img_thumbnail">
-                                        <img src="../assets/img/thum.png" alt="thumbnail">
+                                        <img src="" alt="thumbnail">
                                     </li>
 
                                     <li class="info_cart_product">
-                                        <span><a href="/">KLEPPSTAD 클렙스타드</a></span>
-                                        <p>옷장+도어3, 화이트</p>
-                                        <p class="price">350,000원</p>
+                                        <span><a href="/"></a></span>
+                                        <p></p>
+                                        <p class="price"></p>
                                         <div class="quantity">
-                                            <input type='button' class="decrease_button" onclick='count("minus")'
+                                            <input type='button' class="decrease_button"
                                                 value='-' />
                                             <span><input type="text" class="product_button" value="1"></span>
-                                            <input type='button' class="increase_button"
-                                                onclick='count("plus")' value='+' />
+                                            <input type='button' class="increase_button" value='+' />
                                         </div>
                                     </li>
 
@@ -171,20 +173,23 @@
                                 </div>
                                 <div class="price_ship">
                                     <p>총 결제금액</p>
-                                    <span>350,000원</span>
+                                    <span></span>
                                 </div>
                             </div>
-
+                            <div class="name_button">
+                                <p class="all_button" onclick='selectAll(this)'>전체선택</p>
+                                <p class="delete_button"></p>
+                            </div>
                             <div class="button_ship">
                                 <div class="name_button">
-                                    <a href="/" class="all_button">전체선택</a>
-                                    <a href="/" class="delete_button">삭제하기</a>
+                                    <p class="all_button" onclick='selectAll(this)'>전체선택</p>
+
                                 </div>
                             </div>
 
                             <div class="button_line">
                                 <div class="button_order">
-                                    <button class="button_select">선택상품구매하기</button>
+                                    <button class="button_select" onclick="purchaseSelectedItems()">선택상품구매하기</button>
                                     <button class="button_all">모든상품구매하기</button>
                                 </div>
                             </div>
@@ -209,7 +214,9 @@
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-        <script type="module" src="../js/app.js"></script>
+        
+        <script src="../js/main/main_header.js"></script>
+        <script src="../js/mypage/cart.js"></script>
 </body>
 
 </html>
