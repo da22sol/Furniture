@@ -116,7 +116,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
 // 회원 정보 레이아웃
 
 const accountDeleteBtn = document.querySelector('.account_delete'); // 회원탈퇴 버튼
-const couponBtn = document.querySelector('.coupon'); // 쿠폰 버튼
 
 // 회원정보 수정 모달
 const userModifyBtn = document.getElementsByClassName('account_modify')[0];
@@ -183,10 +182,6 @@ userZipcodeBtn.addEventListener('click', () => {
     }).open();
 });
 
-// 쿠폰 => 추후 예정?
-couponBtn.addEventListener('click', () => {
-    console.log('현재 보유한 쿠폰 : 0');
-});
 
 
 // 로그아웃
