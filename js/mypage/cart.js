@@ -1,117 +1,105 @@
-const cartItemsString = localStorage.getItem('cartItems');
-console.log(cartItemsString);
+// localstorage에 저장된 장바구니 아이템 불러오기
+const cartItemsString = localStorage.getItem("cartItems");
+// 배열로 변경
 const cartData = JSON.parse(cartItemsString) || [];
 console.log(cartData);
-const cartContainer = document.querySelector('.info_cart_product');
-const cartImg = document.querySelector('.img_thumbnail'); console.log("daso")
-for (let i = 0; i < cartData.length; i++) {
-  cartImg.innerHTML = `
-    <li class="img_thumbnail"> <img src="${cartData[i].productImageKey}" alt="${cartData[i].productName}"> </li>;`;
-  cartContainer.innerHTML = ` <li class="info_cart_product">
-    <span><a href="/">${cartData[i].productName}</a></span>
-    <p>${cartData[i].category}</p>
-    <p class="price">${cartData[i].price}</p>
-    <div class="quantity">
-      <input type='button' class="decrease_button" value='-' />
-      <span><input type="text" class="product_button" value="${cartData[i].quantity}" /></span>
-      <input type='button' class="increase_button" value='+' />
-    </div></li>
-  `;
-}
+const cartGoodsFin = document.querySelector(".cart_product_list");
+const cartContainer = document.querySelector(".info_cart_product");
+const cartImg = document.querySelector(".img_thumbnail");
+const priceTotal = document.querySelector(".price_ship > span");
+
+let finSum = 0;
+
+// 장바구니 리스트
+cartData.forEach((item) => {
+    // 상품별 합계 금액
+    const totalFinPrice = item.quantity * item.price;
+
+    // 장바구니 상품 목록 나열하기
+    cartGoodsFin.innerHTML += `
+        <ul>
+            <li class="img_thumbnail">
+                <img src="${item.productImageKey}" alt="${item.productName}">
+            </li>
+
+            <li class="info_cart_product">
+                <span>${item.productName}</span>
+                <p>${item.category}</p>
+                <p class="prime_price">${item.price.toLocaleString(
+                    "ko-KR",
+                )}원</p>
+                <p class="price">${totalFinPrice.toLocaleString("ko-KR")}원</p>
+
+                <div class="quantity">
+                    <input type='button' class="decrease_button"
+                        value='-' />
+                    <span><input type="text" class="product_button" value="${
+                        item.quantity
+                    }"></span>
+                    <input type='button' class="increase_button" value='+' />
+                </div>
+            </li>
+            <li class="delete_item_btn">
+                <i class="fa-regular fa-trash-can"></i>
+            </li>
+        </ul>`;
+
+    // 총 주문 금액
+    finSum += totalFinPrice;
+    priceTotal.innerHTML = `${finSum.toLocaleString("ko-KR")}원`;
+});
+
+// 장바구니 상품 삭제하기
+const deleteItemBtns = document.querySelectorAll(".delete_item_btn");
+deleteItemBtns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        localStorage.removeItem("cartItems");
+        cartData.splice(i, 1);
+        const newCartData = JSON.stringify(cartData);
+        localStorage.setItem("cartItems", newCartData);
+        location.reload();
+    });
+});
 
 // 수량 버튼
-const priceTotalInner = document.querySelector('.price_ship span');
-priceTotalInner.innerText = cartData[0].price;
-const increaseBtn = document.querySelector('.increase_button');
-const decreaseBtn = document.querySelector('.decrease_button');
-const inputNum = document.querySelector('.product_button');
-const priceTotal = document.querySelector('.price_ship span');
+const increaseBtns = document.querySelectorAll(".increase_button");
+const decreaseBtns = document.querySelectorAll(".decrease_button");
+const inputNum = document.querySelectorAll(".product_button");
 
-increaseBtn.addEventListener('click', () => {
-  let num = parseInt(inputNum.value);
-  num++;
-  inputNum.value = num;
-  updateTotalPrice(num);
+increaseBtns.forEach((upBtn, i) => {
+    upBtn.addEventListener("click", () => {
+        let countNum = parseInt(inputNum[i].value);
+        countNum++;
+        inputNum[i].value = countNum;
+        cartData[i].quantity = countNum;
+        const newCartData = JSON.stringify(cartData);
+        localStorage.setItem("cartItems", newCartData);
+        location.reload();
+    });
 });
 
-decreaseBtn.addEventListener('click', () => {
-  let num = parseInt(inputNum.value);
-  if (num > 1) {
-    num--;
-    inputNum.value = num;
-    updateTotalPrice(num);
-  }
+decreaseBtns.forEach((downBtn, i) => {
+    downBtn.addEventListener("click", () => {
+        let countNum = parseInt(inputNum[i].value);
+        if (countNum > 1) {
+            countNum--;
+            inputNum[i].value = countNum;
+            cartData[i].quantity = countNum;
+            const newCartData = JSON.stringify(cartData);
+            localStorage.setItem("cartItems", newCartData);
+            location.reload();
+        }
+    });
 });
 
-function updateTotalPrice(quantity) {
-  const price = parseInt(cartData[0].price);
-  const totalPrice = price * quantity;
-  priceTotal.innerText = `${totalPrice.toLocaleString()}원 (${cartData[0].quantity}개)`;
-}
+// // 총 주문 금액
+// priceTotal.innerHTML = "2000원";
 
-// 전체 선택 함수
-const allButton = document.querySelector('.all_button');
-const checedCheckbox = document.querySelector('.check_product input[type="checkbox"]');
-
-allButton.addEventListener('click', () => {
-  checedCheckbox.checked = !checedCheckbox.checked;
+// 주문하기
+const orderBtn = document.getElementsByClassName("button_all")[0];
+orderBtn.addEventListener("click", () => {
+    location.href = "/html/order.html";
 });
-
-// 삭제하기(삭제하기 버튼을 누르면 장바구니가 비워지고 메시지가 나옴 그리고 선택한 것만 지워짐)
-const delButton = document.querySelector('.delete_button');
-delButton.addEventListener('click', () => {
-  const checkboxes = document.querySelectorAll(
-    '.check_product input[type="checkbox"]',
-  );
-  const cartListInfo = document.querySelector('.cart_product_list');
-  cartListInfo.innerHTML = '<p class="empty_cart_message">장바구니에 담은 물건이 없어요</p>';
-
-
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked) {
-      const cartRemove = checkbox.closest('.cart_product_list');
-      const orderRemove = checkbox.closest('li');
-      cartRemove.remove();
-      orderRemove.remove();
-    }
-  });
-});
-
-// 선택상품, 전체상품구매하기 (상품 없음 알림창)
-const state = {
-  selectedItemExist: false,
-};
-
-const checkedBoxs = document.querySelectorAll('.check_product input[type="checkbox"]');
-checkedBoxs.forEach((checkbox) => {
-  checkbox.addEventListener('click', () => {
-    state.selectedItemExist = checkbox.checked;
-    localStorage.setItem('state', JSON.stringify(state));
-  });
-});
-
-function purchaseSelectedItems() {
-  if (state.selectedItemExist) {
-    window.location.href = 'order.html';
-  } else {
-    alert('선택한 상품이 없습니다');
-  }
-}
-const buyButton = document.getElementsByClassName('button_all')[0];
-buyButton.addEventListener('click', purchaseAllItems);
-
-function purchaseAllItems() {
-  const cartItemsString = localStorage.getItem('cartItems');
-  const cartData = JSON.parse(cartItemsString) || [];
-
-  if (cartData.length > 0) {
-    const queryString = cartData.map((item) => `category=${encodeURIComponent(item.category)}&productName=${encodeURIComponent(item.productName)}&searchKeywords=${encodeURIComponent(item.searchKeywords)}&price=${encodeURIComponent(item.price)}&quantity=${encodeURIComponent(item.quantity)}`).join('&');
-
-    window.location.href = `order.html?${queryString}`;
-  } else {
-    alert('장바구니에 상품이 없습니다');
-  }
-}
 
 // 로그아웃
 const sideLogoutBtn = document.getElementsByClassName("side_logout_btn")[0];
@@ -120,4 +108,4 @@ sideLogoutBtn.addEventListener("click", () => {
     localStorage.removeItem("isAdmin");
     localStorage.removeItem("cartItems");
     location.href = "/html/login.html";
-})
+});

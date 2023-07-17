@@ -142,29 +142,7 @@
                                 <h3>일반상품</h3>
                             </div>
                             <div class="cart_product_list">
-                                <ul>
-                                    <li class="img_thumbnail">
-                                        <img src="" alt="thumbnail">
-                                    </li>
-
-                                    <li class="info_cart_product">
-                                        <span><a href="/"></a></span>
-                                        <p></p>
-                                        <p class="price"></p>
-                                        <div class="quantity">
-                                            <input type='button' class="decrease_button"
-                                                value='-' />
-                                            <span><input type="text" class="product_button" value="1"></span>
-                                            <input type='button' class="increase_button" value='+' />
-                                        </div>
-                                    </li>
-
-                                    <li class="check_product">
-                                        <input type="checkbox" id="check_product" name="check_product">
-                                        <label for="check_product"></label>
-                                    </li>
-                                </ul>
-
+                                <!-- 장바구니 상품 넣기 -->
                             </div>
 
                             <div class="ship">
@@ -176,21 +154,10 @@
                                     <span></span>
                                 </div>
                             </div>
-                            <div class="name_button">
-                                <p class="all_button" onclick='selectAll(this)'>전체선택</p>
-                                <p class="delete_button"></p>
-                            </div>
-                            <div class="button_ship">
-                                <div class="name_button">
-                                    <p class="all_button" onclick='selectAll(this)'>전체선택</p>
-
-                                </div>
-                            </div>
 
                             <div class="button_line">
                                 <div class="button_order">
-                                    <button class="button_select" onclick="purchaseSelectedItems()">선택상품구매하기</button>
-                                    <button class="button_all">모든상품구매하기</button>
+                                    <button class="button_all">구매하기</button>
                                 </div>
                             </div>
 
@@ -213,8 +180,7 @@
 
         <!-- script -->
         <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-        
+        <script src="../js/main/main_menu_bar.js"></script>
         <script src="../js/main/main_header.js"></script>
         <script src="../js/mypage/cart.js"></script>
 </body>
