@@ -8,6 +8,11 @@ const zipcodeInput = document.getElementsByClassName("addr_zipcode")[0];
 const addrInput1 = document.getElementsByClassName("addr_addr1")[0];
 const addrInput2 = document.getElementsByClassName("addr_addr2")[0];
 
+// 주문
+const orderGoodsList = document.getElementsByClassName("product_pay")[0];
+const orderTotalPrice = document.getElementsByClassName("total_price")[0];
+const userOrderInfo = document.getElementsByClassName("user_order_info")[0];
+
 // 현재 로그인 되어 있는 계정 토큰 불러오기
 const USERTOKEN = localStorage.getItem("userToken");
 
@@ -37,26 +42,20 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
         zipcodeInput.value += `${loginUserdata.address.postalCode}`;
         addrInput1.value += `${loginUserdata.address.address1}`;
         addrInput2.value += `${loginUserdata.address.address2}`;
-    });
 
-// 주문
-const orderGoodsList = document.getElementsByClassName("product_pay")[0];
-const orderTotalPrice = document.getElementsByClassName("total_price")[0];
-const userOrderInfo = document.getElementsByClassName("user_order_info")[0];
+        // 장바구니 물건 가져오기
+        const userOrderFinList = JSON.parse(localStorage.getItem("cartItems"));
 
-// 장바구니 물건 가져오기
-const userOrderFinList = JSON.parse(localStorage.getItem("cartItems"));
+        // 상품 주문하기
+        let totalQuan = 0;
+        let totalSum = 0;
 
-// 상품 주문하기
-let totalQuan = 0;
-let totalSum = 0;
-
-for (let i = 0; i < userOrderFinList.length; i++) {
-    // 주문 상품 목록
-    let sum = userOrderFinList[i].price * userOrderFinList[i].quantity;
-    totalQuan += userOrderFinList[i].quantity;
-    totalSum += sum;
-    orderGoodsList.innerHTML += `
+        for (let i = 0; i < userOrderFinList.length; i++) {
+            // 주문 상품 목록
+            let sum = userOrderFinList[i].price * userOrderFinList[i].quantity;
+            totalQuan += userOrderFinList[i].quantity;
+            totalSum += sum;
+            orderGoodsList.innerHTML += `
         <div class="order_products_ul">
             <ul class="info_order_list">
                 <li class="info_order_name">
@@ -83,75 +82,80 @@ for (let i = 0; i < userOrderFinList.length; i++) {
             </ul>
         </div>
     `;
-}
+        }
 
-// 총 결제 금액
-orderTotalPrice.innerHTML += `
+        // 총 결제 금액
+        orderTotalPrice.innerHTML += `
     <span>${totalSum.toLocaleString("ko-KR")}원</span>
 `;
 
-// 주문하기 클릭
+        // 주문하기 클릭
 
-const purchaseBtn = document.getElementsByClassName("purchase")[0];
+        const purchaseBtn = document.getElementsByClassName("purchase")[0];
 
-purchaseBtn.addEventListener("click", () => {
-    // 객체
-    const userOrderInfo = {
-        user: USERTOKEN,
-        totalPrice: totalSum,
-        status: "주문완료",
-    };
+        purchaseBtn.addEventListener("click", () => {
+            // 객체
+            const userOrderDetail = {
+                user: loginUserdata._id,
+                totalPrice: totalSum,
+                status: "주문완료",
+            };
 
-    const orderDataJson = JSON.stringify(userOrderInfo);
+            const orderDataJson = JSON.stringify(userOrderDetail);
 
-    // 주문 정보 보내기
-    fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${USERTOKEN}`,
-        },
-        body: orderDataJson,
-    })
-        .then((res) => res.json())
-        .then((orderData) => {
-            const userOrderId = orderData._id;
-            if (orderData.status == "주문완료") {
-                // 주문 상품 리스트 가져오기
+            // 주문 정보 보내기
+            fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${USERTOKEN}`,
+                },
+                body: orderDataJson,
+            })
+                .then((res) => res.json())
+                .then((orderData) => {
+                    const userOrderId = orderData._id;
+                    if (orderData.status == "주문완료") {
+                        // 주문 상품 리스트 가져오기
 
-                let productName = "";
+                        let productName = "";
 
-                // 주문 상세 정보 보내기
-                // 객체
-                const userOrderDetailInfo = {
-                    orderId: orderData._id,
-                    productId: "64ae29e5ed4b22908e84ae83",
-                    productName: userOrderFinList[0].productName,
-                    quantity: totalQuan,
-                    totalPrice: totalSum,
-                    _id: orderData.user,
-                };
+                        // 주문 상세 정보 보내기
+                        // 객체
+                        const userOrderDetailInfo = {
+                            orderId: orderData._id,
+                            productId: "64ae29e5ed4b22908e84ae83",
+                            productName: userOrderFinList[0].productName,
+                            quantity: totalQuan,
+                            totalPrice: totalSum,
+                            _id: orderData.user,
+                        };
 
-                const orderDetailDataJson = JSON.stringify(userOrderDetailInfo);
+                        const orderDetailDataJson =
+                            JSON.stringify(userOrderDetailInfo);
 
-                fetch("http://kdt-sw-5-team01.elicecoding.com/api/ordersitem", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${USERTOKEN}`,
-                    },
-                    body: orderDetailDataJson,
-                })
-                    .then((res) => res.json())
-                    .then((orderDetailData) => {});
-                // 주문완료 모달창 띄우기
-                orderFinModal.style.display = "block";
-                localStorage.removeItem("cartItems");
-            } else {
-                alert("주문 실패");
-            }
+                        fetch(
+                            "http://kdt-sw-5-team01.elicecoding.com/api/ordersitem",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization: `Bearer ${USERTOKEN}`,
+                                },
+                                body: orderDetailDataJson,
+                            },
+                        )
+                            .then((res) => res.json())
+                            .then((orderDetailData) => {});
+                        // 주문완료 모달창 띄우기
+                        orderFinModal.style.display = "block";
+                        localStorage.removeItem("cartItems");
+                    } else {
+                        alert("주문 실패");
+                    }
+                });
         });
-});
+    });
 
 // 주문완료 모달창 (diplay = "none")
 const orderFinModal = document.getElementById("order_success");

@@ -9,7 +9,8 @@ const orderList = document.querySelector(".order_list");
 const receiverNameInfo = document.getElementsByClassName("receiver_name")[0];
 const receiverNumInfo = document.getElementsByClassName("receiver_num")[0];
 const receiverZipInfo = document.getElementsByClassName("receiver_zipcode")[0];
-const receiverAddrInfo = document.getElementsByClassName("receiver_addr")[0];
+const receiverAddrInfo1 = document.getElementsByClassName("receiver_addr1")[0];
+const receiverAddrInfo2 = document.getElementsByClassName("receiver_addr2")[0];
 
 // 주문 정보
 const orderedIdInfo = document.getElementsByClassName("ordered_num")[0];
@@ -27,7 +28,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
 })
     .then((res) => res.json())
     .then((loginUserdata) => {
-        console.log(loginUserdata);
         // 주문 동적 추가 함수
         for (let i = 0; i < loginUserdata.length; i++) {
             if (loginUserdata.length === 0) {
@@ -72,9 +72,8 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 receiverNameInfo.innerText = loginUserdata[i].fullName;
                 receiverNumInfo.innerText = loginUserdata[i].phoneNumber;
                 receiverZipInfo.innerText = loginUserdata[i].address.postalCode;
-                receiverAddrInfo.innerText =
-                    loginUserdata[i].address.address1 +
-                    loginUserdata[i].address.address2;
+                receiverAddrInfo1.innerText = loginUserdata[i].address.address1;
+                receiverAddrInfo2.innerText = loginUserdata[i].address.address2;
                 orderedIdInfo.innerText = loginUserdata[i]._id;
             });
         });
@@ -115,8 +114,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 )
                     .then((res) => res.json())
                     .then((orderItem) => {
-                        console.log(orderItem);
-
                         for (let i = 0; i < orderItem.length; i++) {
                             orderedDateInfo.innerText = orderItem[
                                 i
@@ -124,10 +121,13 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                             orderedDateInfo.innerText = orderItem[
                                 i
                             ].createdAt.slice(0, 10);
+                            if(orderItem[i].quantity == 1) {
+                                orderedListInfo.innerText = orderItem[i].productName;
+                            } else {
+                                orderedListInfo.innerText = `${orderItem[i].productName} 외 ${orderItem[i].quantity-1}개`;
+                            }
                             orderedCountInfo.innerText = `${orderItem[i].quantity}개`;
                             orderedSumInfo.innerText = `${orderItem[i].finalPrice.toLocaleString('ko-KR')}원`;
-                            orderedListInfo.innerText =
-                                orderItem[i].productName;
                         }
                     });
             });
