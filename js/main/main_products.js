@@ -30,7 +30,7 @@ function bestProductsMade() {
                     ${bestProductsListArr[i].productName}
                 </p>
                 <p>
-                    ${bestProductsListArr[i].price}
+                    ${bestProductsListArr[i].price.toLocaleString("ko-KR")}원
                 </p>
             </a>
         </li>
