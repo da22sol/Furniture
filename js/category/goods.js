@@ -27,7 +27,7 @@ function productMade(data) {
                     ${data[i].productName}
                 </p>
                 <p>
-                    ${data[i].price}
+                    ${data[i].price.toLocaleString("ko-KR")}원
                 </p>
             </a>
         </li>
