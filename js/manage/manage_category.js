@@ -1,4 +1,14 @@
-fetch('http://kdt-sw-5-team01.elicecoding.com/api/categories')
+// 현재 로그인 되어 있는 계정 토큰 불러오기
+const ISADMIN = localStorage.getItem("isAdmin");
+
+window.addEventListener("load", () => {
+    if(ISADMIN !== "true") {
+        alert("🚫관리자만 접근가능합니다");
+        location.href = "/index.html"
+    }
+});
+
+fetch("http://kdt-sw-5-team01.elicecoding.com/api/categories")
     .then((response) => response.json())
     .then((data) => {
         manageCategorysListArr = data;
@@ -7,19 +17,19 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/categories')
 
 let manageCategorysListArr = [];
 
-const addCategoryInput = document.getElementById('category');
-const addCategoryBtn = document.querySelector('.add_category button');
-const manageCategoryList = document.querySelector('ul.manage_category');
+const addCategoryInput = document.getElementById("category");
+const addCategoryBtn = document.querySelector(".add_category button");
+const manageCategoryList = document.querySelector("ul.manage_category");
 
-addCategoryBtn.addEventListener('click', () => {
+addCategoryBtn.addEventListener("click", () => {
     const categoryValue = addCategoryInput.value;
 
     const categoryDataJson = JSON.stringify({ title: categoryValue });
 
     fetch(`http://kdt-sw-5-team01.elicecoding.com/api/categories`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
         },
         body: categoryDataJson,
@@ -47,20 +57,20 @@ function plusManageCategoryMade() {
         `;
     }
 
-    const retouchBtn = document.querySelectorAll('.btn_edit_retouch');
-    const deleteBtn = document.querySelectorAll('.btn_edit_delete');
+    const retouchBtn = document.querySelectorAll(".btn_edit_retouch");
+    const deleteBtn = document.querySelectorAll(".btn_edit_delete");
 
     // 카테고리 수정
     for (let i = 0; i < retouchBtn.length; i++) {
-        retouchBtn[i].addEventListener('click', (e) => {
+        retouchBtn[i].addEventListener("click", (e) => {
             let retouchCategoryValue =
                 e.target.parentElement.parentElement.querySelector(
-                    'p',
+                    "p",
                 ).innerText;
 
             let changeCategoryVal = prompt(
-                '변경하실 카테고리명을 입력해주세요',
-                '카테고리명',
+                "변경하실 카테고리명을 입력해주세요",
+                "카테고리명",
             );
             manageCategorysListArr[i].categoryName = changeCategoryVal;
             alert(`${changeCategoryVal}으로 수정되었습니다`);
@@ -72,9 +82,9 @@ function plusManageCategoryMade() {
             fetch(
                 `http://kdt-sw-5-team01.elicecoding.com/api/categories/${manageCategorysListArr[i]._id}`,
                 {
-                    method: 'PATCH',
+                    method: "PATCH",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
                     },
                     body: categoryDataJson,
@@ -92,10 +102,10 @@ function plusManageCategoryMade() {
 
     // 카테고리 삭제
     for (let i = 0; i < deleteBtn.length; i++) {
-        deleteBtn[i].addEventListener('click', (e) => {
+        deleteBtn[i].addEventListener("click", (e) => {
             let deleteCategoryValue =
                 e.target.parentElement.parentElement.querySelector(
-                    'p',
+                    "p",
                 ).innerText;
             //fetch delete 통신
             const categoryDataJson = JSON.stringify({
@@ -105,9 +115,9 @@ function plusManageCategoryMade() {
             fetch(
                 `http://kdt-sw-5-team01.elicecoding.com/api/categories/${manageCategorysListArr[i]._id}`,
                 {
-                    method: 'DELETE',
+                    method: "DELETE",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
                     },
                     body: categoryDataJson,
@@ -126,5 +136,5 @@ function plusManageCategoryMade() {
 
 // 카테고리 리셋 함수
 function categoryReset() {
-    manageCategoryList.innerHTML = '';
+    manageCategoryList.innerHTML = "";
 }
