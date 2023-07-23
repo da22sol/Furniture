@@ -79,7 +79,7 @@ function addProduct() {
     }
 
     // (3) 기존 데이터에 상품 추가
-    const product =
+    const products =
         {   productImageKey : detailDataArr.productImageKey,
             category: detailDataArr.categoryId.title,
             productName: detailDataArr.productName,
@@ -87,7 +87,32 @@ function addProduct() {
             quantity: inputNum.value,
         } || [];
 
-    cartItems.push(product);
+    cartItems.push(products);
 
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
+
+// 바로 구매하기 (상품 1개만 구매)
+const buyNowBtn = document.getElementsByClassName("button_buy")[0];
+let cartItem = [];
+
+buyNowBtn.addEventListener("click", () => {
+    buyProduct();
+})
+
+
+function buyProduct() {
+    const products =
+    {   productImageKey : detailDataArr.productImageKey,
+        category: detailDataArr.categoryId.title,
+        productName: detailDataArr.productName,
+        price: detailDataArr.price,
+        quantity: inputNum.value,
+    } || [];
+
+    cartItem.push(products);
+    localStorage.setItem('cartItems', JSON.stringify(cartItem));
+
+}
+
+
