@@ -23,12 +23,12 @@ function productContentsMade() {
     detailIn.innerHTML = `
         <h1>${detailDataArr.productName}</h1>
         <p>${detailDataArr.shortDescription}</p>
-        <p>${detailDataArr.price}</p>
+        <p>${detailDataArr.price.toLocaleString("ko-KR")}원</p>
     `;
 }
 
 function defaultUpdateTotalPrice() {
-    priceTotal.innerHTML = `<strong><em>${detailDataArr.price} KRW</em></strong>(1개)`;
+    priceTotal.innerHTML = `<strong><em>${detailDataArr.price.toLocaleString("ko-KR")} KRW</em></strong>(1개)`;
 }
 
 increaseBtn.addEventListener('click', () => {
@@ -81,6 +81,7 @@ function addProduct() {
     // (3) 기존 데이터에 상품 추가
     const products =
         {   productImageKey : detailDataArr.productImageKey,
+            productId : detailDataArr._id,
             category: detailDataArr.categoryId.title,
             productName: detailDataArr.productName,
             price: detailDataArr.price,
@@ -104,6 +105,7 @@ buyNowBtn.addEventListener("click", () => {
 function buyProduct() {
     const products =
     {   productImageKey : detailDataArr.productImageKey,
+        productId : detailDataArr._id,
         category: detailDataArr.categoryId.title,
         productName: detailDataArr.productName,
         price: detailDataArr.price,
