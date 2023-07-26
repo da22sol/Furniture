@@ -45,7 +45,8 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
         // 장바구니 물건 가져오기
         const userOrderFinList = JSON.parse(localStorage.getItem("cartItems"));
-
+        console.log(userOrderFinList)
+    
         // 상품 주문하기
         let totalQuan = 0;
         let totalSum = 0;
@@ -103,6 +104,12 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
             const orderDataJson = JSON.stringify(userOrderDetail);
 
+            // let productNameList = "";
+            // userOrderFinList.forEach((item)=>{
+            //     productNameList += item.productName
+            // })
+            // console.log(productNameList)
+
             // 주문 정보 보내기
             fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 method: "POST",
@@ -114,17 +121,15 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
             })
                 .then((res) => res.json())
                 .then((orderData) => {
-                    const userOrderId = orderData._id;
+                    
                     if (orderData.status == "주문완료") {
                         // 주문 상품 리스트 가져오기
-
-                        let productName = "";
 
                         // 주문 상세 정보 보내기
                         // 객체
                         const userOrderDetailInfo = {
                             orderId: orderData._id,
-                            productId: "64ae29e5ed4b22908e84ae83",
+                            productId: userOrderFinList[0].productId,
                             productName: userOrderFinList[0].productName,
                             quantity: totalQuan,
                             totalPrice: totalSum,
@@ -133,6 +138,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
                         const orderDetailDataJson =
                             JSON.stringify(userOrderDetailInfo);
+                        
 
                         fetch(
                             "http://kdt-sw-5-team01.elicecoding.com/api/ordersitem",
@@ -146,10 +152,13 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
                             },
                         )
                             .then((res) => res.json())
-                            .then((orderDetailData) => {});
+                            .then((orderDetailData) => {
+                            });
+
                         // 주문완료 모달창 띄우기
                         orderFinModal.style.display = "block";
                         localStorage.removeItem("cartItems");
+                        
                     } else {
                         alert("주문 실패");
                     }
