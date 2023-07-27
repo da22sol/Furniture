@@ -1,5 +1,11 @@
 // localstorage에 저장된 장바구니 아이템 불러오기
 const cartItemsString = localStorage.getItem("cartItems");
+const USERTOKENINFO = localStorage.getItem("userToken");
+
+if (USERTOKENINFO == null) {
+    location.href = "/html/login.html";
+}
+
 // 배열로 변경
 const cartData = JSON.parse(cartItemsString) || [];
 console.log(cartData);
