@@ -19,9 +19,13 @@ function bestProductsMade() {
     for (let i = 0; i < 8; i++) {
         bestProductsList.innerHTML += `
         <li class="li_products">
-            <a id="${bestProductsListArr[i]._id}" href="/html/detail.html?${bestProductsListArr[i]._id}">
+            <a id="${bestProductsListArr[i]._id}" href="/html/detail.html?${
+                bestProductsListArr[i]._id
+            }">
                 <span class="img_best_product">
-                    <img src="${bestProductsListArr[i].productImageKey}" class="img_best_product"></img>
+                    <img src="${
+                        bestProductsListArr[i].productImageKey
+                    }" class="img_best_product"></img>
                 </span>
                 <strong>
                     ${bestProductsListArr[i].categoryId.title}
@@ -30,7 +34,7 @@ function bestProductsMade() {
                     ${bestProductsListArr[i].productName}
                 </p>
                 <p>
-                    ${bestProductsListArr[i].price.toLocaleString("ko-KR")}원
+                    ${bestProductsListArr[i].price.toLocaleString('ko-KR')}원
                 </p>
             </a>
         </li>
