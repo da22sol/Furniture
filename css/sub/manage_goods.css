@@ -1,6 +1,3 @@
-@import url("/main.css");
-@import url("/menu.css");
-
 /* 양쪽정렬 */
 .contents_table {
     display: inline-flex;
