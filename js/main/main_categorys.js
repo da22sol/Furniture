@@ -48,7 +48,7 @@ function categoryMade() {
 
         document.getElementById('category_list').innerHTML += `
         <li class="category_list" id="${categorysListArr[i].title}">
-            <a href="./category.html" class="list_category">
+            <a href="./html/category.html" class="list_category">
                 <span class="img_category">
                     <img src="${categorysListArr[i].imgUrl}">
                 </span>
