@@ -28,6 +28,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
 })
     .then((res) => res.json())
     .then((loginUserdata) => {
+        console.log(loginUserdata)
         // 주문 동적 추가 함수
         for (let i = 0; i < loginUserdata.length; i++) {
             if (loginUserdata.length === 0) {
@@ -67,14 +68,28 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
 
         const orderNumId = document.querySelectorAll(".order_id");
         orderNumId.forEach((btn, i) => {
-            btn.addEventListener("click", function () {
+            btn.addEventListener("click", () => {
                 orderDetailInfoModal.style.display = "flex";
-                receiverNameInfo.innerText = loginUserdata[i].fullName;
-                receiverNumInfo.innerText = loginUserdata[i].phoneNumber;
-                receiverZipInfo.innerText = loginUserdata[i].address.postalCode;
-                receiverAddrInfo1.innerText = loginUserdata[i].address.address1;
-                receiverAddrInfo2.innerText = loginUserdata[i].address.address2;
-                orderedIdInfo.innerText = loginUserdata[i]._id;
+                fetch(
+                    `http://kdt-sw-5-team01.elicecoding.com/api/orderslist/${loginUserdata[i]._id}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${USERTOKEN}`,
+                        },
+                    },
+                )
+                    .then((res) => res.json())
+                    .then((receiverInfo) => {
+                        console.log(receiverInfo);
+                        receiverNameInfo.innerText = receiverInfo.receiver;
+                        receiverNumInfo.innerText = receiverInfo.phoneNumber;
+                        receiverZipInfo.innerText = receiverInfo.address.postalCode;
+                        receiverAddrInfo1.innerText = receiverInfo.address.address1;
+                        receiverAddrInfo2.innerText = receiverInfo.address.address2;
+                        orderedIdInfo.innerText = loginUserdata[i]._id;
+                    })
             });
         });
 
@@ -95,7 +110,12 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 )
                     .then((res) => res.json())
                     .then((res) => {
-                        alert("관리자 승인이 필요합니다!");
+                        if(loginUserdata[i].status == "주문완료") {
+                            confirm("주문을 취소하시겠습니까?");
+                            location.reload();
+                        } else {
+                            alert("관리자 승인이 필요합니다!");
+                        }
                     });
             });
         });
@@ -114,6 +134,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 )
                     .then((res) => res.json())
                     .then((orderItem) => {
+                        console.log(orderItem);
                         for (let i = 0; i < orderItem.length; i++) {
                             orderedDateInfo.innerText = orderItem[
                                 i
