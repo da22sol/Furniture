@@ -120,31 +120,29 @@
                                     <ul class="addr_order_info">
                                         <li>
                                             <span>받으시는 분</span>
-                                            <input type="text" class="addr_info_name" readonly>
+                                            <input type="text" class="addr_info_name" />
                                         </li>
                                         <li>
                                             <span>휴대전화</span>
                                             <div class="addr_info_name">
-                                                <input type="text" class="addr_phone1" autocomplete="off" readonly /> -
-                                                <input type="text" class="addr_phone2" autocomplete="off" readonly /> -
-                                                <input type="text" class="addr_phone3" autocomplete="off" readonly />
+                                                <input type="text" class="addr_phone1" maxlength="3" autocomplete="off" /> -
+                                                <input type="text" class="addr_phone2" maxlength="4" autocomplete="off" /> -
+                                                <input type="text" class="addr_phone3" maxlength="4" autocomplete="off" />
                                             </div>
                                         </li>
                                         <li>
                                             <span>주소</span>
                                             <div class="addr_info_addr">
                                                 <div class="addr_info_zipcode">
-                                                    <input class="addr_zipcode" type="text" name="zipcode" maxlength="5"
-                                                        placeholder="우편번호" readonly />
+                                                    <input class="addr_zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호" readonly />
+                                                    <input class="addr_search_zipcode" type="button" name="addr_zipcode_search" value="우편번호검색" autocomplete="off" />
                                                 </div>
-
+            
                                                 <div class="addr_info_detail">
-                                                    <input class="addr_addr1" type="text" name="addr1" placeholder="주소"
-                                                        readonly />
-                                                    <input class="addr_addr2" type="text" name="addr2"
-                                                        autocomplete="off" readonly />
+                                                    <input class="addr_addr1" type="text" name="addr1" placeholder="주소" />
+                                                    <input class="addr_addr2" type="text" name="addr2" autocomplete="off" />
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </li>
                                     </ul>
 
@@ -166,15 +164,11 @@
                                 </div>
 
                                 <div class="button_prev">
-                                    <div class="button_purchase_box">
-                                        <button class="purchase">주문하기</button>
-                                        <button class="purchase_naver">네이버Pay</button>
-                                    </div>
-
+                                    <button class="purchase">주문하기</button>
+                                    <button class="naver_pay">네이버페이 결제</button>
                                     <button class="movecart">장바구니로 돌아가기</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </article>
@@ -206,6 +200,10 @@
     <!-- script -->
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+    <!-- 주소 API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- 네이버페이 결제 -->
+    <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
     <!-- JS -->
     <script type="module" src="../js/main/main_menu_bar.js"></script>
     <script type="module" src="../js/main/main_header.js"></script>
