@@ -268,13 +268,9 @@
     width: 1000px;
 }
 
-.button_prev .button_purchase_box {
-    display: flex;
-    justify-content: space-between;
-}
-
-.button_prev .button_purchase_box .purchase, .button_prev .button_purchase_box .purchase_naver{
-    width: 48%;
+.button_prev .purchase,
+.naver_pay {
+    width: 100%;
     height: 50px;
     background-color: #A389CB;
     color: #fff;
@@ -286,7 +282,8 @@
     transition: all 0.5s;
 }
 
-.button_prev .button_purchase_box .purchase:hover, .button_prev .button_purchase_box .purchase_naver:hover {
+.purchase:hover,
+.naver_pay:hover {
     box-shadow: 1000px 0 0 0 rgba(0, 0, 0, 0.25) inset;
 }
 .button_prev .movecart{
