@@ -12,6 +12,8 @@ let categorysListArr = [];
 // 카테고리 담을 리스트
 const categoryList = document.querySelector('#category_list');
 
+const categoryTitle = document.querySelector('.sub_category .inner h2');
+
 // 카테고리 동적 추가
 function categoryMade() {
     for (let i = 0; i < categorysListArr.length; i++) {
@@ -42,6 +44,7 @@ function categoryMade() {
             );
 
             productReset();
+            categoryTitle.innerHTML = item.id;
             productMade(goodsListArr);
 
             // 분류된 카테고리 상품 중 필터링 기능
