@@ -115,6 +115,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
         const purchaseBtn = document.getElementsByClassName("purchase")[0];
 
         purchaseBtn.addEventListener("click", () => {
+            
             // 객체
             const userOrderDetail = {
                 totalPrice: totalSum,
@@ -126,7 +127,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
                     address2: addrInput2.value,
                 }
             };
-            console.log(userOrderDetail)
+
             const orderDataJson = JSON.stringify(userOrderDetail);
 
             // let productNameList = "";
@@ -196,7 +197,76 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
             document.getElementsByClassName('naver_pay')[0];
 
         purchaseNaverBtn.addEventListener('click', () => {
-            location.href = '../../html/paymentNaver2.html';
+            // 객체
+            const userOrderDetail = {
+                totalPrice: totalSum,
+                receiver: receiverNameInput.value,
+                phoneNumber: receiverPhoneInput,
+                address : {
+                    postalCode: zipcodeInput.value,
+                    address1: addrInput1.value,
+                    address2: addrInput2.value,
+                }
+            };
+
+            const orderDataJson = JSON.stringify(userOrderDetail);
+
+            // let productNameList = "";
+            // userOrderFinList.forEach((item)=>{
+            //     productNameList += item.productName
+            // })
+            // console.log(productNameList)
+
+            // 주문 정보 보내기
+            fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${USERTOKEN}`,
+                },
+                body: orderDataJson,
+            })
+                .then((res) => res.json())
+                .then((orderData) => {
+                        console.log(orderData);
+                    if (orderData.status == "주문완료") {
+                        // 주문 상품 리스트 가져오기
+
+                        // 주문 상세 정보 보내기
+                        // 객체
+                        const userOrderDetailInfo = {
+                            orderId: orderData._id,
+                            productId: userOrderFinList[0].productId,
+                            productName: userOrderFinList[0].productName,
+                            quantity: totalQuan,
+                            totalPrice: totalSum,
+                            _id: orderData.user,
+                        };
+
+                        const orderDetailDataJson =
+                            JSON.stringify(userOrderDetailInfo);
+                        
+
+                        fetch(
+                            "http://kdt-sw-5-team01.elicecoding.com/api/ordersitem",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization: `Bearer ${USERTOKEN}`,
+                                },
+                                body: orderDetailDataJson,
+                            },
+                        )
+                            .then((res) => res.json())
+                            .then((orderDetailData) => {
+                            });
+                        localStorage.removeItem("cartItems");
+                        location.href = '../../html/paymentNaver2.html';
+                    } else {
+                        alert("주문 실패");
+                    }
+                });
         });
 
     });
@@ -215,14 +285,6 @@ const orderModalBtn = document.getElementsByClassName("btn_order_success")[0];
 orderModalBtn.addEventListener("click", () => {
     location.href = "/html/order_tracking.html";
 });
-
-
-
-
-
-
-
-
 
 
 // 다음 주소 API
