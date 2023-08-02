@@ -98,25 +98,28 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
 
         orderDeleteBtn.forEach((btn, i) => {
             btn.addEventListener("click", () => {
-                fetch(
-                    `http://kdt-sw-5-team01.elicecoding.com/api/orderslist/${loginUserdata[i]._id}`,
-                    {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Bearer ${USERTOKEN}`,
+                if(loginUserdata[i].status == "주문완료") {
+                    let isRemove = confirm("주문을 취소하시겠습니까?");
+                    fetch(
+                        `http://kdt-sw-5-team01.elicecoding.com/api/orderslist/${loginUserdata[i]._id}`,
+                        {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${USERTOKEN}`,
+                            },
                         },
-                    },
-                )
-                    .then((res) => res.json())
-                    .then((res) => {
-                        if(loginUserdata[i].status == "주문완료") {
-                            confirm("주문을 취소하시겠습니까?");
-                            location.reload();
-                        } else {
-                            alert("관리자 승인이 필요합니다!");
-                        }
-                    });
+                    )
+                        .then((res) => res.json())
+                        .then((res) => {
+                            if(isRemove) {
+                                location.reload();
+                            }
+                        });
+                } else {
+                    alert("관리자 승인이 필요합니다!");
+                }
+                
             });
         });
 
