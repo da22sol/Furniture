@@ -75,7 +75,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
         for (let i = 0; i < userOrderFinList.length; i++) {
             // 주문 상품 목록
             let sum = userOrderFinList[i].price * userOrderFinList[i].quantity;
-            totalQuan += userOrderFinList[i].quantity;
+            totalQuan += Number(userOrderFinList[i].quantity);
             totalSum += sum;
             orderGoodsList.innerHTML += `
         <div class="order_products_ul">
@@ -105,7 +105,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
         </div>
     `;
         }
-
         // 총 결제 금액
         orderTotalPrice.innerHTML += `
     <span>${totalSum.toLocaleString("ko-KR")}원</span>
@@ -129,12 +128,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
             };
 
             const orderDataJson = JSON.stringify(userOrderDetail);
-
-            // let productNameList = "";
-            // userOrderFinList.forEach((item)=>{
-            //     productNameList += item.productName
-            // })
-            // console.log(productNameList)
 
             // 주문 정보 보내기
             fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
