@@ -23,6 +23,65 @@
   <link rel="shortcut icon" href="https://img.pay.naver.net/static/images/customer/favicon.ico"><link type="text/css" rel="stylesheet" href="//img.pay.naver.net/z/mstatic/css/service/mobile/nsp/order_common.css?1689748449060">
   <link type="text/css" rel="stylesheet" href="//img.pay.naver.net/z/mstatic/css/service/mobile/nsp/order_layout.css?1689748449060">
   <link type="text/css" rel="stylesheet" href="//img.pay.naver.net/z/mstatic/css/service/mobile/nsp/dc_nsp_sheet.css?1689748449060">
+  <style>
+    /* MODAL */
+    #order_success {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: none;
+    }
+
+    #order_success .order_success_box {
+        width: 400px;
+        height: 250px;
+        border-radius: 20px;
+        background: #F1EDF5;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #order_success .order_success_box > h4 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #A389CB;
+        margin-bottom: 20px;
+    }
+
+    #order_success .order_success_box > h3 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+
+    #order_success .order_success_box .btn_order_success {
+        padding: 10px 20px;
+        font-size: 17px;
+        font-weight: 500;
+        border: none;
+        background-color: #A389CB;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .select_on {
+      border: 1px solid #5ac451;
+    }
+
+    ._C1 {
+      border-left: 1px solid #5ac451;
+    }
+  </style>
   </head>
   
   <body>
@@ -80,16 +139,16 @@
             <ul class="form_area box_margin">
             <li class="full_area label_margin button_margin">
               <span class="label">보유 포인트</span>
-              <span class="value number point_green align_left">50,000<span class="unit">원</span></span>
+              <span class="value number point_green align_left"><span class="given_point">50,000</span><span class="unit">원</span></span>
               <div class="button">
-                  <a href="#" class="size1 _click(checkout.mobile.nsp.paymentSheet.useAllMileage()) _stopDefault">전액사용</a>
+                  <a href="#" class="use_all_point size1 _click(checkout.mobile.nsp.paymentSheet.useAllMileage()) _stopDefault">전액사용</a>
               </div>
             </li>
             <li class="full_area label_margin button_margin2">
               <label for="point2" class="label">사용 포인트</label>
-              <input title="사용포인트" id="point2" name="payAmounts.NAVER_CASH" type="tel" class="value number _onlyPriceTarget _naverMileage _payForm _blur(checkout.mobile.nsp.paymentSheet.checkInputTextAmountValue()) _focus(checkout.mobile.nsp.paymentSheet.beforeInputPrice()) _stopDefault" placeholder="0">
+              <input title="사용포인트" id="point2" name="payAmounts.NAVER_CASH" type="tel" class="use_point value number _onlyPriceTarget _naverMileage _payForm _blur(checkout.mobile.nsp.paymentSheet.checkInputTextAmountValue()) _focus(checkout.mobile.nsp.paymentSheet.beforeInputPrice()) _stopDefault" placeholder="0">
               <span class="text_won">원</span>
-              <div class="button2">
+              <div class="button2 use_point_cancel">
                 <a href="#" class="sp_ordersheet button_del _click(checkout.mobile.nsp.paymentSheet.clearUsedPoint()) _stopDefault">삭제</a>
               </div>
             </li>
@@ -101,22 +160,22 @@
     <div class="fold_wrap">
       <label class="fold_head sp_heading head_totamount head_arrow" for="c2">
         <h3 class="fold_h">최종 결제금액</h3>
-        <p class="summary number"><span class="_totalPayAmt"></span><span class="unit">원</span></p>
+        <p class="summary number"><span class="total_price_fin _totalPayAmt"></span><span class="unit">원</span></p>
       </label>
       <div class="fold_content amount_section">
         <ul class="form_area">
         <li class="full_area label_margin">
           <span class="label">상품금액</span>
-          <span class="value number total_price">38,400<span class="unit">원</span></span>
+          <span class="value number total_price"><span class="unit">원</span></span>
         </li>
         <li class="full_area label_margin">
           <span class="label">포인트사용</span>
-          <span class="value number "><span class="_mileageUsedAmount">0</span><span class="unit">원</span></span>
+          <span class="value number "><span class="use_part_point _mileageUsedAmount">0</span><span class="unit">원</span></span>
         </li>
         </ul>
         <div class="amount_total">
           <span class="label">총 결제금액</span>
-          <span class="value number"><span class="_totalPayAmt">38,400</span><span class="unit">원</span></span>
+          <span class="value number"><span class="total_payment _totalPayAmt"></span><span class="unit">원</span></span>
         </div>
       </div>
     </div>
@@ -180,53 +239,71 @@
                   <caption><span class="blind">결제 카드 선택</span></caption>
                   <tbody><tr>
                   <td class="_payMethod _C3">
-                    <a href="#" class="credit_C3 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C3)) _stopDefault">
-                    <span>국민카드</span>
-                    </a>
+                    <div class="card-list select_on">
+                      <a href="#" class="credit_C3 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C3)) _stopDefault">
+                      <span>국민카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _C1">
-                    <a href="#" class="credit_C1 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C1)) _stopDefault">
-                    <span>비씨카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C1 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C1)) _stopDefault">
+                      <span>비씨카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _C0">
-                    <a href="#" class="credit_C0 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C0)) _stopDefault">
-                    <span>신한카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C0 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C0)) _stopDefault">
+                      <span>신한카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _CH">
-                    <a href="#" class="credit_CH _click(checkout.mobile.nsp.paymentSheet.changePayMethod(CH)) _stopDefault">
-                    <span>현대카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_CH _click(checkout.mobile.nsp.paymentSheet.changePayMethod(CH)) _stopDefault">
+                      <span>현대카드</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _C7">
-                    <a href="#" class="credit_C7 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C7)) _stopDefault">
-                    <span>삼성카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C7 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C7)) _stopDefault">
+                      <span>삼성카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _C5">
-                    <a href="#" class="credit_C5 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C5)) _stopDefault">
-                    <span>롯데카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C5 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C5)) _stopDefault">
+                      <span>롯데카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _C4">
-                    <a href="#" class="credit_C4 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C4)) _stopDefault">
-                    <span>NH카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C4 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C4)) _stopDefault">
+                      <span>NH카드</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _CF">
-                    <a href="#" class="credit_CF _click(checkout.mobile.nsp.paymentSheet.changePayMethod(CF)) _stopDefault">
-                    <span>하나카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_CF _click(checkout.mobile.nsp.paymentSheet.changePayMethod(CF)) _stopDefault">
+                      <span>하나카드</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _C9">
-                    <a href="#" class="credit_C9 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C9)) _stopDefault">
-                    <span>씨티카드</span>
-                    </a>
+                    <div class="card-list">
+                      <a href="#" class="credit_C9 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(C9)) _stopDefault">
+                      <span>씨티카드</span>
+                      </a>
+                    </div>
                   </td>
   
                     <td>&nbsp;</td>
@@ -340,7 +417,7 @@
   
               <div class="value_select _screditcardTemplate _payMethodForm _card_pay_area">
                   <label for="s2" class="hidden">할부선택</label>
-                  <select title="할부선택" name="freeInterestInstallmentInfo.installmentMonth" class="sp_select_icon value2 _creditCardInstallment _cardInstallmentPeriodClassCode _payForm" id="s2" disabled="">
+                  <select title="할부선택" name="freeInterestInstallmentInfo.installmentMonth" class="pay_select_box sp_select_icon value2 _creditCardInstallment _cardInstallmentPeriodClassCode _payForm" id="s2" disabled="">
                   <option value="01">일시불</option>
                     <option value="02">2개월</option>
                     <option value="03">3개월</option>
@@ -416,7 +493,7 @@
       <input type="checkbox" id="benefit2_1" class="hidden" title="포인트 적립 혜택">
       <div class="benefit_point">
           <label for="benefit2_1" class="fold_h sp_h h_point h_arrow">
-              <h4 class="point_h">적립 혜택 : <span class="point_yellow">384원 적립 예정</span></h4>
+              <h4 class="point_h">적립 혜택 : <span class="point_yellow"><span class="naver_mileage"></span>원 적립 예정</span></h4>
           </label>
           <div class="point_content">
               <ul class="s_benefit_list">
@@ -447,7 +524,7 @@
     </div>
     <div class="button_section">
       <div class="button_area">
-        <div class="button_bottom"><a href="#" class="button _click(checkout.mobile.nsp.paymentSheet.create()) _stopDefault _doPayButton"><span class="sp_button_icon icon_check">결제하기</span></a></div>
+        <div class="naver_pay_btn button_bottom"><a href="#" class="button _click(checkout.mobile.nsp.paymentSheet.create()) _stopDefault _doPayButton"><span class="sp_button_icon icon_check">결제하기</span></a></div>
       </div>
     </div>
   
@@ -478,8 +555,19 @@
   </div>
     <!-- //footer -->
   </div>
+  <!-- MODAL-주문 성공 -->
+  <div id="order_success">
+    <div class="order_success_box">
+        <h4>Thank you!</h4>
+        <h3>주문이 완료되었습니다.</h3>
+        <button class="btn_order_success">
+            확인
+        </button>
+    </div>
+  </div>
+
   <!-- javascript 영역 -->
-  <script type="text/javascript" src="https://ssl.pstatic.net/static.pay/z/static/js/jindo/core/jindo.mobile.all-2.3.0.js?1689748460888" charset="utf-8"></script>
+  <!-- <script type="text/javascript" src="https://ssl.pstatic.net/static.pay/z/static/js/jindo/core/jindo.mobile.all-2.3.0.js?1689748460888" charset="utf-8"></script>
   <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/uglify/common.mobile.min.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://ssl.pstatic.net/static.pay/z/static/js/legend/nclktag.js?1689748460888" charset="utf-8"></script>
   <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/uglify/lcslog.min.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
@@ -560,7 +648,7 @@
   "usimRequestMessage" : "",
   "" : ""
   });
-  </script>
+  </script> -->
   <script type="module" src="../js/order/naver_payment.js"></script>
   <div class="_repurchase">&nbsp;</div>
   <div class="_repurchaseDtl">
