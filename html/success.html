@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구글 로그인</title>
+</head>
+
+<body>
+    <script>
+        fetchToken();
+        function fetchToken() {
+            fetch(
+                'http://kdt-sw-5-team01.elicecoding.com/api/success/callback',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        credentials: 'include',
+                    },
+                },
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.userToken) {
+                        alert('로그인 성공!');
+                        // 유저 정보 로컬에 저장
+                        localStorage.setItem('userToken', data.userToken);
+                        localStorage.setItem('isAdmin', data.isAdmin);
+                        // 메인 페이지로 이동
+                        location.href = '/index.html';
+                    } else {
+                        alert('로그인에 실패했습니다.');
+                        //location.href = '/html/login.html';
+                    }
+                })
+                .catch(console.error);
+        }
+    </script>
+</body>
+
+</html>
