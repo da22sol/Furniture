@@ -45,8 +45,13 @@ cartData.forEach((item) => {
                     <input type='button' class="increase_button" value='+' />
                 </div>
             </li>
-            <li class="delete_item_btn">
-                <i class="fa-regular fa-trash-can"></i>
+            <li class="optionl_btn">
+                <div class="check_btn">
+                    <input type="checkbox" class="check_box" />
+                </div>
+                <div class="delete_item_btn">
+                    <i class="fa-regular fa-trash-can"></i>
+                </div>
             </li>
         </ul>`;
 
@@ -98,8 +103,7 @@ decreaseBtns.forEach((downBtn, i) => {
     });
 });
 
-// // 총 주문 금액
-// priceTotal.innerHTML = "2000원";
+
 
 // 주문하기
 const orderBtn = document.getElementsByClassName("button_all")[0];
@@ -115,3 +119,40 @@ sideLogoutBtn.addEventListener("click", () => {
     localStorage.removeItem("cartItems");
     location.href = "/html/login.html";
 });
+
+
+
+const selectDelBtn = document.getElementsByClassName("btn_select_del")[0];
+const selectPurchaseBtn = document.getElementsByClassName("btn_select_purchase")[0];
+const checkBox = document.querySelectorAll(".check_box");
+
+console.log(cartData);
+
+
+// 선택 삭제
+selectDelBtn.addEventListener("click", () => {
+    for(let i=0; i < cartData.length; i++) {
+        if (checkBox[i].checked) {
+            console.log("checked", cartData[i])
+            localStorage.removeItem("cartItems");
+            cartData.splice(i, 1);
+            const newCartData = JSON.stringify(cartData);
+            localStorage.setItem("cartItems", newCartData);
+            location.reload();
+        }
+    }
+})
+
+// 선택 구매
+selectPurchaseBtn.addEventListener("click", () => {
+    for(let i=0; i < cartData.length; i++) {
+        if (!checkBox[i].checked) {
+            console.log("checked", cartData[i])
+            localStorage.removeItem("cartItems");
+            cartData.splice(i, 1);
+            const newCartData = JSON.stringify(cartData);
+            localStorage.setItem("cartItems", newCartData);
+            location.href = "/html/order.html";
+        }
+    }
+})

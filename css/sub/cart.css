@@ -147,6 +147,47 @@
 
 
 /* 선택상품구매,모든상품구매 */
+.optionl_btn {
+    display: flex;
+    align-items: center;
+}
+
+.check_btn > input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.delete_item_btn {
+    margin-left: 10px;
+}
+
+.select_purchase {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    border-bottom: 1px solid #000;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.select_purchase > button {
+    border: none;
+    padding: 10px 15px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.select_purchase > button:hover {
+    background-color: #A389CB;
+    color: #fff;
+    font-weight: 500;
+}
+
+.select_purchase .btn_select_purchase {
+    margin-left: 10px;
+}
+
 .button_line {
     width: 100%;
 }
