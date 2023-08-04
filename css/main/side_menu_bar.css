@@ -73,7 +73,7 @@
 
 /* MENU LIST */
 #side_menu_bar .menu_list {
-    height: 45rem;
+    height: 76vh;
     box-sizing: border-box;
     padding: 1.875rem;
     display: flex;
