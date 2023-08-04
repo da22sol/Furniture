@@ -113,6 +113,13 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     totalPriceFin.innerText = sum.toLocaleString("ko-KR");
                     mileage.innerText = (sum * 0.01).toLocaleString("ko-KR");
                 });
+
+                usePoint.addEventListener("focus", () => {
+
+                    let numberString = usePoint.value.replace(/[^\d.-]/g, '');
+                    let number = parseFloat(numberString);
+                    usePoint.value = Number(number);
+                })
             })
     })
 
@@ -129,6 +136,7 @@ orderModalBtn.addEventListener("click", () => {
     location.href = "/html/order_tracking.html";
 });
 
+// 카드사 선택
 cardList.forEach((item) => {
     item.addEventListener("click", () => {
         for(let i = 0; i < cardList.length; i++) {
