@@ -235,7 +235,7 @@
               </ul>
             </div>
             <div class="payway_area">
-              <table cellpadding="0" cellspacing="0" border="0" class="regway_select _credit_card_area _easyCardCodeList _card_simple_pay_area">
+              <table cellpadding="0" cellspacing="0" border="0" class="card_table regway_select _credit_card_area _easyCardCodeList _card_simple_pay_area">
                   <caption><span class="blind">결제 카드 선택</span></caption>
                   <tbody><tr>
                   <td class="_payMethod _C3">
@@ -313,101 +313,135 @@
                   </tr>
               </tbody></table>
   
-              <table cellpadding="0" cellspacing="0" border="0" class="regway_select _easyBankCodeList _bank_simple_pay_area" style="display:none">
+              <table cellpadding="0" cellspacing="0" border="0" class="bank_table regway_select _easyBankCodeList _bank_simple_pay_area" style="display:none">
                                   <caption><span class="blind">결제 계좌 선택</span></caption>
                   <tbody><tr>
                   <td class="_payMethod _011">
-                    <a href="#" class="bank_011 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(011)) _stopDefault">
-                    <span>NH농협</span>
-                    </a>
+                    <div class="select_on bank-list">
+                      <a href="#" class="bank_011 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(011)) _stopDefault">
+                      <span>NH농협</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _004">
-                    <a href="#" class="bank_004 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(004)) _stopDefault">
-                    <span>국민은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_004 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(004)) _stopDefault">
+                      <span>국민은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _088">
-                    <a href="#" class="bank_088 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(088)) _stopDefault">
-                    <span>신한은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_088 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(088)) _stopDefault">
+                      <span>신한은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _020">
-                    <a href="#" class="bank_020 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(020)) _stopDefault">
-                    <span>우리은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_020 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(020)) _stopDefault">
+                      <span>우리은행</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _003">
-                    <a href="#" class="bank_003 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(003)) _stopDefault">
-                    <span>기업은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_003 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(003)) _stopDefault">
+                      <span>기업은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _023">
-                    <a href="#" class="bank_023 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(023)) _stopDefault">
-                    <span>SC제일은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_023 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(023)) _stopDefault">
+                      <span>SC제일은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _032">
-                    <a href="#" class="bank_032 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(032)) _stopDefault">
-                    <span>부산은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_032 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(032)) _stopDefault">
+                      <span>부산은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _039">
-                    <a href="#" class="bank_039 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(039)) _stopDefault">
-                    <span>경남은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_039 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(039)) _stopDefault">
+                      <span>경남은행</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _007">
-                    <a href="#" class="bank_007 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(007)) _stopDefault">
-                    <span>수협</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_007 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(007)) _stopDefault">
+                      <span>수협</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _071">
-                    <a href="#" class="bank_071 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(071)) _stopDefault">
-                    <span>우체국</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_071 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(071)) _stopDefault">
+                      <span>우체국</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _238">
-                    <a href="#" class="bank_238 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(238)) _stopDefault">
-                    <span>미래에셋</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_238 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(238)) _stopDefault">
+                      <span>미래에셋</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _031">
-                    <a href="#" class="bank_031 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(031)) _stopDefault">
-                    <span>대구은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_031 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(031)) _stopDefault">
+                      <span>대구은행</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _034">
-                    <a href="#" class="bank_034 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(034)) _stopDefault">
-                    <span>광주은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_034 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(034)) _stopDefault">
+                      <span>광주은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _037">
-                    <a href="#" class="bank_037 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(037)) _stopDefault">
-                    <span>전북은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_037 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(037)) _stopDefault">
+                      <span>전북은행</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _045">
-                    <a href="#" class="bank_045 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(045)) _stopDefault">
-                    <span>새마을금고</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_045 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(045)) _stopDefault">
+                      <span>새마을금고</span>
+                      </a>
+                    </div>
                   </td>
                   <td class="_payMethod _035">
-                    <a href="#" class="bank_035 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(035)) _stopDefault">
-                    <span>제주은행</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_035 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(035)) _stopDefault">
+                      <span>제주은행</span>
+                      </a>
+                    </div>
                   </td>
                   </tr>
                   <tr>
                   <td class="_payMethod _089">
-                    <a href="#" class="bank_089 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(089)) _stopDefault">
-                    <span>케이뱅크</span>
-                    </a>
+                    <div class="bank-list">
+                      <a href="#" class="bank_089 _click(checkout.mobile.nsp.paymentSheet.changePayMethod(089)) _stopDefault">
+                      <span>케이뱅크</span>
+                      </a>
+                    </div>
                   </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -567,88 +601,6 @@
   </div>
 
   <!-- javascript 영역 -->
-  <!-- <script type="text/javascript" src="https://ssl.pstatic.net/static.pay/z/static/js/jindo/core/jindo.mobile.all-2.3.0.js?1689748460888" charset="utf-8"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/uglify/common.mobile.min.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://ssl.pstatic.net/static.pay/z/static/js/legend/nclktag.js?1689748460888" charset="utf-8"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/uglify/lcslog.min.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nmp.component.Calculator.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nmp.component.UrlUtils.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nmp.component.Utility.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nmp.component.Box.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nsp.Event.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nsp.CardType.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nsp.CashReceiptIssueType.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/DeveloperPaymentSheetModel.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/nsp.SheetCommon.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/mstatic/js/service/checkout/mobile/nsp/developerPaymentSheet.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/mstatic/js/service/checkout/mobile/nsp/developerPaymentSheetUtils.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/mstatic/js/service/checkout/mobile/order/ui.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//img.pay.naver.net/z/cstatic/js/component/NextInputFocusModule.js?1689748460888" charset="utf-8" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-      var oAdditionalInfo = {};
-      
-          lcs_do(oAdditionalInfo);
-  
-  nclk_do();
-  pug.registerModule(checkout.mobile.nsp.paymentSheet,
-  {
-  "memberNickName" : "홍김동",
-  "memberMaskingNaverId" : "ho******",
-  "memberImgUrl" : "",
-  
-  "merchantName" : "엘리스퍼니쳐",
-  "productName" : "유다의 별 2권",
-  "amount" : 38400,
-  
-  "isAvailableNaverPoint" : true,
-  "isNaverPointLimitPolicy" : false,
-  "availableNaverPointForOneMonth" : 0,
-  "naverPoint" : 50000,
-  "naverPointAvailable" : true,
-  
-  "reserveId" : "developerCenterReserveId",
-  "returnUrl" : "www.naver.com",
-  "easyCardCode" : $A(["C3","C1","C0","CH","C7","C5","C4","CF","C9"]),
-  "easyBankCode" : $A(["011","004","088","020","003","023","032","039","007","071","238","031","034","037","045","035","089"]),
-  "payMeansInfos": {},
-  "easyPayBankRegistrationDate" : "0",
-  "easyPayBankRegisteredCode" : "",
-  "easyPayBankRegisteredText" : "",
-  
-  "isAvailableCard" : true,
-  "isAvailableBank" : true,
-  
-  "lastPayMeans": {"corpCode":"","lastChargingPointPayment":false,"usingAlwaysAllPointChecked":false,"payMoneyUse":false,"payMoneyRegisteredUser":false},
-  
-  "urls" : 	{
-        "mobile.user.front.host" : "m.pay.naver.com",
-        "pay.password.authentification.mobile.page.url" : "https://nid.naver.com/mobile/naverPay.nhn?m=viewCheckNaverPayPasswd",
-        "pay.ars.authentification.mobile.page.url" : "https://nid.naver.com/iasystem/mobile_pop.nhn?todo=pers_popup_ars&target=persAuth_popup",
-        "nsp.pay.authentification.return.url" : "https://pay.naver.com/payments/naverPayAuthResult?d=",
-        "pay.password.init.mobile.page.url" : "https://nid.naver.com/mobile/naverPay.nhn?m=viewAuthNaverPayPasswd",
-        "nsp.mobile.paymentsheet.url" : "https://m.pay.naver.com/payments/",
-        "mobile.user.front.host" : "m.pay.naver.com",
-        "pay.limit.conf.mobile.url" : "https://new-m.pay.naver.com/settings/payment-security/pay",
-      "":""
-    }
-  ,
-  "purchaserInfo": {"memberName":""
-            ,"emailAddress":""
-            ,"memberTelNumber":""},
-  "naverPointReserveRate" : 1 ,
-  "creditCardInfos" : {},
-  "freeInterests" : {},
-  "defaultCashReceiptInfo" : {"selfCashReceiptApply":false},
-  "isCashReceiptPublish" : true,
-  "isRegisteredCashReceiptIssue" : false,
-  "isSupportGeneralPayMeans" : false,
-  "ispCreditCardCode" : $A(""),
-  "rurlPrefix" : "",
-  "rurlSuffix" : "",
-  "usimRequestMessage" : "",
-  "" : ""
-  });
-  </script> -->
   <script type="module" src="../js/order/naver_payment.js"></script>
   <div class="_repurchase">&nbsp;</div>
   <div class="_repurchaseDtl">

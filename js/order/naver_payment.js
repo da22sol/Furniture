@@ -25,6 +25,7 @@ const givenPoint = document.getElementsByClassName("given_point")[0];
 const mileage = document.getElementsByClassName("naver_mileage")[0];
 
 const cardList = document.querySelectorAll(".card-list");
+const bankList = document.querySelectorAll(".bank-list");
 
 const givePoint = 50000;
 
@@ -96,6 +97,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     totalPayment.innerText = (itemData[0].orderId.totalPrice).toLocaleString("ko-KR");
                     totalPriceFin.innerText = (itemData[0].orderId.totalPrice).toLocaleString("ko-KR");
                     mileage.innerText = (itemData[0].orderId.totalPrice * 0.01).toLocaleString("ko-KR");
+                    
                 })
 
                 // 일부 포인트 사용하기
@@ -112,14 +114,18 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     totalPayment.innerText = sum.toLocaleString("ko-KR");
                     totalPriceFin.innerText = sum.toLocaleString("ko-KR");
                     mileage.innerText = (sum * 0.01).toLocaleString("ko-KR");
+
+
+                    usePoint.addEventListener("focus", () => {
+                        if(usePoint.value !== "") {
+                            let numberString = usePoint.value.replace(/[^\d.-]/g, '');
+                            let number = parseFloat(numberString);
+                            usePoint.value = Number(number);
+                        }
+                    })
                 });
 
-                usePoint.addEventListener("focus", () => {
-
-                    let numberString = usePoint.value.replace(/[^\d.-]/g, '');
-                    let number = parseFloat(numberString);
-                    usePoint.value = Number(number);
-                })
+                
             })
     })
 
@@ -144,4 +150,40 @@ cardList.forEach((item) => {
         }
         item.classList.add("select_on");
     })
+})
+
+// 은행계좌 선택
+bankList.forEach((item) => {
+    item.addEventListener("click", () => {
+        for(let i = 0; i < bankList.length; i++) {
+            bankList[i].classList.remove("select_on");
+        }
+        item.classList.add("select_on");
+    })
+})
+
+const cardTable = document.getElementsByClassName("card_table")[0];
+const bankTable = document.getElementsByClassName("bank_table")[0];
+const cardTab = document.getElementsByClassName("_credit_card_tab")[0];
+const bankTab = document.getElementsByClassName("_bank_tab")[0];
+
+
+cardTab.addEventListener("click", () => {
+    bankTab.classList.remove("on");
+    cardTab.classList.add("on");
+
+    cardTable.style.display = "table";
+    bankTable.style.display = "none";
+
+    document.getElementsByClassName("_payMethodForm")[0].style.display = "block";
+})
+
+bankTab.addEventListener("click", () => {
+    cardTab.classList.remove("on");
+    bankTab.classList.add("on");
+    
+    cardTable.style.display = "none";
+    bankTable.style.display = "table";
+
+    document.getElementsByClassName("_payMethodForm")[0].style.display = "none";
 })
