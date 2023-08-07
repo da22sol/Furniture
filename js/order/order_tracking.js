@@ -19,6 +19,7 @@ const orderedListInfo = document.getElementsByClassName("ordered_list")[0];
 const orderedCountInfo = document.getElementsByClassName("ordered_count")[0];
 const orderedSumInfo = document.getElementsByClassName("ordered_sum")[0];
 
+
 fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
     method: "GET",
     headers: {
@@ -138,22 +139,63 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     .then((res) => res.json())
                     .then((orderItem) => {
                         console.log(orderItem);
+                        let totalCount = 0;
                         for (let i = 0; i < orderItem.length; i++) {
+                            totalCount += orderItem[i].quantity;
+                            console.log(totalCount);
                             orderedDateInfo.innerText = orderItem[
                                 i
                             ].createdAt.slice(0, 10);
                             orderedDateInfo.innerText = orderItem[
                                 i
                             ].createdAt.slice(0, 10);
-                            if(orderItem[i].quantity == 1) {
+                            if(totalCount == 1) {
                                 orderedListInfo.innerText = orderItem[i].productName;
                             } else {
-                                orderedListInfo.innerText = `${orderItem[i].productName} 외 ${orderItem[i].quantity-1}개`;
+                                orderedListInfo.innerText = `${orderItem[i].productName} 외 ${totalCount-1}개`;
                             }
-                            orderedCountInfo.innerText = `${orderItem[i].quantity}개`;
+                            orderedCountInfo.innerText = `${totalCount}개`;
                             orderedSumInfo.innerText = `${orderItem[i].finalPrice.toLocaleString('ko-KR')}원`;
                         }
+
+                        // 주문 상품 목록 조회
+                        const viewAllItems = document.getElementsByClassName("list_all_items")[0];
+                        const modalAllItems = document.getElementsByClassName("modal_items")[0];
+                        const allItemsList = document.getElementsByClassName("items_list")[0];
+                        const modalItemsCloseBtn = document.getElementsByClassName("btn_close_items_modal")[0];
+
+                        viewAllItems.addEventListener("click", () => {
+                            modalAllItems.style.display = "flex";
+                            allItemsList.innerHTML = ""
+
+                            for(let j = 0; j < orderItem.length; j++) {
+                                allItemsList.innerHTML += `
+                                <ul>
+                                    <li class="item_name"> 
+                                        <span>상품명</span>
+                                        <p>${orderItem[j].productName}</p>
+                                    </li>
+                                    <li class="item_info">
+                                        <div class="item_quantity">
+                                            <span>수량</span>
+                                            <p>${orderItem[j].quantity}개</p>
+                                        </div>
+                                        <div class="item_price"> 
+                                            <span>가격</span>
+                                            <p>${orderItem[j].finalPrice.toLocaleString("ko-KR")}원</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            `;
+                            }
+                        })
+                    
+                        modalItemsCloseBtn.addEventListener("click", () => {
+                            modalAllItems.style.display = "none";
+                        })
+                        
                     });
+
             });
         });
     });
