@@ -67,10 +67,10 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
             .then((res) => res.json())
             .then((itemData) => {
                 console.log(itemData)
-                if(itemData[0].quantity == 1) {
+                if(itemData.length == 1) {
                     itemName.innerHTML = itemData[0].productName;
                 } else {
-                    itemName.innerHTML = `${itemData[0].productName} 외 ${itemData[0].quantity-1}개`;
+                    itemName.innerHTML = `${itemData[0].productName} 외 ${itemData.length-1}개`;
                 }
                 itemPrice.innerHTML = `${itemData[0].orderId.totalPrice.toLocaleString("ko-KR")}원`;
                 totalPrice1.innerHTML = itemData[0].orderId.totalPrice.toLocaleString("ko-KR");
@@ -87,6 +87,14 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     totalPayment.innerText = (itemData[0].orderId.totalPrice - 50000).toLocaleString("ko-KR");
                     totalPriceFin.innerText = (itemData[0].orderId.totalPrice - 50000).toLocaleString("ko-KR");
                     mileage.innerText = ((itemData[0].orderId.totalPrice - 50000) * 0.01).toLocaleString("ko-KR");
+
+                    usePoint.addEventListener("focus", () => {
+                        if(usePoint.value !== "") {
+                            let numberString = usePoint.value.replace(/[^\d.-]/g, '');
+                            let number = parseFloat(numberString);
+                            usePoint.value = Number(number);
+                        }
+                    })
                 })
 
                 // 포인트 사용 취소하기
@@ -97,7 +105,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                     totalPayment.innerText = (itemData[0].orderId.totalPrice).toLocaleString("ko-KR");
                     totalPriceFin.innerText = (itemData[0].orderId.totalPrice).toLocaleString("ko-KR");
                     mileage.innerText = (itemData[0].orderId.totalPrice * 0.01).toLocaleString("ko-KR");
-                    
                 })
 
                 // 일부 포인트 사용하기

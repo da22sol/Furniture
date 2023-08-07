@@ -67,7 +67,7 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
         // 장바구니 물건 가져오기
         const userOrderFinList = JSON.parse(localStorage.getItem("cartItems"));
         console.log(userOrderFinList)
-    
+
         // 상품 주문하기
         let totalQuan = 0;
         let totalSum = 0;
@@ -146,14 +146,23 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
                         // 주문 상세 정보 보내기
                         // 객체
+                        let newArray = [];
+
+                        for (let i = 0; i < userOrderFinList.length; i++) {
+                            let a = {
+                                orderId: orderData._id,
+                                productId: userOrderFinList[i].productId,
+                                productName: userOrderFinList[i].productName,
+                                quantity: userOrderFinList[i].quantity,
+                                totalPrice: userOrderFinList[i].price,
+                            };
+                        
+                            newArray.push(a); // 새로운 배열에 a 객체 추가
+                        }
+                
                         const userOrderDetailInfo = {
-                            orderId: orderData._id,
-                            productId: userOrderFinList[0].productId,
-                            productName: userOrderFinList[0].productName,
-                            quantity: totalQuan,
-                            totalPrice: totalSum,
-                            _id: orderData.user,
-                        };
+                            orderItems: newArray
+                        }
 
                         const orderDetailDataJson =
                             JSON.stringify(userOrderDetailInfo);
@@ -204,12 +213,6 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
             const orderDataJson = JSON.stringify(userOrderDetail);
 
-            // let productNameList = "";
-            // userOrderFinList.forEach((item)=>{
-            //     productNameList += item.productName
-            // })
-            // console.log(productNameList)
-
             // 주문 정보 보내기
             fetch("http://kdt-sw-5-team01.elicecoding.com/api/orderslist", {
                 method: "POST",
@@ -227,14 +230,23 @@ fetch("http://kdt-sw-5-team01.elicecoding.com/api/account", {
 
                         // 주문 상세 정보 보내기
                         // 객체
+                        let newArray = [];
+
+                        for (let i = 0; i < userOrderFinList.length; i++) {
+                            let a = {
+                                orderId: orderData._id,
+                                productId: userOrderFinList[i].productId,
+                                productName: userOrderFinList[i].productName,
+                                quantity: userOrderFinList[i].quantity,
+                                totalPrice: userOrderFinList[i].price,
+                            };
+                        
+                            newArray.push(a); // 새로운 배열에 a 객체 추가
+                        }
+                
                         const userOrderDetailInfo = {
-                            orderId: orderData._id,
-                            productId: userOrderFinList[0].productId,
-                            productName: userOrderFinList[0].productName,
-                            quantity: totalQuan,
-                            totalPrice: totalSum,
-                            _id: orderData.user,
-                        };
+                            orderItems: newArray
+                        }
 
                         const orderDetailDataJson =
                             JSON.stringify(userOrderDetailInfo);
