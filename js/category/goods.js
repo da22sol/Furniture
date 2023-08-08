@@ -20,9 +20,9 @@ function productMade(data) {
                         data[i].productImageKey
                     }" class="img_sale_product"></img>
                 </span>
-                <strong>
+                <p class="strong">
                     ${data[i].categoryId.title}
-                </strong>
+                </p>
                 <p class="text_product_name">
                     ${data[i].productName}
                 </p>

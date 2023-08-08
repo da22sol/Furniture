@@ -45,9 +45,9 @@ function bestProductsMade(data) {
                         data[i].productImageKey
                     }" class="img_best_product"></img>
                 </span>
-                <strong>
+                <p class="strong">
                     ${data[i].categoryId.title}
-                </strong>
+                </p>
                 <p class="text_product_name">
                     ${data[i].productName}
                 </p>
