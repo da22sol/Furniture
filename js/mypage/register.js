@@ -14,6 +14,40 @@ const joinZipcodeInput = document.getElementById("zipcode");
 const joinAddrInput1 = document.getElementById("addr1");
 const joinAddrInput2 = document.getElementById("addr2");
 
+const emailCheckBtn = document.getElementsByClassName("double_check_button")[0];
+const emailCheck = document.getElementsByClassName("fa-check")[0];
+
+
+emailCheckBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(joinEmailInput.value);
+    fetch(`http://kdt-sw-5-team01.elicecoding.com/api/checkemail?email=${joinEmailInput.value}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((email) => {
+            console.log(email);
+            if(!joinEmailInput.value.includes("@")) {
+                alert("❗️올바른 이메일 형태가 아닙니다.");
+                joinEmailInput.focus();
+            } else {
+                if(email.isEmailTaken) {
+                    alert("❗️이미 사용중인 이메일입니다.");
+                    joinEmailInput.value = "";
+                    joinEmailInput.focus();
+                    emailCheck.style.display = "none";
+                } else {
+                    alert("사용 가능한 이메일입니다.");
+                    emailCheck.style.display = "inline-block";
+                }
+            }
+            
+        })
+})
+
 // 휴대전화 input 자동 focus
 joinPhoneInput1.addEventListener("input", function () {
     if (joinPhoneInput1.value.length >= joinPhoneInput1.maxLength) {
@@ -96,6 +130,8 @@ function handleSubmit(e) {
     } else if (!email.includes("@")) {
         alert("❗️올바른 이메일 형태가 아닙니다.");
         joinEmailInput.focus();
+    } else if (emailCheck.style.display == "none") {
+        alert("❗️이메일 중복확인을 해주세요.");
     } else if (password == "") {
         alert("❗️비밀번호를 입력해주세요.");
         joinPasswordInput.focus();

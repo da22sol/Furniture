@@ -105,7 +105,11 @@
     margin-bottom: 10px;
 }
 
-.register .form_register .addr_detail #addr2 {}
+.register .fa-check {
+    margin-left: 5px;
+    color: #ac94c4;
+    /* display: none; */
+}
 
 
 
