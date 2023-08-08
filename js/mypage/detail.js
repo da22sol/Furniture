@@ -23,12 +23,14 @@ function productContentsMade() {
     detailIn.innerHTML = `
         <h1>${detailDataArr.productName}</h1>
         <p>${detailDataArr.shortDescription}</p>
-        <p>${detailDataArr.price.toLocaleString("ko-KR")}원</p>
+        <p>${detailDataArr.price.toLocaleString('ko-KR')}원</p>
     `;
 }
 
 function defaultUpdateTotalPrice() {
-    priceTotal.innerHTML = `<strong><em>${detailDataArr.price.toLocaleString("ko-KR")} KRW</em></strong>(1개)`;
+    priceTotal.innerHTML = `<strong><em>${detailDataArr.price.toLocaleString(
+        'ko-KR',
+    )} KRW</em></strong>(1개)`;
 }
 
 increaseBtn.addEventListener('click', () => {
@@ -51,7 +53,9 @@ decreaseBtn.addEventListener('click', () => {
 function updateTotalPrice(quantity) {
     const priced = parseInt(detailDataArr.price);
     const totalPrice = priced * quantity;
-    priceTotal.innerHTML = `<strong><em>${totalPrice} KRW</em></strong>(${quantity}개)`;
+    priceTotal.innerHTML = `<strong><em>${totalPrice.toLocaleString(
+        'ko-KR',
+    )} KRW</em></strong>(${quantity}개)`;
 }
 
 // 장바구니
@@ -80,8 +84,9 @@ function addProduct() {
 
     // (3) 기존 데이터에 상품 추가
     const products =
-        {   productImageKey : detailDataArr.productImageKey,
-            productId : detailDataArr._id,
+        {
+            productImageKey: detailDataArr.productImageKey,
+            productId: detailDataArr._id,
             category: detailDataArr.categoryId.title,
             productName: detailDataArr.productName,
             price: detailDataArr.price,
@@ -94,27 +99,24 @@ function addProduct() {
 }
 
 // 바로 구매하기 (상품 1개만 구매)
-const buyNowBtn = document.getElementsByClassName("button_buy")[0];
+const buyNowBtn = document.getElementsByClassName('button_buy')[0];
 let cartItem = [];
 
-buyNowBtn.addEventListener("click", () => {
+buyNowBtn.addEventListener('click', () => {
     buyProduct();
-})
-
+});
 
 function buyProduct() {
     const products =
-    {   productImageKey : detailDataArr.productImageKey,
-        productId : detailDataArr._id,
-        category: detailDataArr.categoryId.title,
-        productName: detailDataArr.productName,
-        price: detailDataArr.price,
-        quantity: inputNum.value,
-    } || [];
+        {
+            productImageKey: detailDataArr.productImageKey,
+            productId: detailDataArr._id,
+            category: detailDataArr.categoryId.title,
+            productName: detailDataArr.productName,
+            price: detailDataArr.price,
+            quantity: inputNum.value,
+        } || [];
 
     cartItem.push(products);
     localStorage.setItem('cartItems', JSON.stringify(cartItem));
-
 }
-
-
