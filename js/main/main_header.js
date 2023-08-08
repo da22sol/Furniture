@@ -50,11 +50,30 @@ if (userToken) {
 // 검색창
 const searchEl = document.querySelector('.icon_search');
 const searchInputEl = searchEl.querySelector('input');
+const searchOnBtn = searchEl.querySelector('i');
 
 searchEl.addEventListener('click', () => {
     searchInputEl.focus();
+
+    searchInputEl.style.width = "150px";
+    searchEl.style.width = "200px";
+    searchEl.style.border = "2px solid #E3DBEB"; 
 });
 
-searchInputEl.addEventListener('blur', () => {
-    searchInputEl.value = '';
-});
+searchOnBtn.addEventListener('click', () => {
+    localStorage.removeItem("searchItem");
+    if(!searchInputEl.value == "") {
+        fetch(`http://kdt-sw-5-team01.elicecoding.com/api//search?keyword=${searchInputEl.value}`)
+        .then((response) => response.json())
+        .then((item) => {
+            console.log(item)
+            if(item.length == 0) {
+                alert("❗️일치하는 상품이 없습니다.")
+            } else {
+                localStorage.setItem("searchItem", searchInputEl.value);
+                location.href = '/html/search.html';
+            }
+        })
+    }
+})
+
