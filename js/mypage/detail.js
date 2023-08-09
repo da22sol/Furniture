@@ -3,7 +3,6 @@ fetch(`http://kdt-sw-5-team01.elicecoding.com/api/products/${temp[1]}`)
     .then((response) => response.json())
     .then((data) => {
         detailDataArr = data;
-        console.log(detailDataArr);
         productContentsMade();
         defaultUpdateTotalPrice();
     });
