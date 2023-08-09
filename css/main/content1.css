@@ -22,6 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .category .img_category {
