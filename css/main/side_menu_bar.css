@@ -51,6 +51,7 @@
     box-sizing: border-box;
     padding: 0.7rem;
     cursor: pointer;
+    margin-bottom: 3rem;
 }
 
 #side_menu_bar .login_btn_box .login_btn, #side_menu_bar .login_btn_box .register_btn {
@@ -90,6 +91,7 @@
 #side_menu_bar .menu_list ul.main_list li a {
     font-size: 2rem;
     font-weight: bold;
+    position: relative;
 }
 
 #side_menu_bar .menu_list ul.main_list li a::after {
@@ -99,9 +101,12 @@
     height: 3px;
     background-color: #AC94C4;
     transition: 0.8s;
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
 }
 
-#side_menu_bar .menu_list ul.main_list li:hover a::after {
+#side_menu_bar .menu_list ul.main_list li a:hover::after {
     width: 100%;
 }
 
@@ -112,3 +117,32 @@
 #side_menu_bar .menu_list ul.sub_list li a:hover {
     color: #AC94C4;
 } 
+
+
+/* 검색 input */
+.side_search_input {
+    width: 200px;
+    border: 2px solid #E3DBEB;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.side_search_input input {
+    height: 34px;
+    padding: 4px 10px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color: #777;
+    font-size: 14px;
+}
+
+.side_search_input i {
+    cursor: pointer;
+}
+
+#side_menu_bar .menu_list ul.main_list li:first-child {
+    margin-bottom: 3rem;
+}
