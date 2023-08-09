@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+    searchInputEl.value = "";
+    sideSearchInputEl.value = "";
+});
+
 // 메인 메뉴
 const mainManage = document.getElementsByClassName('icon_setting')[0];
 const mainUser = document.getElementsByClassName('menu_mypage')[0];
@@ -48,10 +53,33 @@ if (userToken) {
 }
 
 // 검색창
-const searchEl = document.querySelector('.icon_search');
+const searchEl = document.querySelectorAll('.icon_search')[1];
 const searchInputEl = searchEl.querySelector('input');
 const searchOnBtn = searchEl.querySelector('i');
 
+const sideSearchEl = document.querySelectorAll('.icon_search')[0];
+const sideSearchInputEl = sideSearchEl.querySelector('input');
+const sideSearchBtn = sideSearchEl.querySelector('i');
+
+// 사이드 메뉴 검색창
+
+sideSearchBtn.addEventListener('click', () => {
+    localStorage.removeItem("searchItem");
+    if(!sideSearchInputEl.value == "") {
+        fetch(`http://kdt-sw-5-team01.elicecoding.com/api/search?keyword=${sideSearchInputEl.value}`)
+        .then((response) => response.json())
+        .then((item) => {
+            if(item.length == 0) {
+                alert("❗️일치하는 상품이 없습니다.")
+            } else {
+                localStorage.setItem("searchItem", sideSearchInputEl.value);
+                location.href = '/html/search.html';
+            }
+        })
+    }
+})
+
+// 헤더 메뉴 검색창
 searchEl.addEventListener('click', () => {
     searchInputEl.focus();
 
@@ -63,10 +91,9 @@ searchEl.addEventListener('click', () => {
 searchOnBtn.addEventListener('click', () => {
     localStorage.removeItem("searchItem");
     if(!searchInputEl.value == "") {
-        fetch(`http://kdt-sw-5-team01.elicecoding.com/api//search?keyword=${searchInputEl.value}`)
+        fetch(`http://kdt-sw-5-team01.elicecoding.com/api/search?keyword=${searchInputEl.value}`)
         .then((response) => response.json())
         .then((item) => {
-            console.log(item)
             if(item.length == 0) {
                 alert("❗️일치하는 상품이 없습니다.")
             } else {
@@ -76,4 +103,5 @@ searchOnBtn.addEventListener('click', () => {
         })
     }
 })
+
 

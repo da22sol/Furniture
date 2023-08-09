@@ -1,9 +1,8 @@
 const searchItem = localStorage.getItem('searchItem');
 
-fetch(`http://kdt-sw-5-team01.elicecoding.com/api//search?keyword=${searchItem}`)
+fetch(`http://kdt-sw-5-team01.elicecoding.com/api/search?keyword=${searchItem}`)
         .then((response) => response.json())
         .then((item) => {
-            console.log(item)
             productsListArr = item;
             productMade(productsListArr);
         })
