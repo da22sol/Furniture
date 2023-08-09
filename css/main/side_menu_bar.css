@@ -74,7 +74,7 @@
 
 /* MENU LIST */
 #side_menu_bar .menu_list {
-    height: 76vh;
+    height: 50%;
     box-sizing: border-box;
     padding: 1.875rem;
     display: flex;
@@ -125,6 +125,7 @@
     border: 2px solid #E3DBEB;
     border-radius: 5px;
     background-color: #fff;
+    margin: 0 auto;
 }
 
 .side_search_input input {
@@ -145,4 +146,11 @@
 
 #side_menu_bar .menu_list ul.main_list li:first-child {
     margin-bottom: 3rem;
+}
+
+#search_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
 }

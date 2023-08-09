@@ -26,7 +26,7 @@
     font-weight: 500;
 }
 .order_name .list_name {
-    width: 400px;
+    max-width: 400px;
     text-align: center;
     font-size: 16px;
     text-align: left;
@@ -38,6 +38,7 @@
 }
 .order_name .list_name li {
     margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 .order_name .list_name li:last-child {
@@ -88,7 +89,8 @@
     display: flex;
     flex-direction: column;
     padding: 30px 50px;
-    width: 800px;
+    max-width: 800px;
+    width: 90%;
     height: 600px;
     border-radius: 30px;
     background-color: #fff;
@@ -112,7 +114,8 @@
 }
 
 .order_list_modal_box {
-    width: 330px;
+    min-width: 330px;
+    width: 48%;
     border-radius: 20px;
     background-color: #F1EDF5;
     padding: 20px;
@@ -244,4 +247,57 @@
     font-size: 17px;
     font-weight: 600;
     margin-right: 30px;
+}
+
+@media (max-width: 1440px) {
+
+}
+
+/* 데스크탑 (가로 해상도가 1024px 이하 적용) */
+@media (max-width: 1024px) {
+    .order_list {
+        flex-direction: column !important;
+        align-items: normal;
+        padding: 8px;
+    }
+    
+    .order_name .list_name {
+        width: 100%;
+    }
+
+    .order_btn > ul {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 830px 이하 적용) */
+@media (max-width: 830px) {
+    .user_order_modal .order_modal_list {
+        align-items: center;
+        margin-top: 20px;
+    }
+    .order_list_modal_box {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .order_modal_list {
+        flex-direction: column;
+    }
+
+    .order_modal_box {
+        height: 100%;
+    }
+
+    .user_order_modal .order_modal_box {
+        height: 100%;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
+
 }

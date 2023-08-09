@@ -248,21 +248,25 @@
     }
 }
 
-/* 데스크탑 (가로 해상도가 768px 이하 적용) */
-@media (max-width: 768px) {
+/* 데스크탑 (가로 해상도가 636px 이하 적용) */
+@media (max-width: 636px) {
+    .mypage.manage_layout .inner, .cart.manage_layout .inner, .order_tracking.manage_layout .inner {
+        flex-direction: column-reverse;
+    }
 
-}
-
-/* 데스크탑 (가로 해상도가 425px 이하 적용) */
-@media (max-width: 425px) {
     .manage_layout .manage_layout_left {
-        display: none !important;
+        width: 100% !important;
+        padding: 20px 0 !important;
     }
 
     .manage_layout .manage_layout_right {
         width: 100% !important;
     }
 
+}
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
     .cart .cart_product_list > ul {
         flex-wrap: wrap;
         justify-content: space-between;
@@ -288,5 +292,13 @@
 
     .ship { 
         margin-bottom: 10px;
+    }
+    
+    .order_list {
+        flex-direction: column; 
+    }
+
+    .order_list .order_name {
+        width: 100% !important;
     }
 }

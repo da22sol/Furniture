@@ -66,3 +66,85 @@
     margin-bottom: 50px;
     color: #AC94C4;
 }
+
+/* 데스크탑 (가로 해상도가 1440px 이하 적용) */
+@media (max-width: 1440px) {
+
+}
+
+/* 데스크탑 (가로 해상도가 1024px 이하 적용) */
+@media (max-width: 1024px) {
+    
+}
+
+/* 데스크탑 (가로 해상도가 840px 이하 적용) */
+@media (max-width: 840px) {
+    .info_account {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info_account * {
+        margin-bottom: 20px;
+    }
+
+    /* modal */
+    #modal_usercheck .modal_userinfo {
+        width: 80%;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 764px 이하 적용) */
+@media (max-width: 764px) {
+    .manage_input_area.manage_input_addr {
+        flex-direction: column;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 636px 이하 적용) */
+@media (max-width: 636px) {
+    .manage_layout .manage_layout_right h2, .manage_layout .manage_layout_left h3 {
+        font-size: 20px !important;
+    }
+
+    .mypage .welcome_user_name {
+        font-size: 22px;
+    }
+
+    .search_box {
+        display: block !important;
+    }
+    
+    label[for=manage_address] {
+        text-align: center !important;
+        margin-bottom: 20px;
+        margin-right: 0 !important;
+    }
+}
+
+
+
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
+    #modal_usercheck .modal_userinfo {
+        width: 90%;
+    }
+
+    .mypage .welcome_user_name {
+        font-size: 28px;
+    }
+
+    .user_addr_info_zipcode {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+    
+    .side_search_input {
+        width: 160px;
+    }
+    
+    .side_search_input input {
+        width: 100%;
+    }
+}
