@@ -210,13 +210,18 @@
                 <input type="text" id="plus_des" />
             </div>
             <div class="plus_product">
-                <label for="plus_pic">사진등록</label>
-                <input type="text" id="plus_pic" />
-            </div>
-            <div class="plus_product">
                 <label for="plus_keyword">키워드</label>
                 <input type="text" id="plus_keyword" />
             </div>
+
+            <div class="plus_product upload_img">
+                <label for="plus_pic">사진등록</label>
+                <form class="upload_img_form">
+                    <input type="file" name="productImg" accept="image/*" id="plus_pic" /> 
+                    <button id="submit_pic"><i class="fa-solid fa-check"></i></button>   
+                </form>
+            </div>
+
             <button class="submit_plus_goods">등록</button>
 
             <div class="plus_product_btn">
@@ -255,12 +260,16 @@
                 <input type="text" id="edit_des" />
             </div>
             <div class="edit_product">
-                <label for="edit_pic">사진등록</label>
-                <input type="text" id="edit_pic" />
-            </div>
-            <div class="edit_product">
                 <label for="edit_keyword">키워드</label>
                 <input type="text" id="edit_keyword" />
+            </div>
+            
+            <div class="edit_product edit_img">
+                <label for="edit_pic">사진등록</label>
+                <form class="edit_img_form">
+                    <input type="file" name="productImg" accept="image/*" id="edit_pic" /> 
+                    <button id="submit_edit_pic"><i class="fa-solid fa-check"></i></button>   
+                </form>
             </div>
             <button class="submit_edit_goods">수정</button>
 

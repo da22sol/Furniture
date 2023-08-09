@@ -145,6 +145,41 @@
     cursor: pointer;
 }
 
+/*  */
+
+.upload_img label,
+.edit_img label {
+    width: 300px;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.upload_img,
+.edit_img {
+    position: relative;
+}
+
+#plus_pic,
+#edit_pic {
+    width: 170px;
+}
+
+#submit_pic,
+#submit_edit_pic {
+    width: 50px;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #a389cb;
+    color: #fff;
+    cursor: pointer;
+}
+
 /* 상품 수정 */
 .manage_edit_goods_modal {
     width: 100%;
