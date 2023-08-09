@@ -261,6 +261,7 @@
 
     .manage_layout .manage_layout_right {
         width: 100% !important;
+        padding: 16px !important;
     }
 
 }
