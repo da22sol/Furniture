@@ -35,7 +35,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/admin/orderslist', {
         )
             .then((res) => res.json())
             .then((allOrderData) => {
-                console.log(allOrderData)
                 // 주문 목록 리스트에 넣기
                 for (let i = 0; i < allOrderData.length; i++) {
                     if (allOrderData.length === 0) {
