@@ -35,6 +35,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/admin/orderslist', {
         )
             .then((res) => res.json())
             .then((allOrderData) => {
+                console.log(allOrderData)
                 // 주문 목록 리스트에 넣기
                 for (let i = 0; i < allOrderData.length; i++) {
                     if (allOrderData.length === 0) {
@@ -44,13 +45,16 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/admin/orderslist', {
                             <div class="order_box">
                                 <div class="order_info">
                                     <div class="order_id">주문자 : ${
-                                        orderData[i].user.fullName
+                                        allOrderData[i].orderId.receiver
                                     }</div>
                                     <div class="order_date">주문일자 : ${allOrderData[
                                         i
                                     ].createdAt.slice(0, 10)}</div>
                                     <div class="order_number">주문 번호 : ${
                                         allOrderData[i].orderId._id
+                                    }</div>
+                                    <div class="order_item">주문 상품 : ${
+                                        allOrderData[i].productId.productName
                                     }</div>
                                     <div class="order_state">주문 상태 : ${
                                         allOrderData[i].orderId.status
