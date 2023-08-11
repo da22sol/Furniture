@@ -156,7 +156,16 @@ async function plusPricefetchData() {
                             window.location.reload();
                         });
                 });
+                
+                
+            })
+            .catch(error => {
+                // 이미지 용량 오류 메시지
+                alert("❗️5MB 이하의 이미지만 첨부 가능합니다.");
+                imgForm.querySelector('input').value = "";
             });
+            
+            
     });
 
     // 상품 수정
