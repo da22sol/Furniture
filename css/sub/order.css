@@ -118,10 +118,6 @@
     margin-right: 10px;
 }
 
-.addr_info_addr .addr_info_detail {
-
-}
-
 .addr_info_addr .addr_info_detail .addr_addr1 {
     width: 250px;
 }
@@ -160,7 +156,7 @@
 }
 
 .product_pay .order_products_ul {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding-bottom: 20px;
     border-bottom: 1px solid #dcdcdc;
 }
@@ -178,6 +174,11 @@
     font-weight: 600;
     display: block;
     margin-left: 20px;
+}
+
+.product_pay .cart_order_img {
+    width: 200px;
+    height: 300px;
 }
 
 .total_box {
@@ -267,7 +268,8 @@
     width: 1000px;
 }
 
-.button_prev .purchase{
+.button_prev .purchase,
+.naver_pay {
     width: 100%;
     height: 50px;
     background-color: #A389CB;
@@ -280,7 +282,8 @@
     transition: all 0.5s;
 }
 
-.purchase:hover{
+.purchase:hover,
+.naver_pay:hover {
     box-shadow: 1000px 0 0 0 rgba(0, 0, 0, 0.25) inset;
 }
 .button_prev .movecart{
@@ -350,4 +353,48 @@
     color: #fff;
     border-radius: 10px;
     cursor: pointer;
+}
+
+/* 데스크탑 (가로 해상도가 1440px 이하 적용) */
+@media (max-width: 1440px) {
+    .contents_order .ordered, .contents_order .info_ordered, .contents_order .product_delivery, .contents_order .pay_amount, .contents_order .button_prev {
+        width: 90%;
+    }
+
+    .naver_pay {
+        width: 100%;
+    }
+
+}
+
+/* 데스크탑 (가로 해상도가 1024px 이하 적용) */
+@media (max-width: 1024px) {
+    .addr_info_detail * {
+        margin-bottom: 10px;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 768px 이하 적용) */
+@media (max-width: 768px) {
+    .addr_order_info .addr_phone1 {
+        margin-bottom: 10px;
+    }
+
+    .product_pay .info_order_name {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product_pay .cart_order_img {
+        margin-bottom: 20px;
+    }
+
+    .info_order_list {
+        flex-direction: column;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
+    
 }

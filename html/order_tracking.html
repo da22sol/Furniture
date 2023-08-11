@@ -31,8 +31,11 @@
                     <i class="fa-solid fa-x"></i>
                 </div>
                 <h1 class="logo">
-                    <a href="./index.html">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    <a href="../index.html">
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 636px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
             </div>
@@ -40,18 +43,21 @@
                 <div class="login_btn">로그인</div>
                 <div class="register_btn">회원가입</div>
             </div>
+            <div class="side_search_input">
+                <div id="search_box" class="headicon icon_search">
+                    <input type="text" placeholder="검색어를 입력하세요" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
             <div class="menu_list">
                 <ul class="main_list">
                     <li><a href="/html/category.html">모든제품</a></li>
-                    <li><a href="">추천상품</a></li>
-                    <li><a href="">인기상품</a></li>
-                    <li><a href="">인테리어 가이드</a></li>
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
-                    <li><a href="/html/login_order_info.html">주문조회</a></li>
+                    <li><a href="/html/order_tracking.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
-                    <li><a href="/">문의하기</a></li>
+                    <li><a href="">문의하기</a></li>
                 </ul>
             </div>
         </div>
@@ -66,7 +72,10 @@
             <div class="inner">
                 <h1 class="logo">
                     <a href="/">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 768px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
 
@@ -141,7 +150,7 @@
 
                             <div class="order_tracking_list">
                                 <!-- 추가되는 컨텐츠 -->
-                                
+
 
                             </div>
 
@@ -180,7 +189,7 @@
                             <p class="ordered_date"></p>
                         </li>
                         <li>
-                            <span>주문상품</span>
+                            <span class="list_all_items">주문상품 +</span>
                             <p class="ordered_list"></p>
                         </li>
                         <li>
@@ -211,13 +220,28 @@
                         </li>
                         <li>
                             <span>주소</span>
-                            <p class="receiver_addr"></p>
+                            <p class="receiver_addr1"></p>
+                            <p class="receiver_addr2"></p>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="btn_close_order_modal">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL - items -->
+    <div class="modal_items">
+        <div class="all_items_list">
+            <h5>주문 상품 목록</h5>
+            <div class="items_list">
+                <!-- 주문 상품 목록 불러오기 -->
+            </div>
+            <div class="btn_close_items_modal">
                 <i class="fa-solid fa-circle-xmark"></i>
             </div>
         </div>

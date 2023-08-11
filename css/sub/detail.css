@@ -1,11 +1,7 @@
-
 .product_contents{
     display: inline-flex;
     width: 100%;
 }
-
-
-
 
 /* 상세제품이미지 */
 
@@ -17,9 +13,12 @@
 }
 
 .img_product img{
-    width: 600px;
-    height: 800px;
+    max-width: 600px;
+    max-height: 800px;
+    width: 100%;
+    height: 100%;
 }
+
 /* 설명 */
 .detail{
     width: 52%;
@@ -65,12 +64,13 @@ font-size: 14px;
     text-align: center;
     margin-bottom: 3px;
     flex-wrap: wrap;
- 
 }
 
 .button_detail .button_add{ 
-    width: 300px;
-     height: 38px;
+    /* max-width: 300px;
+    max-height: 38px; */
+    width: 100%;
+    height: 100%;
     line-height: 36px;
     padding: 10px 120px;
     border: 1px solid #111;
@@ -82,13 +82,59 @@ font-size: 14px;
 }
 
 .button_detail .button_buy{  
-        width: 300px;
-        height: 38px;
-        text-align: center;
-        line-height: 36px;
-        padding: 10px 120px;
-        border: 1px solid #A389CB;
-        background: #A389CB;
-        color: #F8F8F8;
+    /* max-width: 300px;
+    max-height: 38px; */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 36px;
+    padding: 10px 120px;
+    border: 1px solid #A389CB;
+    background: #A389CB;
+    color: #F8F8F8;
+}
+
+/* 데스크탑 (가로 해상도가 1440px 이하 적용) */
+@media (max-width: 1440px) {
+    
+}
+
+/* 데스크탑 (가로 해상도가 1024px 이하 적용) */
+@media (max-width: 1024px) {
+
+}
+
+/* 데스크탑 (가로 해상도가 768px 이하 적용) */
+@media (max-width: 768px) {
+
+}
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
+    .detail .detail_in h1 {
+        font-size: 22px;
+        word-break: break-all;
     }
 
+    .product_contents {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img_product {
+        width: 100%;
+    }
+
+    .img_product img{
+        margin-bottom: 20px;
+    }
+
+    .detail {
+        width: 100%;
+        padding-left: 0;
+    }
+    
+    .button_detail {
+        width: 100%;
+    }
+}

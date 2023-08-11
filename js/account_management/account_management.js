@@ -11,7 +11,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
 })
     .then((res) => res.json())
     .then((loginUserdata) => {
-        console.log(loginUserdata);
         const welcomeUserName = document.querySelector('.welcome_user_name');
         welcomeUserName.innerHTML = `<span>${loginUserdata.fullName}</span>님 반갑습니다!`;
 
@@ -51,12 +50,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
             const userAddress2 =
                 document.getElementsByClassName('user_addr_addr2')[0].value;
             const userAddressFull = `${userAddress1} ${userAddress2}`;
-            console.log(
-                userName,
-                userEmail,
-                userPhoneNumberFull,
-                userAddressFull,
-            );
+
             let userInfoModifyAlert = confirm(
                 `이름: ${userName}\n이메일: ${userEmail}\n휴대전화: ${userPhoneNumber1}-${userPhoneNumber2}\n우편번호: ${userZipCode}\n주소: ${userAddressFull}\n\n해당 정보로 수정하시겠습니까?`,
             );
@@ -79,9 +73,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
                       body: userDataJSON,
                   })
                       .then((res) => res.json())
-                      .then((data) => {
-                          console.log(data);
-                      }),
+                      .then((data) => {}),
                   alert('수정되었습니다'),
                   userModifyModalClose())
                 : alert('취소되었습니다');
@@ -100,9 +92,7 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
                     },
                 })
                     .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
-                    });
+                    .then((data) => {});
                 alert(`탈퇴되었습니다\n이용해주셔서 감사합니다.`);
                 localStorage.removeItem('userToken');
                 localStorage.removeItem('isAdmin');
@@ -116,7 +106,6 @@ fetch('http://kdt-sw-5-team01.elicecoding.com/api/account', {
 // 회원 정보 레이아웃
 
 const accountDeleteBtn = document.querySelector('.account_delete'); // 회원탈퇴 버튼
-const couponBtn = document.querySelector('.coupon'); // 쿠폰 버튼
 
 // 회원정보 수정 모달
 const userModifyBtn = document.getElementsByClassName('account_modify')[0];
@@ -183,17 +172,11 @@ userZipcodeBtn.addEventListener('click', () => {
     }).open();
 });
 
-// 쿠폰 => 추후 예정?
-couponBtn.addEventListener('click', () => {
-    console.log('현재 보유한 쿠폰 : 0');
-});
-
-
 // 로그아웃
-const sideLogoutBtn = document.getElementsByClassName("side_logout_btn")[0];
-sideLogoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("userToken");
-    localStorage.removeItem("isAdmin");
-    localStorage.removeItem("cartItems");
-    location.href = "/html/login.html";
-})
+const sideLogoutBtn = document.getElementsByClassName('side_logout_btn')[0];
+sideLogoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('cartItems');
+    location.href = '/html/login.html';
+});

@@ -1,10 +1,13 @@
-// 상품 정보 불러오기
-fetch('http://kdt-sw-5-team01.elicecoding.com/api/products')
-    .then((response) => response.json())
-    .then((data) => {
-        productsListArr = data;
-        productMade(productsListArr);
-    });
+const searchItem = localStorage.getItem('searchItem');
+
+fetch(`http://kdt-sw-5-team01.elicecoding.com/api/search?keyword=${searchItem}`)
+        .then((response) => response.json())
+        .then((item) => {
+            productsListArr = item;
+            productMade(productsListArr);
+        })
+
+document.getElementsByClassName("title_search")[0].innerHTML = `"${searchItem}"에 대한 검색결과`
 
 // 상품 목록 배열
 let productsListArr = [];

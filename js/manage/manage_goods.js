@@ -1,3 +1,13 @@
+// 현재 로그인 되어 있는 계정 토큰 불러오기
+const ISADMIN = localStorage.getItem('isAdmin');
+
+window.addEventListener('load', () => {
+    if (ISADMIN !== 'true') {
+        alert('🚫관리자만 접근가능합니다');
+        location.href = '/index.html';
+    }
+});
+
 const goodsData = document.querySelector('.table');
 // 현재 로그인 되어 있는 계정 토큰 불러오기
 const USERTOKEN = localStorage.getItem('userToken');
@@ -22,7 +32,6 @@ const editGoodsModal = document.getElementsByClassName(
 )[0];
 
 editGoodsModalXbtn.addEventListener('click', () => {
-    location.reload();
     editGoodsModal.style.display = 'none';
 });
 
@@ -41,7 +50,6 @@ async function plusPricefetchData() {
         'http://kdt-sw-5-team01.elicecoding.com/api/products',
     );
     let data = await res.json();
-    // console.log(data);
 
     // 관리자 상품 생성
     function manageGoodsMade() {
@@ -50,7 +58,9 @@ async function plusPricefetchData() {
             <tr class="goods_table">
                 <td class="goods_cate">${data[i].categoryId.title}</td>
                 <td class="goods_name">${data[i].productName}</td>
-                <td class="goods_pric">${data[i].price}</td>
+                <td class="goods_pric">${data[i].price.toLocaleString(
+                    'ko-KR',
+                )}</td>
                 <td class="goods_date">${data[i].createdAt.split('T')[0]}</td>
                 <td class="goods_scrip">${data[i].shortDescription}</td>
                 <td class="goods_modi"><button class="goods_modi_btn">수정</button></td>
@@ -72,7 +82,6 @@ async function plusPricefetchData() {
     const plusGoodsInput = document.getElementById('plus_goods');
     const plusPriceInput = document.getElementById('plus_price');
     const plusDescInput = document.getElementById('plus_des');
-    const plusPicInput = document.getElementById('plus_pic');
     const plusKeywordInput = document.getElementById('plus_keyword');
 
     // 값 가져오기 - 상품 수정 모달
@@ -80,59 +89,90 @@ async function plusPricefetchData() {
     const editGoodsInput = document.getElementById('edit_goods');
     const editPriceInput = document.getElementById('edit_price');
     const editDescInput = document.getElementById('edit_des');
-    const editPicInput = document.getElementById('edit_pic');
     const editKeywordInput = document.getElementById('edit_keyword');
+    let editPic = '';
 
     let plusCategotyInputValue = '';
 
-    // 상품 추가
-    plusGoodsModalSbtn.addEventListener('click', () => {
-        if (plusCategotyInput.value == 'bed') {
-            plusCategotyInputValue = '64ae57f7ad2344d26934ba33';
-        } else if (plusCategotyInput.value == 'desk') {
-            plusCategotyInputValue = '64ae53a10610d58017eac153';
-        } else if (plusCategotyInput.value == 'table') {
-            plusCategotyInputValue = '64ae53a10610d58017eac154';
-        } else if (plusCategotyInput.value == 'closet') {
-            plusCategotyInputValue = '64aec3715c0eee670bdcc5e1';
-        } else if (plusCategotyInput.value == 'sofa') {
-            plusCategotyInputValue = '64ae57f7ad2344d26934ba34';
-        } else if (plusCategotyInput.value == 'drawer') {
-            plusCategotyInputValue = '64aec3db5c0eee670bdcc5e3';
-        }
+    // 이미지 정보
+    const imgForm = document.querySelector('.goods_modal form');
+    const submitImgBtn = document.getElementById('submit_pic');
+    submitImgBtn.addEventListener('click', (e) => {
+        e.preventDefault();
 
-        // 객체
-        const plusGoodsData = {
-            productName: plusGoodsInput.value,
-            categoryId: plusCategotyInputValue,
-            shortDescription: plusDescInput.value,
-            productImageKey: plusPicInput.value,
-            price: plusPriceInput.value,
-            searchKeywords: plusKeywordInput.value,
-        };
+        const formData = new FormData(imgForm);
 
-        const dataJson = JSON.stringify(plusGoodsData);
-        fetch('http://kdt-sw-5-team01.elicecoding.com/api/products', {
+        fetch('http://kdt-sw-5-team01.elicecoding.com/api/upload', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${USERTOKEN}`,
-            },
-            body: dataJson,
+            body: formData,
         })
-            .then((res) => res.json())
-            .then((data) => {
-                alert('등록 완료!');
-                console.log(data);
-                manageGoodsReset();
-                manageGoodsMade();
-                window.onload.location();
+            .then((response) => response.json())
+            .then((picData) => {
+                const picUrl = `http://kdt-sw-5-team01.elicecoding.com${picData.imageUrl}`;
+
+                // 상품 추가
+                plusGoodsModalSbtn.addEventListener('click', () => {
+                    if (plusCategotyInput.value == 'bed') {
+                        plusCategotyInputValue = '64ae57f7ad2344d26934ba33';
+                    } else if (plusCategotyInput.value == 'desk') {
+                        plusCategotyInputValue = '64ae53a10610d58017eac153';
+                    } else if (plusCategotyInput.value == 'table') {
+                        plusCategotyInputValue = '64ae53a10610d58017eac154';
+                    } else if (plusCategotyInput.value == 'closet') {
+                        plusCategotyInputValue = '64aec3715c0eee670bdcc5e1';
+                    } else if (plusCategotyInput.value == 'sofa') {
+                        plusCategotyInputValue = '64ae57f7ad2344d26934ba34';
+                    } else if (plusCategotyInput.value == 'drawer') {
+                        plusCategotyInputValue = '64aec3db5c0eee670bdcc5e3';
+                    }
+
+                    // 객체
+                    const plusGoodsData = {
+                        productName: plusGoodsInput.value,
+                        categoryId: plusCategotyInputValue,
+                        shortDescription: plusDescInput.value,
+                        productImageKey: picUrl,
+                        price: plusPriceInput.value,
+                        searchKeywords: plusKeywordInput.value,
+                    };
+
+                    const dataJson = JSON.stringify(plusGoodsData);
+                    fetch(
+                        'http://kdt-sw-5-team01.elicecoding.com/api/products',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${USERTOKEN}`,
+                            },
+                            body: dataJson,
+                        },
+                    )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            alert('등록 완료!');
+                            manageGoodsReset();
+                            manageGoodsMade();
+                            window.location.reload();
+                        });
+                });
+                
+                
+            })
+            .catch(error => {
+                // 이미지 용량 오류 메시지
+                alert("❗️5MB 이하의 이미지만 첨부 가능합니다.");
+                imgForm.querySelector('input').value = "";
             });
+            
+            
     });
 
     // 상품 수정
-
     const modiBtn = document.querySelectorAll('.goods_modi_btn');
+    const imgEditForm = document.querySelector('.edit_goods_modal form');
+    const submitEditImgBtn = document.getElementById('submit_edit_pic');
+
     modiBtn.forEach((button, i) => {
         button.addEventListener('click', () => {
             editGoodsModal.style.display = 'flex';
@@ -154,44 +194,78 @@ async function plusPricefetchData() {
             const productNames = data[i].productName;
             const categoryId = data[i].categoryId.title;
             const shortDescription = data[i].shortDescription;
-            const productImageKey = data[i].productImageKey;
             const productSearch = data[i].searchKeywords;
             const price = data[i].price;
 
-            editCategotyInput.value = categoryId;
             editGoodsInput.value = productNames;
+            editCategotyInput.value = categoryId;
             editPriceInput.value = price;
             editDescInput.value = shortDescription;
-            editPicInput.value = productImageKey;
             editKeywordInput.value = productSearch;
 
-            const productsDataJson = JSON.stringify({
-                productName: productNames,
-                categoryId: categoryId,
-                shortDescription: shortDescription,
-                productImageKey: productImageKey,
-                price: price,
-                searchKeywords: productSearch,
-            });
+            submitEditImgBtn.addEventListener('click', (e) => {
+                e.preventDefault();
 
-            fetch(
-                `http://kdt-sw-5-team01.elicecoding.com/api/products/${data[i]._id}`,
-                {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
-                    },
-                    body: productsDataJson,
-                },
-            )
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    manageGoodsReset();
-                    manageGoodsMade();
-                    window.location.reload();
-                });
+                const formData = new FormData(imgEditForm);
+
+                fetch('http://kdt-sw-5-team01.elicecoding.com/api/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then((res) => res.json())
+                    .then((picData) => {
+                        const picUrl = `http://kdt-sw-5-team01.elicecoding.com${picData.imageUrl}`;
+
+                        editGoodsModalSbtn.addEventListener('click', () => {
+                            let finGoodsInput = editGoodsInput.value;
+                            let finCategotyInput = editCategotyInput.value;
+                            let finPriceInput = editPriceInput.value;
+                            let finDescInput = editDescInput.value;
+                            let finKeywordInput = editKeywordInput.value;
+
+                            if (editCategotyInput.value == 'bed') {
+                                finCategotyInput = '64ae57f7ad2344d26934ba33';
+                            } else if (editCategotyInput.value == 'desk') {
+                                finCategotyInput = '64ae53a10610d58017eac153';
+                            } else if (editCategotyInput.value == 'table') {
+                                finCategotyInput = '64ae53a10610d58017eac154';
+                            } else if (editCategotyInput.value == 'closet') {
+                                finCategotyInput = '64aec3715c0eee670bdcc5e1';
+                            } else if (editCategotyInput.value == 'sofa') {
+                                finCategotyInput = '64ae57f7ad2344d26934ba34';
+                            } else if (editCategotyInput.value == 'drawer') {
+                                finCategotyInput = '64aec3db5c0eee670bdcc5e3';
+                            }
+
+                            const productsDataJson = JSON.stringify({
+                                productName: finGoodsInput,
+                                categoryId: finCategotyInput,
+                                price: finPriceInput,
+                                shortDescription: finDescInput,
+                                productImageKey: picUrl,
+                                searchKeywords: finKeywordInput,
+                            });
+
+                            fetch(
+                                `http://kdt-sw-5-team01.elicecoding.com/api/products/${data[i]._id}`,
+                                {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGFjZjViMzExZTI3Y2JhMWMwNDk3NTkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODkzMTE2NDF9.I3PyKm6AshCzE9_TclN4sP453MexXrPjci3BGgZh8gk`,
+                                    },
+                                    body: productsDataJson,
+                                },
+                            )
+                                .then((res) => res.json())
+                                .then((data) => {
+                                    manageGoodsReset();
+                                    manageGoodsMade();
+                                    window.location.reload();
+                                });
+                        });
+                    });
+            });
         });
     });
 
@@ -215,7 +289,6 @@ async function plusPricefetchData() {
                 )
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data);
                         manageGoodsReset();
                         manageGoodsMade();
                         window.location.reload();

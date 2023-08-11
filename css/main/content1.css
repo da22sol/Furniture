@@ -2,15 +2,17 @@
 #content .category {
     width: 100%;
     background-color: #F4F4F4;
+    border-radius: 8px;
 }
 
 #content .category .inner {
-    padding: 50px 0;
+    padding: 50px;
 }
 
 #content .category ul {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .category .list_category {
@@ -20,6 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .category .img_category {

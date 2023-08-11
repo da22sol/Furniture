@@ -45,8 +45,12 @@
 
 .menu_left .icon_search{
     cursor: pointer;
+    width: 36px;
     height: 34px;
     position: relative;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: width 0.4s;
 }
 
 .menu_left .icon_search input {
@@ -60,13 +64,8 @@
     background-color: #fff;
     color: #777;
     font-size: 12px;
-    transition: width 0.4s;
 }
 
-.menu_left .icon_search input:focus {
-    width: 200px;
-    border: 2px solid #E3DBEB;
-}
 
 .menu_left .icon_search i {
     height: 24px;
@@ -75,6 +74,7 @@
     right: 8px;
     transform: translateY(-50%);
 }
+
 
 /* 오른쪽 메뉴 */
 .menu_right {
