@@ -41,7 +41,7 @@
     margin-bottom: 0;
 }
 
-.register .form_register .input_area input {
+.register .form_register .input_area input, .double_check_button {
     width: 350px;
     padding: 15px 20px;
     border: 1px solid #dcdcdc;
@@ -54,6 +54,11 @@
 
 .register .form_register input::placeholder {
     color: #999;
+}
+
+.double_check_button {
+    cursor: pointer;
+    width: 100% !important;
 }
 
 .register .form_register .input_phone_num {
@@ -89,7 +94,7 @@
 }
 
 
-.register .form_register .addr_zipcode #search_zipcode {
+.register .form_register .addr_zipcode #search_zipcode, .double_check_button {
     width: 150px;
     background-color: #F1EDF5;
     border: none;
@@ -100,7 +105,11 @@
     margin-bottom: 10px;
 }
 
-.register .form_register .addr_detail #addr2 {}
+.register .fa-check {
+    margin-left: 5px;
+    color: #ac94c4;
+    /* display: none; */
+}
 
 
 

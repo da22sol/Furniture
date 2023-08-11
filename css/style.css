@@ -11,6 +11,7 @@ body {
     font-weight: 400;
     line-height: 1.4;
     font-family: 'Nunito Sans', sans-serif;
+    min-width: 425px;
 }
 
 img {
@@ -23,13 +24,14 @@ a {
 }
 
 #wrap {
-    width: 100%; 
-    min-width: 1600px;
+    width: 80%;
+    margin: 0 10%;
     z-index: 1;
 }
 
 .inner {
-    width: 1400px; 
+    width: 100%;
+    max-width: 1400px; 
     margin: 0 auto; 
     position: relative; 
     box-sizing: border-box;
@@ -43,3 +45,354 @@ h2 {
 }
 
 
+/* 반응형 */
+/* 데스크탑 (가로 해상도가 1800px 이하 적용) */
+@media (max-width: 1800px) {
+    #content .interior .inner {
+        padding: 100px 20px;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 1440px 이하 적용) */
+@media (max-width: 1440px) {
+    /* header */
+    #header .inner {
+        width: 100%;
+    }
+
+    /* visual1 */
+    #visual .text_banner .text_banner_right {
+        position: absolute;
+        right: 0;
+        top: 75%;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    /* Content1 */
+    #content .category .inner {
+        padding: 50px;
+    }
+
+    /* content3 */
+    #content .list_best_products {
+        height: 100%;
+    }
+
+    #content .list_best_products li {
+        margin-bottom: 50px;
+        width: 28%;
+        min-width: 300px;
+        height: 480px;
+    }
+
+    /* content4 */
+    #content .interior .inner {
+        padding: 100px 50px;
+    }
+    
+    #content .interior .list_interior:first-child {
+        top: 250px;
+        right: 50px;
+    }
+
+    #content .interior .list_interior:nth-child(2) {
+        top: 530px;
+        left: 60px;
+    }
+
+    #content .interior .list_interior:nth-child(3) {
+        bottom: 340px;
+        right: 30px;
+    }
+
+    #content .interior .list_interior:last-child {
+        bottom: 70px;
+        left: 80px;
+    }
+}
+/* 데스크탑 (가로 해상도가 1084px 이하 적용) */
+@media (max-width: 1084px) {
+    /* header */
+    #header .logo img {
+        width: 250px;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 1024px 이하 적용) */
+@media (max-width: 1024px) {
+    /* header */
+    
+
+    /* visual1 */
+    #visual .text_banner .text_banner_right {
+        position: absolute;
+        left: 5%;
+        top: 85%;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .btn_purchase {
+        right: 5% !important;
+    }
+
+
+    /* content2 */
+    .content_recommend p {
+        padding: 20px;
+    }
+
+    #content .content_recommend {
+        padding: 0px;
+        box-sizing: border-box;
+        position: relative;
+        width: 48%;
+    }
+
+    /* content3 */
+    #content .list_best_products {
+        max-height: 1880px;
+    }
+
+    #content .list_best_products li {
+        margin-bottom: 50px;
+        width: 40%;
+        min-width: 300px;
+        height: 420px;
+    }    
+
+    /* content4 */
+    #content .interior .inner {
+        min-height: 1500px;
+        height: 100%;
+    }
+
+    #content .interior ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #content .interior .list_interior {
+        position:inherit;
+        margin-top: 48px;
+        margin-left: 30px;
+    }
+
+    #content .interior .list_interior:nth-child(2) .btn_interior_more, .list_interior:nth-child(4) .btn_interior_more {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #content .interior .list_interior:nth-child(2) .btn_interior_more .height_img_interior, #content .interior .list_interior:nth-child(4) .btn_interior_more .width_img_interior {
+        margin-right: 0;
+        margin-left: 50px;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 768px 이하 적용) */
+@media (max-width: 768px) {
+    /* style */
+    #wrap {
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    .inner {
+        padding: 50px 0;
+    }
+
+    /* header */
+    #header .inner {
+        width: 90%;
+        padding: 60px 0;
+    }
+
+    #header .logo img {
+        width: 70px;
+    }
+
+    /* side btn */
+    #btn_menu, #btn_top {
+        width: 40px;
+        height: 40px;
+        line-height: 44px;
+        font-size: 28px;
+    }
+
+    /* visual */    
+    #visual .text_banner .btn_purchase {
+        right: 10%;
+    }
+    
+    #visual .text_banner .img_visual_product img {
+        max-width: 600px;
+    }    
+
+    /* content1 */
+    #content .category .inner {
+        padding: 30px;
+    }
+
+    .category .list_category {
+        width: 100%;
+        height: 100px;
+    }
+
+    .category .category_list {
+        width: 33%;
+        margin-bottom: 10px;
+    }
+
+    .category .img_category {
+        width: 80px;
+        height: 100px;
+    }
+
+    .category ul li a img {
+        width: 48px;
+    }
+
+    /* content2 */
+    #content .content_recommend img {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    #content .content_recommend a {
+        right: 10px;
+        bottom: 4px;
+    }
+
+    /* content3 */
+    .best_products .inner h2 {
+        text-align: center;
+    }
+
+    #content .list_best_products li {
+        min-width: 280px;        
+    }
+
+    /* content4 */
+    #content .interior .inner {
+        padding: 50px 50px;
+    }
+}
+
+/* 데스크탑 (가로 해상도가 636px 이하 적용) */
+@media (max-width: 636px) {
+    /* header */
+    .menu_left .headicon.icon_search, .menu_right_list {
+        display: none !important;
+    }
+
+    #side_menu_bar .logo img {
+        width: 4rem;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    #content .list_best_products {
+        justify-content: center;
+    }
+
+    #content .list_best_products {
+        max-height: 100%;
+    }
+}
+
+
+/* 데스크탑 (가로 해상도가 425px 이하 적용) */
+@media (max-width: 425px) {
+    /* header */
+    #header .inner {
+        width: 100%;
+    }
+
+    /* left-side-menu */
+    #side_menu_bar .left_box {
+        width: 14rem;
+        height: inherit;
+        background-color: #f1edf5;
+    }    
+
+    /* visual */
+    .bar_visual {
+        display: none;
+    }
+
+    #visual .swiper-slide {
+        width: 383px !important;
+    }
+
+    #visual .text_banner .img_visual_product img {
+        width: 480px;
+    }
+
+    #visual .text_banner .text_banner_right h3 {
+        font-size: 22px;
+    }
+
+    /* contetn1 */
+    #content .category ul {
+        flex-wrap: wrap;
+    }
+
+    .category .img_category {
+        width: 88px;
+    }
+
+    .category .list_category {
+        margin-bottom: 10px;
+    }
+
+
+    /* content2 */
+    #content .content_recommend  {
+        font-size: 14px;    
+    }
+    
+    #content .content_recommend img {
+        width: 160px;
+    }
+
+    #content .content_recommend a {
+        right: 6px;
+        font-size: 14px;
+    }
+
+    /* contetn3 */
+    .best_products .inner h2 {
+        text-align: center;
+    }
+
+    #content .list_best_products li {
+        min-width: 300px;
+    }
+
+    /* content4 */
+    #content .interior .list_interior {
+        position: inherit;
+        margin-top: 32px;
+        margin-left: 0;
+    }
+
+    #content .interior .inner {
+        min-height: 0;
+        padding: 20px 20px;
+    }
+
+
+    #content .interior .width_img_interior, #content .interior .height_img_interior  {
+        width: 100%;
+        height: 135px;
+    }
+
+    #content .interior .text_concept p {
+        font-size: 20px;
+    }
+
+    #content .interior .width_img_interior img, #content .interior .height_img_interior img {
+        object-fit: cover;
+    }
+}

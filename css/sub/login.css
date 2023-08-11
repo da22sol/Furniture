@@ -69,6 +69,21 @@
     cursor: pointer;
 }
 
+#google_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google_logo {
+    width: 35px;
+    height: 35px;
+    display: inline;
+    margin-right: 6px;
+    background: white;
+    border-radius: 17px;
+}
+
 .login .form_login .btn_register p {
     height: 50px;
     background-color: #AC94C4;

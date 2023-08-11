@@ -32,8 +32,11 @@
                     <i class="fa-solid fa-x"></i>
                 </div>
                 <h1 class="logo">
-                    <a href="./index.html">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    <a href="../index.html">
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 636px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
             </div>
@@ -43,10 +46,13 @@
             </div>
             <div class="menu_list">
                 <ul class="main_list">
+                    <li class="side_search_input">
+                        <div class="headicon icon_search">
+                            <input type="text" placeholder="검색어를 입력하세요" />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </li>
                     <li><a href="/html/category.html">모든제품</a></li>
-                    <li><a href="">추천상품</a></li>
-                    <li><a href="">인기상품</a></li>
-                    <li><a href="">인테리어 가이드</a></li>
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
@@ -66,7 +72,10 @@
             <div class="inner">
                 <h1 class="logo">
                     <a href="/">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 768px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
 
@@ -111,9 +120,20 @@
                 <!-- CONTENT2 -->
                 <article class="sub_category">
                     <div class="inner">
-                        <h2>category</h2>
+                        <h2>All</h2>
                         <div class="filter_product">
                             <span class="total_products"></span>
+                            <div class="filter_drop">
+                                <span class="filter_selected">
+                                    신상품순
+                                </span>
+                                <ul class="list_filter">
+                                    <li id="list_filter_new">신상품순</li>
+                                    <li id="list_filter_high">높은가격순</li>
+                                    <li id="list_filter_low">낮은가격순</li>
+                                </ul>
+                            </div>
+
                         </div>
 
                         <div class="list_sale_product">
@@ -160,8 +180,10 @@
 
     <!-- script -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
+
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <!-- GSAP & ScrollToPlugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
         integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
@@ -169,11 +191,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
         integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Main Side Menu & Top Btn -->
     <script src="/js/main/main_menu_bar.js"></script>
     <script src="/js/main/main_side_btn.js"></script>
+    <script src="/js/main/main_header.js"></script>
+
+    <!-- Category & goods -->
     <script src="/js/category/goods.js"></script>
     <script src="/js/category/category.js"></script>
-    <script type="module" src="../js/main/main_header.js"></script>
+
 </body>
 
 </html>

@@ -33,7 +33,10 @@
                 </div>
                 <h1 class="logo">
                     <a href="./index.html">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        <picture>
+                            <source srcset="./favicon.png" media="(max-width: 636px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
             </div>
@@ -43,16 +46,19 @@
             </div>
             <div class="menu_list">
                 <ul class="main_list">
+                    <li class="side_search_input">
+                        <div class="headicon icon_search">
+                            <input type="text" placeholder="검색어를 입력하세요" />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </li>
                     <li><a href="/html/category.html">모든제품</a></li>
-                    <li><a href="">추천상품</a></li>
-                    <li><a href="">인기상품</a></li>
-                    <li><a href="">인테리어 가이드</a></li>
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
                     <li><a href="/html/order_tracking.html">주문조회</a></li>
                     <li><a href="/html/login_account_management.html">계정관리</a></li>
-                    <li><a href="/html/manage_category.html">문의하기</a></li>
+                    <li><a href="/">문의하기</a></li>
                 </ul>
             </div>
         </div>
@@ -66,7 +72,10 @@
             <div class="inner">
                 <h1 class="logo">
                     <a href="/">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        <picture>
+                            <source srcset="./favicon.png" media="(max-width: 768px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
 
@@ -188,11 +197,11 @@
         <main id="container" class="main">
             <section id="content">
                 <!-- CONTENT1 -->
-                <!-- <article class="category">
+                <article class="category">
                     <div class="inner">
                         <ul id="category_list"></ul>
                     </div>
-                </article> -->
+                </article>
 
                 <!-- CONTENT2 -->
                 <article class="recommend">
@@ -336,14 +345,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
         integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/js/main/main_menu_bar.js"></script>
-    <script src="/js/main/main_side_btn.js"></script>
-    <script src="/js/main/swiperbanner.js"></script>
-    <script src="/js/main/main_header.js"></script>
+    <script src="./js/main/main_menu_bar.js"></script>
+    <script src=".//js/main/main_side_btn.js"></script>
+    <script src="./js/main/swiperbanner.js"></script>
+    <script src="./js/main/main_header.js"></script>
 
     <!-- category & goods -->
-    <script src="/js/main/main_category.js"></script>
-    <script src="/js/main/main_products.js"></script>
+    <script src="./js/main/main_categorys.js"></script>
+    <script src="./js/main/main_products.js"></script>
 </body>
 
 </html>

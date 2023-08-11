@@ -11,7 +11,7 @@
     <meta property="og:title" content="Elice Furniture 엘리스 퍼니쳐" />
     <meta property="og:description" content="트렌디한 가구들을 소개하는 엘리스 퍼니쳐입니다." />
     <meta property="og:image" content="./assets/img/logo_og.png" />
-    <meta property="og:url" content="http://kdt-sw-5-team01.elicecoding.com" />
+    <meta property="og:url" content="#" />
 
     <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -111,76 +111,45 @@
         <main id="container" class="main">
             <section id="content">
 
-                <article class="register">
+                <!-- CONTENT1 -->
+                <article class="sub_category">
                     <div class="inner">
-                        <h2>회원가입</h2>
-                        <div class="form_register">
-                            <form class="join_form">
-                                <!-- 이름 input -->
-                                <div class="input_area">
-                                    <label for="name">이름</label>
-                                    <input type="text" name="name" id="name" autocomplete="off" />
-                                </div>
+                        <h2 class="title_search"></h2>
+                        <div class="filter_product">
+                            <span class="total_products"></span>
+                            <div class="filter_drop">
+                                <span class="filter_selected">
+                                    신상품순
+                                </span>
+                                <ul class="list_filter">
+                                    <li id="list_filter_new">신상품순</li>
+                                    <li id="list_filter_high">높은가격순</li>
+                                    <li id="list_filter_low">낮은가격순</li>
+                                </ul>
+                            </div>
 
-                                <!-- 이메일 input -->
-                                <div class="input_area">
-                                    <label for="email">이메일 <i class="fa-solid fa-check" style="display: none"></i></label>
-                                    <input type="text" name="email" id="email" autocomplete="off" />
-                                </div>
-
-                                <div class="input_area">
-                                    <button class="double_check_button">중복확인</button>
-                                </div>
-
-                                <!-- 비밀번호 input -->
-                                <div class="input_area">
-                                    <label for="pw">비밀번호</label>
-                                    <input type="password" name="pw" id="pw" autocomplete="off" />
-                                </div>
-
-                                <!-- 비밀번호 확인 input -->
-                                <div class="input_area">
-                                    <label for="pw_confirm">비밀번호 확인</label>
-                                    <input type="password" name="pw_confirm" id="pw_confirm" autocomplete="off" />
-                                </div>
-
-                                <!-- 휴대전화 input -->
-                                <div class="input_area input_phone">
-                                    <label for="phone1">휴대전화</label>
-                                    <div class="input_phone_num">
-                                        <input type="text" id="phone1" autocomplete="off" maxlength="3" /> -
-                                        <input type="text" id="phone2" autocomplete="off" maxlength="4" /> -
-                                        <input type="text" id="phone3" autocomplete="off" maxlength="4" />
-                                    </div>
-                                </div>
-
-                                <!-- 주소 input -->
-                                <div class="input_area">
-                                    <label for="ziocode">주소</label>
-                                    <div class="addr_zipcode">
-                                        <input id="zipcode" type="text" name="zipcode" maxlength="5" placeholder="우편번호"
-                                            readonly />
-                                        <input type="button" name="search" value="우편번호검색" id="search_zipcode"
-                                            autocomplete="off" />
-                                    </div>
-
-                                    <div class="addr_detail">
-                                        <input id="addr1" type="text" name="addr1" placeholder="주소" readonly />
-                                        <input id="addr2" type="text" name="addr2" autocomplete="off"
-                                            placeholder="상세주소" />
-                                    </div>
-
-                                </div>
-                                <div class="btn_join">
-                                    <!-- 성공적으로 가입 완료 시 modal창 띄우기 -->
-                                    <button>회원가입</button>
-                                </div>
-                            </form>
                         </div>
+
+                        <div class="list_sale_product">
+                            <ul id="list_category_sale">
+                                <!-- li 붙이기 -->
+                            </ul>
+                        </div>
+                        <div class="page_sale">
+                            <span class="paging_btn paging_btn_left">
+                                <img src="../assets/img/left_arrow.png" alt="left arrow">
+                            </span>
+                            <span>1</span>
+                            <span class="paging_btn paging_btn_left">
+                                <img src="../assets/img/right_arrow.png" alt="left arrow">
+                            </span>
+                        </div>
+                    </div>
                 </article>
 
             </section>
         </main>
+
 
         <!-- footer -->
         <footer id="footer">
@@ -190,31 +159,40 @@
                 </h4>
             </div>
         </footer>
-    </div>
 
-    <!-- MODAL-회원가입 성공 -->
-    <div id="register_success">
-        <div class="welcome_box">
-            <h4>Welcome!</h4>
-            <h3>
-                <span class="welcome_user_name"></span>
-                회원가입을 축하합니다
-            </h3>
-            <p class="btn_welcome">
-                <a href="./login.html">로그인하러 가기</a>
-            </p>
+        <!-- MENU BUTTON -->
+        <div id="btn_menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- TOP BUTTON -->
+        <div id="btn_top">
+            <i class="fa-solid fa-arrow-up"></i>
         </div>
     </div>
 
+
     <!-- script -->
-    <!-- icon -->
     <script src="https://kit.fontawesome.com/41fa83ad58.js" crossorigin="anonymous"></script>
-    <!-- 주소 API -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <!-- JS -->
-    <script type="module" src="../js/main/main_menu_bar.js"></script>
-    <script type="module" src="../js/main/main_header.js"></script>
-    <script type="module" src="../js/mypage/register.js"></script>
+
+    <!-- swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- GSAP & ScrollToPlugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
+        integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Main Side Menu & Top Btn -->
+    <script src="/js/main/main_menu_bar.js"></script>
+    <script src="/js/main/main_side_btn.js"></script>
+    <script src="/js/main/main_header.js"></script>
+
+    <!-- Search -->
+    <script src="/js/category/search.js"></script>
 
 </body>
 

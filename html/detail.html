@@ -32,8 +32,11 @@
                     <i class="fa-solid fa-x"></i>
                 </div>
                 <h1 class="logo">
-                    <a href="./index.html">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                    <a href="../index.html">
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 636px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
             </div>
@@ -43,10 +46,13 @@
             </div>
             <div class="menu_list">
                 <ul class="main_list">
+                    <li class="side_search_input">
+                        <div class="headicon icon_search">
+                            <input type="text" placeholder="검색어를 입력하세요" />
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </li>
                     <li><a href="/html/category.html">모든제품</a></li>
-                    <li><a href="">추천상품</a></li>
-                    <li><a href="">인기상품</a></li>
-                    <li><a href="">인테리어 가이드</a></li>
                 </ul>
                 <ul class="sub_list">
                     <li><a href="/html/cart.html">장바구니</a></li>
@@ -66,7 +72,10 @@
             <div class="inner">
                 <h1 class="logo">
                     <a href="/">
-                        <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        <picture>
+                            <source srcset="../favicon.png" media="(max-width: 768px)" />
+                            <img src="/assets/img/logo.png" alt="Elice Furniture" />
+                        </picture>
                     </a>
                 </h1>
 
@@ -81,6 +90,7 @@
                     </div>
                 </div>
 
+                <!-- 오른쪽 메뉴 -->
                 <div class="menu_right">
                     <ul class="menu_right_list">
                         <li class="icon_setting">
@@ -99,7 +109,7 @@
 
         <!-- 상세페이지 -->
         <main class="main">
-            <div class="inner" id="inner">
+            <div class="inner detail_inner" id="inner">
                 <section id="product" class="product">
                     <div class="detail_page">
 

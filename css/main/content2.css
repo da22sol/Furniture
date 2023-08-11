@@ -5,11 +5,12 @@
 }
 
 #content .content_recommend {
-    width: 600px;
-    height: 400px;
+    max-width: 600px;
+    max-height: 400px;
     padding: 40px;
     box-sizing: border-box;
     position: relative;
+    border-radius: 4px;
 }
 
 #content .content_recommend p {
